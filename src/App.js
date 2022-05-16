@@ -1,16 +1,20 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
 import Footer from "./components/Footer";
+import BurgerMenu from "./components/navigation/BurgerMenu";
+
 
 function App() {
     return (
-        <div className="App">
+        <div className="App bg-darkmode_black">
             <header className="App-header">
-                <h1 className="text-3xl font-bold underline">Header!</h1>
+                <BurgerMenu/>
+                
             </header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
@@ -19,6 +23,7 @@ function App() {
                 <Route path="/shop" element={<Shop></Shop>}></Route>
             </Routes>
             <Footer></Footer>
+      
         </div>
     );
 }
