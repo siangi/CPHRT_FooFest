@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/favorites" element={<Favorites></Favorites>}></Route>
                 <Route path="/shop" element={<Shop></Shop>}></Route>
             </Routes>
+            <Footer></Footer>
         </div>
     );
 }
