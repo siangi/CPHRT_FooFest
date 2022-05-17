@@ -8,13 +8,11 @@ import Shop from "./pages/Shop";
 import Footer from "./components/Footer";
 import BurgerMenu from "./components/navigation/BurgerMenu";
 
-
 function App() {
     return (
-        <div className="App bg-darkmode_black">
+        <div className="App bg-darkmode_black flex flex-col min-h-screen justify-between px-20">
             <header className="App-header">
-                <BurgerMenu/>
-                
+                <BurgerMenu />
             </header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
@@ -23,7 +21,6 @@ function App() {
                 <Route path="/shop" element={<Shop></Shop>}></Route>
             </Routes>
             <Footer></Footer>
-      
         </div>
     );
 }
