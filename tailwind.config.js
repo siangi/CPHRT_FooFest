@@ -1,7 +1,19 @@
 module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
-    
+
+    //will remove quotes around some of the tags if not ignored, weird
+    // prettier-ignore
     theme: {
+        fontSize: {
+            'base': "1rem",
+            'lg': "1.25rem",
+            'xl': "1.563rem",
+            "2xl": "1.953rem",
+            "3xl": "2.441rem",
+            "4xl": "3.052rem",
+            "5xl": "3.819rem",
+            "6xl": "4.773rem",
+        },
         extend: {
             colors: {
                 darkmode_black: "#0E0E10",
@@ -30,8 +42,7 @@ module.exports = {
             fontFamily: {
                 bodyFont: "futura-pt, sans-serif",
                 displayFont: "boucherie-block, sans-serif",
-
-            }
+            },
         },
     },
     plugins: [],
