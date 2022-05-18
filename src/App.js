@@ -5,12 +5,13 @@ import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
+import TicketForm from "./pages/ShopSubPages/TicketForm";
 import Footer from "./components/Footer";
 import BurgerMenu from "./components/navigation/BurgerMenu";
 
 function App() {
     return (
-        <div className="App bg-darkmode_black flex flex-col min-h-screen justify-between px-20">
+        <div className="App bg-darkmode_black flex flex-col min-h-screen justify-between px-5 md:px-10 lg:px-20">
             <header className="App-header">
                 <BurgerMenu />
             </header>
@@ -18,7 +19,9 @@ function App() {
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/schedule" element={<Schedule></Schedule>}></Route>
                 <Route path="/favorites" element={<Favorites></Favorites>}></Route>
-                <Route path="/shop" element={<Shop></Shop>}></Route>
+                <Route path="/shop" element={<Shop></Shop>}>
+                    <Route path="/shop/" element={<TicketForm></TicketForm>}></Route>
+                </Route>
             </Routes>
             <Footer></Footer>
         </div>

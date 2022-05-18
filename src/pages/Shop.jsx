@@ -1,5 +1,6 @@
 import React from 'react';
 import ProgressStepsBar from '../components/progressBar/ProgressStepsBar';
+import { Outlet } from 'react-router-dom';
 
 function Shop() {
   const IconBasePath = process.env.PUBLIC_URL + "/icons/";
@@ -31,8 +32,9 @@ function Shop() {
     },
   ]
   return (
-    <div className='bg-darkmode_black h-full'>
+    <div className='bg-darkmode_black h-fit lg:flex-auto flex flex-col gap-2'>
       <ProgressStepsBar steps={Steps} activeIndex={0}></ProgressStepsBar>
+      <Outlet />
     </div>
   )
 }

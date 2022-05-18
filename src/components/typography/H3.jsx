@@ -1,8 +1,8 @@
 import React from 'react'
 
-function H3({children}) {
+function H3(props) {
   return (
-    <div className='text-2xl font-bodyFont font-bold'>{children}</div>
+    <div className={`text-2xl font-bodyFont font-bold ${props.classModifiers ? props.classModifiers : ""}`}>{props.children}</div>
   )
 }
 
