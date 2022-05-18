@@ -20,7 +20,7 @@ function TicketForm() {
   return (
     <div className='h-full lg:flex-auto flex flex-col gap-3 items-end'>
         {ticketOptions.map((ticket, index) => {
-          return (<OptionCard {...ticket} reversed={index % 2 === 0}></OptionCard>)
+          return (<OptionCard {...ticket} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)
         })}
         <PrimaryButton caption="Confirm"></PrimaryButton>
     </div>
