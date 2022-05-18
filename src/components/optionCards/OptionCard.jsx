@@ -2,6 +2,7 @@ import React from 'react';
 import H4 from "../typography/H4";
 import H3 from "../typography/H3";
 import P from "../typography/P";
+import NumberStepper from '../inputs/NumberStepper';
 
 function OptionCard(props) {
   return (
@@ -12,6 +13,9 @@ function OptionCard(props) {
         <H4>{props.title}</H4>
         <H3 classModifiers="leading-none mb-3">{props.price}</H3>
         <P>{props.description}</P>
+        <div className='flex flex-row justify-end'>
+          <NumberStepper name="amount" initialVal={0}></NumberStepper>
+        </div>
       </div>
     </div>
   )

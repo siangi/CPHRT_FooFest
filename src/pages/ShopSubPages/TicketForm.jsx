@@ -1,5 +1,6 @@
 import React from 'react';
 import OptionCard from '../../components/optionCards/OptionCard';
+import PrimaryButton from "../../components/buttons/PrimaryButton"
 
 function TicketForm() {
   const baseIconPath = process.env.PUBLIC_URL + "/icons/"
@@ -17,10 +18,11 @@ function TicketForm() {
     }
   ]
   return (
-    <div className='h-full lg:flex-auto flex flex-col gap-3'>
+    <div className='h-full lg:flex-auto flex flex-col gap-3 items-end'>
         {ticketOptions.map((ticket, index) => {
           return (<OptionCard {...ticket} reversed={index % 2 === 0}></OptionCard>)
         })}
+        <PrimaryButton caption="Confirm"></PrimaryButton>
     </div>
   )
 }

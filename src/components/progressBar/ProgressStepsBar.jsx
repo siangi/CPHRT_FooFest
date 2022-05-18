@@ -3,7 +3,7 @@ import StepIndicator from "./StepIndicator";
 
 function ProgressStepsBar(props) {
   return (
-    <div className='w-full h-10 flex justify-between items-center'>
+    <div className='w-full h-16 flex justify-between items-center'>
         {
             props.steps.map((step, index) => {
                 if(index < props.steps.length - 1){
