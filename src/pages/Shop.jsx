@@ -32,7 +32,7 @@ function Shop() {
     },
   ]
   return (
-    <div className='bg-darkmode_black h-fit lg:flex-auto flex flex-col gap-2'>
+    <div className='bg-darkmode_black h-fit flex flex-col gap-2'>
       <ProgressStepsBar steps={Steps} activeIndex={0}></ProgressStepsBar>
       <Outlet />
     </div>
