@@ -15,7 +15,7 @@ import Overview from "./pages/Overview";
 
 export const AllBandsContext = React.createContext();
 
-function App() {
+export default function App() {
   const [allBands, setAllBands] = useState([]);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ function App() {
 
   return (
     <div className="App bg-darkmode_black">
-      <Header></Header>
+      <Navigation></Navigation>
 
       <AllBandsContext.Provider value={allBands}>
         <Routes>
@@ -96,20 +96,4 @@ function App() {
       </AllBandsContext.Provider>
     </div>
   );
-    return (
-        <div className="App bg-darkmode_black">
-            <Navigation></Navigation>
-
-            <Routes>
-                <Route path="/" element={<Home></Home>}></Route>
-                <Route path="/schedule" element={<Schedule></Schedule>}></Route>
-                <Route path="/favorites" element={<Favorites></Favorites>}></Route>
-                <Route path="/shop" element={<Shop></Shop>}></Route>
-            </Routes>
-            <Footer></Footer>
-      
-        </div>
-    );
 }
-
-export default App;
