@@ -9,11 +9,11 @@ function ProgressStepsBar(props) {
                 if(index < props.steps.length - 1){
                     return (
                         <>
-                            <StepIndicator iconPath={step.iconPath} label={step.label} active={props.activeIndex === index}></StepIndicator>
-                            <div className='h-0 border-2 border-darkmode_black6 flex-auto'></div>
+                            <StepIndicator key={index} iconPath={step.iconPath} label={step.label} active={props.activeIndex === index}></StepIndicator>
+                            <div key={Math.random()} className='h-0 border-2 border-darkmode_black6 flex-auto'></div>
                         </>)
                 } else {
-                    return (<StepIndicator iconPath={step.iconPath} label={step.label} active={props.activeIndex === index}></StepIndicator>)
+                    return (<StepIndicator key={index} iconPath={step.iconPath} label={step.label} active={props.activeIndex === index}></StepIndicator>)
                 }
             })
         }
