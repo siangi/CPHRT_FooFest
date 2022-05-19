@@ -76,7 +76,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App bg-darkmode_black">
+    <div className="App">
       <header className="App-header">
         <h1 className="text-3xl font-bold underline">Header!</h1>
       </header>
