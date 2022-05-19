@@ -83,6 +83,7 @@ function Home() {
                       color: color,
                       runeUrl: runeUrl,
                       favorite: false,
+                      cancelled: e.cancelled,
                     };
                   }
                 }
