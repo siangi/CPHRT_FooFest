@@ -2,35 +2,46 @@ import OverviewCard from "../components/OverviewCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function WrapperBig({ imgUrl, title, stage }) {
+function WrapperBig({ imgUrl, title, stage, runeUrl }) {
   return (
-    <div className="col-span-2 row-span-2 h-full w-full">
-      <OverviewCard imgUrl={imgUrl} title={title} stage={stage} />
+    <div className="col-span-1 row-span-1 sm:col-span-2 sm:row-span-2  h-full w-full">
+      <OverviewCard
+        imgUrl={imgUrl}
+        title={title}
+        stage={stage}
+        runeUrl={runeUrl}
+      />
     </div>
   );
 }
 
-function WrapperTall({ imgUrl, title, stage }) {
+function WrapperTall({ imgUrl, title, stage, runeUrl }) {
   return (
-    <div className="row-span-2 col-span-2 sm:col-span-1 h-full w-full">
-      <OverviewCard imgUrl={imgUrl} title={title} stage={stage} />
+    <div className="row-span-1 col-span-1 sm:row-span-2 h-full w-full">
+      <OverviewCard
+        imgUrl={imgUrl}
+        title={title}
+        stage={stage}
+        runeUrl={runeUrl}
+      />
     </div>
   );
 }
 
-function WrapperSmall({ imgUrl, title, stage }) {
+function WrapperSmall({ imgUrl, title, stage, runeUrl }) {
   return (
     <div className=" h-full w-full">
-      <OverviewCard imgUrl={imgUrl} title={title} stage={stage} />
+      <OverviewCard
+        imgUrl={imgUrl}
+        title={title}
+        stage={stage}
+        runeUrl={runeUrl}
+      />
     </div>
   );
 }
 
 function Home() {
-  const [midgardBands, setMidgardBands] = useState([]);
-  const [vanaheimBands, setVanaheimBands] = useState([]);
-  const [jotunheimBands, setJotunheimBands] = useState([]);
-
   const [allBands, setAllBands] = useState([]);
 
   useEffect(() => {
@@ -42,19 +53,25 @@ function Home() {
         const allBandsData = allData[0].data;
         const allStagesData = allData[1].data;
 
-        function makeStageData(stage) {
-          return allBandsData
-            .map((item) => {
+        function makeStageData() {
+          return allBandsData.map((item) => {
+            for (const stage in allStagesData) {
               for (const day in allStagesData[stage]) {
                 for (let i = 0; i < allStagesData[stage][day].length; i++) {
                   const e = allStagesData[stage][day][i];
                   let color;
+                  let runeUrl;
 
-                  stage === "Midgard"
-                    ? (color = "accent_red")
-                    : stage === "Vanaheim"
-                    ? (color = "accent_blue")
-                    : (color = "accent_yellow");
+                  if (stage === "Midgard") {
+                    color = "accent_red";
+                    runeUrl = "midgard.svg";
+                  } else if (stage === "Vanaheim") {
+                    color = "accent_blue";
+                    runeUrl = "vanaheim.svg";
+                  } else {
+                    color = "accent_yellow";
+                    runeUrl = "jotunheim.svg";
+                  }
 
                   if (e.act === item.name) {
                     item = {
@@ -64,33 +81,19 @@ function Home() {
                       stage: stage,
                       day: day,
                       color: color,
+                      runeUrl: runeUrl,
+                      favorite: false,
                     };
                   }
                 }
               }
+            }
 
-              return item;
-            })
-            .filter((item) => item.stage === stage);
+            return item;
+          });
         }
 
-        function makeAllData() {
-          let stagesArray = [];
-
-          stagesArray = stagesArray.concat(
-            makeStageData("Midgard"),
-            makeStageData("Vanaheim"),
-            makeStageData("Jotunheim")
-          );
-
-          setAllBands(stagesArray);
-        }
-
-        setMidgardBands(() => makeStageData("Midgard"));
-        setVanaheimBands(() => makeStageData("Vanaheim"));
-        setJotunheimBands(() => makeStageData("Jotunheim"));
-
-        makeAllData();
+        setAllBands(() => makeStageData());
       })
       .catch((errors) => {
         console.error(errors);
@@ -106,6 +109,7 @@ function Home() {
             imgUrl={band.logo}
             title={band.name}
             stage={band.stage}
+            runeUrl={band.runeUrl}
           />
         ) : index % 5 === 0 ? (
           <WrapperTall
@@ -113,6 +117,7 @@ function Home() {
             imgUrl={band.logo}
             title={band.name}
             stage={band.stage}
+            runeUrl={band.runeUrl}
           />
         ) : (
           <WrapperSmall
@@ -120,6 +125,7 @@ function Home() {
             imgUrl={band.logo}
             title={band.name}
             stage={band.stage}
+            runeUrl={band.runeUrl}
           />
         )
       )}

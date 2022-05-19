@@ -1,6 +1,6 @@
 import CardSticker from "./CardSticker";
 
-export default function OverviewCard({ imgUrl, title, stage }) {
+export default function OverviewCard({ imgUrl, title, stage, runeUrl }) {
   let url = imgUrl.includes("http://")
     ? imgUrl
     : `https://cphrt.herokuapp.com/logos/${imgUrl}`;
@@ -13,7 +13,7 @@ export default function OverviewCard({ imgUrl, title, stage }) {
           src={url}
           alt={`${title} band logo`}
         />
-        <CardSticker title={title} stage={stage} />
+        <CardSticker title={title} stage={stage} runeUrl={runeUrl} />
       </figure>
     </button>
   );
