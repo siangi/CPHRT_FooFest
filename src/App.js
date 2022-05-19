@@ -1,19 +1,20 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
+
+import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 
 
 
 function App() {
     return (
         <div className="App bg-darkmode_black">
-            <Header></Header>
+            <Navigation></Navigation>
 
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
