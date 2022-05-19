@@ -1,15 +1,20 @@
-export default function OverviewCard({ imgUrl }) {
+import CardSticker from "./CardSticker";
+
+export default function OverviewCard({ imgUrl, title, stage }) {
+  let url = imgUrl.includes("http://")
+    ? imgUrl
+    : `https://cphrt.herokuapp.com/logos/${imgUrl}`;
+
   return (
-    <article className="h-full w-full">
-      {imgUrl.includes("http://") ? (
-        <img className="object-cover h-full w-full" src={imgUrl} alt="" />
-      ) : (
+    <button className="h-full w-full">
+      <figure className="grid h-full w-full">
         <img
-          className="object-cover h-full w-full"
-          src={`https://cphrt.herokuapp.com/logos/${imgUrl}`}
-          alt=""
+          className="h-full w-full object-cover row-start-0 col-start-0 row-start-1 col-start-1"
+          src={url}
+          alt={`${title} band logo`}
         />
-      )}
-    </article>
+        <CardSticker title={title} stage={stage} />
+      </figure>
+    </button>
   );
 }
