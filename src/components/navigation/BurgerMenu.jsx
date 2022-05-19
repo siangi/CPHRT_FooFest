@@ -8,9 +8,9 @@ export default function BurgerMenu() {
     return (
          <nav className="bg-darkmode_black">
              <div className="space-y-2 absolute top-0 left-0 px-8 py-8" onClick={() => setIsNavOpen((prev) => !prev)}>
-                <span className="block h-0.5 w-8  bg-gray-600"></span>
-                <span className="block h-0.5 w-8  bg-gray-600"></span>
-                <span className="block h-0.5 w-8  bg-gray-600"></span>
+                <span className="block h-0.5 w-8  bg-white"></span>
+                <span className="block h-0.5 w-8  bg-white"></span>
+                <span className="block h-0.5 w-8  bg-white"></span>
             </div>
 
           <div className={isNavOpen ? "showBurgerMenu" : "hideBurgerMenu"}>
