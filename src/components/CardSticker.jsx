@@ -7,7 +7,7 @@ export default function CardSticker({ title, stage, runeUrl }) {
           : stage === "Jotunheim"
           ? "bg-accent_yellow"
           : "bg-accent_blue"
-      }  drop-shadow-lg leading-5 text-lg lg:text-xl text-left row-start-0 col-start-0 row-start-1 col-start-1 self-end justify-self-start min-w-[8rem] max-w-[90%] mb-5 pl-1 pr-10 py-1.5 font-bodyFont flex`}
+      } drop-shadow-lg leading-5 text-lg lg:text-xl text-left row-start-0 col-start-0 row-start-1 col-start-1 self-end justify-self-start min-w-[8rem] max-w-[90%] mb-5 pl-1 pr-10 py-1.5 font-bodyFont flex`}
     >
       <img
         src={process.env.PUBLIC_URL + runeUrl}
