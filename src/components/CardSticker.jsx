@@ -1,20 +1,24 @@
-export default function CardSticker({ title, stage, runeUrl }) {
+import { BandContext } from "../pages/Overview";
+import React from "react";
+
+export default function CardSticker() {
+  const bandObj = React.useContext(BandContext);
   return (
     <figcaption
       className={`${
-        stage === "Midgard"
+        bandObj.color === "accent_red"
           ? "bg-accent_red"
-          : stage === "Jotunheim"
-          ? "bg-accent_yellow"
-          : "bg-accent_blue"
-      } drop-shadow-lg leading-5 text-lg lg:text-xl text-left row-start-0 col-start-0 row-start-1 col-start-1 self-end justify-self-start min-w-[8rem] max-w-[90%] mb-5 pl-1 pr-10 py-1.5 font-bodyFont flex`}
+          : bandObj.color === "accent_blue"
+          ? "bg-accent_blue"
+          : "bg-accent_yellow"
+      } drop-shadow-lg leading-7 text-lg lg:text-xl text-left row-start-0 col-start-0 row-start-1 col-start-1 self-end justify-self-start min-w-[8rem] max-w-[90%] mb-5 pl-1 pr-10 py-1.5 font-bodyFont flex`}
     >
       <img
-        src={process.env.PUBLIC_URL + runeUrl}
-        alt={stage}
+        src={process.env.PUBLIC_URL + bandObj.runeUrl}
+        alt={bandObj.stage}
         className="w-7 mb-[-0.4rem]"
       />
-      {title}
+      {bandObj.name}
     </figcaption>
   );
 }
