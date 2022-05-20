@@ -2,7 +2,6 @@ import React from 'react'
 import H4 from "../typography/H4";
 import H3 from "../typography/H3";
 import P from "../typography/P";
-import NumberStepper from '../inputs/NumberStepper';
 
 // a card that uses all space available
 function SoleCard(props) {
