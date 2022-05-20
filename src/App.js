@@ -6,7 +6,6 @@ import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
 import TicketForm from "./pages/ShopSubPages/TicketForm";
 import TentForm from "./pages/ShopSubPages/TentForm";
-import GreenCamping from "./pages/ShopSubPages/GreenCamping";
 import CampgroundForm from "./pages/ShopSubPages/CampgroundForm";
 import Footer from "./components/Footer";
 import BurgerMenu from "./components/navigation/BurgerMenu";
@@ -25,7 +24,6 @@ function App() {
                     <Route path="/shop/" element={<TicketForm></TicketForm>}></Route>
                     <Route path="/shop/tickets" element={<TicketForm></TicketForm>}></Route>
                     <Route path="/shop/tents" element={<TentForm></TentForm>}></Route>
-                    <Route path="/shop/green-camping" element={<GreenCamping></GreenCamping>}></Route>
                     <Route path="/shop/campground" element={<CampgroundForm></CampgroundForm>}></Route>
                 </Route>
             </Routes>

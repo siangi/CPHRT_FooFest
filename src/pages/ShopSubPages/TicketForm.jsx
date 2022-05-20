@@ -14,7 +14,7 @@ function TicketForm() {
     },{
       id: 1,
       title:"VIP",
-      price:"1199 Kr.",
+      price:"1299 Kr.",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit massa enim nec dui. Tortor posuere ac ut consequat semper viverra.",
       imagePath: baseIconPath + "VIPGold.svg",
     }
