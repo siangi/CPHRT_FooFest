@@ -21,7 +21,7 @@ export default function OverviewCard({ imgUrl, title, stage, runeUrl }) {
             onLoad={() => setLoaded(true)}
             alt={`${title} band logo`}
           />
-          <CardSticker title={title} stage={stage} runeUrl={runeUrl} />
+          <CardSticker />
         </figure>
       </button>
 

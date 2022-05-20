@@ -13,6 +13,7 @@ import Header from "./components/Header";
 import Overview from "./pages/Overview";
 
 export const AllBandsContext = React.createContext();
+export const SetAllBandsContext = React.createContext();
 
 function App() {
   const [allBands, setAllBands] = useState([]);
@@ -20,6 +21,16 @@ function App() {
   useEffect(() => {
     const getBands = axios.get("https://cphrt.herokuapp.com/bands");
     const getStages = axios.get("https://cphrt.herokuapp.com/schedule");
+
+    const Days = {
+      mon: "Monday",
+      tue: "Tuesday",
+      wed: "Wednesday",
+      thu: "Thursday",
+      fri: "Friday",
+      sat: "Saturday",
+      sun: "Sunday",
+    };
 
     Promise.all([getBands, getStages])
       .then((allData) => {
@@ -57,7 +68,7 @@ function App() {
                       start: e.start,
                       end: e.end,
                       stage: stage,
-                      day: day,
+                      day: Days[day],
                       color: color,
                       runeUrl: runeUrl,
                       favorite: false,
@@ -84,14 +95,16 @@ function App() {
       <Header></Header>
 
       <AllBandsContext.Provider value={allBands}>
-        <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/overview" element={<Overview />}></Route>
-          <Route path="/schedule" element={<Schedule></Schedule>}></Route>
-          <Route path="/favorites" element={<Favorites></Favorites>}></Route>
-          <Route path="/shop" element={<Shop></Shop>}></Route>
-        </Routes>
-        <Footer></Footer>
+        <SetAllBandsContext.Provider value={setAllBands}>
+          <Routes>
+            <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/overview" element={<Overview />}></Route>
+            <Route path="/schedule" element={<Schedule></Schedule>}></Route>
+            <Route path="/favorites" element={<Favorites></Favorites>}></Route>
+            <Route path="/shop" element={<Shop></Shop>}></Route>
+          </Routes>
+          <Footer></Footer>
+        </SetAllBandsContext.Provider>
       </AllBandsContext.Provider>
     </div>
   );

@@ -52,7 +52,11 @@ function Overview() {
     <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 auto-rows-auto  md:grid-cols-4 max-w-[90%]   md:max-w-[90%]  lg:max-w-5xl xl:max-w-6xl mx-auto">
       {allBands
         .filter((band) =>
-          filter === "all" ? band.stage : band.stage === filter
+          filter === "all"
+            ? band.stage
+            : filter === "favorite"
+            ? band.favorite
+            : band.stage === filter
         )
         .map((band, index) => (
           <BandContext.Provider key={index} value={{ ...band }}>
@@ -80,6 +84,8 @@ function Overview() {
             )}
           </BandContext.Provider>
         ))}
+
+      <button onClick={() => setFilter("favorite")}>FAVORITES</button>
     </section>
   );
 }
