@@ -53,8 +53,9 @@ function Overview() {
 
   return (
     <>
-      <section className="max-w-[90%]   md:max-w-[90%]  lg:max-w-5xl xl:max-w-6xl mx-auto">
+      <section className="flex gap-4 my-8 max-w-[90%] md:max-w-[90%] lg:max-w-5xl xl:max-w-6xl mx-auto">
         <select
+          className=" px-3 py-2 bg-white text-black"
           name="stage-filter"
           ref={stageFilterSelect}
           onChange={() => {
@@ -68,6 +69,7 @@ function Overview() {
         </select>
 
         <select
+          className=" px-3 py-2 bg-white text-black"
           name="genre-filter"
           ref={genreFilterSelect}
           onChange={() => {
