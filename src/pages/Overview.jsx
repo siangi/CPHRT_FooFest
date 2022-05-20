@@ -49,7 +49,7 @@ function Overview() {
   const [filter, setFilter] = useState("all");
 
   return (
-    <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 auto-rows-auto  md:grid-cols-4 max-w-[90%]   md:max-w-[90%]  lg:max-w-5xl xl:max-w-6xl mx-auto">
+    <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 auto-rows-auto  md:grid-cols-4 max-w-full lg:max-w-5xl xl:max-w-6xl mx-auto">
       {allBands
         .filter((band) =>
           filter === "all" ? band.stage : band.stage === filter

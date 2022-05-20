@@ -1,8 +1,8 @@
 import React from 'react'
 
-function H4({children}) {
+function H4(props) {
   return (
-    <div className='text-xl font-bodyFont'>{children}</div>
+    <div className={`text-xl font-bodyFont ${props.classModifiers ? props.classModifiers : ""}`}>{props.children}</div>
   )
 }
 
