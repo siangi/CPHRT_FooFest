@@ -9,27 +9,27 @@ function Shop() {
     {
       label: "Tickets",
       iconPath: `${IconBasePath}/VIP.svg`,
-      url: "",
+      url: "/shop/tickets",
     },
     {
       label: "Tents",
       iconPath: `${IconBasePath}/tent.svg`,
-      url: "",
+      url: "/shop/tents",
     },
     {
       label: "Campground",
       iconPath: `${IconBasePath}/campfire.svg`,
-      url: "",
+      url: "/shop/campground",
     },
     {
       label: "Personal Info",
       iconPath: `${IconBasePath}/form.svg`,
-      url: "",
+      url: "/shop/",
     },
     {
       label: "Payment",
       iconPath: `${IconBasePath}/money.svg`,
-      url: "",
+      url: "/shop/",
     },
   ]
   return (
