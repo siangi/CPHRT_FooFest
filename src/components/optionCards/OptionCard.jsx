@@ -17,7 +17,7 @@ function OptionCard(props) {
         <H3 classModifiers="leading-none mb-3">{props.price}</H3>
         <P>{props.description}</P>
         <div className='flex flex-row justify-end'>
-          <NumberStepper name="amount" initialVal={props.initialAmount? props.initialAmount : 0}></NumberStepper>
+          <NumberStepper name="amount" initialVal={props.initialAmount? props.initialAmount : 0} updateAmount={props.updateAmount}></NumberStepper>
         </div>
       </div>
     </div>

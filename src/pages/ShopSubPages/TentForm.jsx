@@ -1,11 +1,16 @@
 import React from 'react'
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ShopContext } from '../../contexts/ShopContext';
 import OptionCard from '../../components/optionCards/OptionCard'
 import PrimaryButton from '../../components/buttons/PrimaryButton'
 import SecondaryButton from '../../components/buttons/SecondaryButton';
 import H3 from '../../components/typography/H3';
 
 function TentForm() {
-    let amountOfTickets = 7;
+    const {shopData, setShopData} = useContext(ShopContext)
+    let navigate = useNavigate();
+    let amountOfTickets = shopData.tickets.reduce((previousValue, currentValue) => {return previousValue + currentValue.amount}, 0);
     const baseImagePath = process.env.PUBLIC_URL + "/images/";
     const tentOptions = [
         {
@@ -53,17 +58,38 @@ function TentForm() {
         });
 
         if (availableSpace > amountOfTickets){
-            // valid form
-            console.log("form valid!");
+            return true;
         } else {
-            //invalid form
-            console.log("form invalid!");
+            return false;
         }
+    }
+
+    function noTents(){
+        setShopData((oldData) => {
+            let newData = {...oldData};
+            newData.tents = [];
+            return newData;
+        })
+        navigate("../campground");
     }
 
     function submitTentForm(event){
         event.preventDefault();
-        checkTentValidity();
+        if(checkTentValidity()){
+            setShopData((oldData) => {
+                let newData = {...oldData};
+                newData.tents = tentOptions.filter((tentOption) => tentOption.amountOfTents > 0);
+                return newData;
+            });
+            navigate("../campground");
+        }
+    }
+
+    function updateAmount(id, newAmount){
+        const toUpdate = tentOptions.find((tent) => tent.id === id);
+        if(toUpdate !== undefined){
+          toUpdate.amountOfTents = newAmount;
+        }
     }
 
     calculateTentSuggestion(amountOfTickets);
@@ -72,10 +98,15 @@ function TentForm() {
         <div className='h-full lg:flex-auto flex flex-col gap-3'>
             <H3 classModifiers="text-shade_darker_white">You have booked for {amountOfTickets} People, if you want tents, everyone has to fit.</H3>
                 {tentOptions.map((tentOption, index) => {
-                return (<OptionCard key={tentOption.id} {...tentOption} reversed={index % 2 === 0} imageAsBackground={true} initialAmount={tentOption.amountOfTents}></OptionCard>)
+                return (<OptionCard 
+                            key={tentOption.id} {...tentOption} 
+                            reversed={index % 2 === 0} imageAsBackground={true} 
+                            updateAmount={(newAmount) => updateAmount(tentOption.id, newAmount)} 
+                            initialAmount={tentOption.amountOfTents}>
+                        </OptionCard>)
                 })}
                 <div className='flex flex-row gap-4'>
-                    <SecondaryButton caption="Bring own Tents"></SecondaryButton>
+                    <SecondaryButton caption="Bring own Tents" action={noTents}></SecondaryButton>
                     <PrimaryButton caption="Confirm Selection" action={submitTentForm}></PrimaryButton>
                 </div>
         </div>
