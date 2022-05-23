@@ -36,8 +36,7 @@ export default function Modal({ modalOpen, setModalOpen }) {
     setAllBands((prev) =>
       prev.map((band) => {
         if (band.name === name) {
-          const newBand = { ...band };
-          newBand.favorite = !newBand.favorite;
+          const newBand = { ...band, favorite: !band.favorite };
           return newBand;
         }
         return band;

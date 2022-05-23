@@ -48,8 +48,11 @@ function Overview() {
   const [stageFilter, setStageFilter] = useState("all");
   const [genreFilter, setGenreFilter] = useState("all");
 
+  const [favFilter, setFavFilter] = useState("all");
+
   const stageFilterSelect = useRef(null);
   const genreFilterSelect = useRef(null);
+  const favCheck = useRef(null);
 
   return (
     <>
@@ -82,6 +85,16 @@ function Overview() {
           <option value="Hip Hop">Hip Hop</option>
           <option value="Pop">Pop</option>
         </select>
+
+        <select
+          ref={favCheck}
+          onChange={() => {
+            setFavFilter(favCheck.current.value);
+          }}
+        >
+          <option value="fav">favorites</option>
+          <option value="all">all</option>
+        </select>
       </section>
 
       <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 auto-rows-auto  md:grid-cols-4 max-w-[90%]   md:max-w-[90%]  lg:max-w-5xl xl:max-w-6xl mx-auto">
@@ -91,6 +104,11 @@ function Overview() {
           )
           .filter((band) =>
             genreFilter === "all" ? band.genre : band.genre === genreFilter
+          )
+          .filter((band) =>
+            favFilter === "fav"
+              ? band.favorite === true
+              : band.favorite === false
           )
           .map((band, index) => (
             <BandContext.Provider key={index} value={{ ...band }}>

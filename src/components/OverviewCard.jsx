@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 import { useState } from "react";
 
-export default function OverviewCard({ imgUrl, title, stage, runeUrl }) {
+export default function OverviewCard({ imgUrl, title }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
