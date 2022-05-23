@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
+import ErrorPage from "./pages/ErrorPage";
 
 import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
@@ -91,6 +92,7 @@ export default function App() {
           <Route path="/schedule" element={<Schedule></Schedule>}></Route>
           <Route path="/favorites" element={<Favorites></Favorites>}></Route>
           <Route path="/shop" element={<Shop></Shop>}></Route>
+          <Route path="*" element={<ErrorPage/>}></Route>
         </Routes>
         <Footer></Footer>
       </AllBandsContext.Provider>
