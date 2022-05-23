@@ -9,14 +9,7 @@ import ErrorP from '../../components/typography/ErrorP';
 function TicketForm() {
   let navigate = useNavigate();
   const {shopData, setShopData } = useContext(ShopContext);
-  useEffect(() => {
-    setShopData((oldData) => {
-        let newData = {...oldData};
-        newData.activeStep = 0;
-        return newData;
-    });
-  }, [setShopData]);
-  const baseIconPath = process.env.PUBLIC_URL + "/icons/"
+  const baseIconPath = process.env.PUBLIC_URL + "/icons/";
   const ticketOptions = [
     {
       id: 0,
@@ -37,6 +30,15 @@ function TicketForm() {
   const [formValid, setFormValid] = useState(true);
   const [checkOnChange, setcheckOnChange] = useState(false);
 
+  function fillOptionsfromShopData(){
+    console.log("entered shopData");
+    if (shopData.tickets.length > 0){
+      shopData.tickets.forEach(ticket => {
+          console.log("filling ticket " + ticket.id)
+          updateAmount(ticket.id, ticket.amount);
+      });
+    }
+  }
 
   function updateAmount(id, newAmount){
     const toUpdate = ticketOptions.find((ticket) => ticket.id === id);
@@ -71,10 +73,19 @@ function TicketForm() {
     }     
   }
 
+  useEffect(() => {
+    setShopData((oldData) => {
+        let newData = {...oldData};
+        newData.activeStep = 0;
+        return newData;
+    });
+  }, [setShopData]);
+  fillOptionsfromShopData();
+
   return (
     <form className='h-full lg:flex-auto flex flex-col gap-3 items-end'>
         {ticketOptions.map((ticket, index) => {
-          return (<OptionCard key={ticket.id} {...ticket} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)
+          return (<OptionCard key={ticket.id} {...ticket} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)
         })}¨
         <div className='flex flex-row justify-start gap-3'>
           {formValid ? null : <ErrorP>Select at least one ticket!</ErrorP>}
