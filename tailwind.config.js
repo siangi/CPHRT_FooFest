@@ -1,9 +1,9 @@
 module.exports = {
-    content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
 
-    //will remove quotes around some of the tags if not ignored, weird
-    // prettier-ignore
-    theme: {
+  //will remove quotes around some of the tags if not ignored, weird
+  // prettier-ignore
+  theme: {
         fontSize: {
             'base': "1rem",
             'lg': "1.25rem",
@@ -43,7 +43,22 @@ module.exports = {
                 bodyFont: "futura-pt, sans-serif",
                 displayFont: "boucherie-block, sans-serif",
             },
+            animation: {
+                'fade-in': 'modalAppear 0.2s linear',
+                'fade-out': 'modalDisappear 0.2s linear',
+              },
+            keyframes: {
+                modalAppear: {
+                  'from': {opacity: "0" },
+                  'to': {opacity: "1" },
+                },
+
+                modalDisappear: {
+                    'from': {opacity: "1" },
+                    'to': {opacity: "0" },
+                  }
+              }
         },
     },
-    plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
