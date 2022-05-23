@@ -1,11 +1,12 @@
 import React from 'react'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShopContext } from '../../contexts/ShopContext';
 import OptionCard from '../../components/optionCards/OptionCard'
 import PrimaryButton from '../../components/buttons/PrimaryButton'
 import SecondaryButton from '../../components/buttons/SecondaryButton';
 import H3 from '../../components/typography/H3';
+import ErrorP from '../../components/typography/ErrorP';
 
 function TentForm() {
     const {shopData, setShopData} = useContext(ShopContext)
@@ -32,6 +33,8 @@ function TentForm() {
             amountOfTents: 0,
         }
     ];
+    const [formValid, setFormValid] = useState(true);
+    const [checkOnChange, setcheckOnChange] = useState(false);
 
     function calculateTentSuggestion(amountOfPeople){
         let leftoverPeople = amountOfPeople;
@@ -51,17 +54,18 @@ function TentForm() {
         })
     }
 
-    function checkTentValidity(){
+    function getAmountOfSpace(){
         let availableSpace = 0;
         tentOptions.forEach((tentOption) => {
             availableSpace += tentOption.amountOfTents * tentOption.spaceForPeople;
         });
+        return availableSpace;
+    }
 
-        if (availableSpace > amountOfTickets){
-            return true;
-        } else {
-            return false;
-        }
+    function checkTentValidity(){
+        let isValid = getAmountOfSpace() >= amountOfTickets
+        setFormValid(isValid);
+        return isValid;
     }
 
     function noTents(){
@@ -75,6 +79,7 @@ function TentForm() {
 
     function submitTentForm(event){
         event.preventDefault();
+        setcheckOnChange(true);
         if(checkTentValidity()){
             setShopData((oldData) => {
                 let newData = {...oldData};
@@ -89,13 +94,16 @@ function TentForm() {
         const toUpdate = tentOptions.find((tent) => tent.id === id);
         if(toUpdate !== undefined){
           toUpdate.amountOfTents = newAmount;
+          if(checkOnChange){
+              checkTentValidity();
+          }
         }
     }
 
     calculateTentSuggestion(amountOfTickets);
     
     return (
-        <div className='h-full lg:flex-auto flex flex-col gap-3'>
+        <form className='h-full lg:flex-auto flex flex-col gap-3'>
             <H3 classModifiers="text-shade_darker_white">You have booked for {amountOfTickets} People, if you want tents, everyone has to fit.</H3>
                 {tentOptions.map((tentOption, index) => {
                 return (<OptionCard 
@@ -105,11 +113,12 @@ function TentForm() {
                             initialAmount={tentOption.amountOfTents}>
                         </OptionCard>)
                 })}
-                <div className='flex flex-row gap-4'>
+                <div className='flex flex-row gap-4 justify-end'>
+                    {formValid? null : <ErrorP>Your currently only have space for {getAmountOfSpace()} out of {amountOfTickets} People!</ErrorP>}
                     <SecondaryButton caption="Bring own Tents" action={noTents}></SecondaryButton>
                     <PrimaryButton caption="Confirm Selection" action={submitTentForm}></PrimaryButton>
                 </div>
-        </div>
+        </form>
   )
 }
 

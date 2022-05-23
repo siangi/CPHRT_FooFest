@@ -4,6 +4,7 @@ import { ShopContext } from '../../contexts/ShopContext';
 import CampgroundsMap from '../../components/selectionMap/CampgroundsMap';
 import CheckboxCard from "../../components/optionCards/CheckboxCard";
 import PrimaryButton from '../../components/buttons/PrimaryButton';
+import ErrorP from '../../components/typography/ErrorP';
 import H3 from "../../components/typography/H2";
 import H4 from "../../components/typography/H4";
 
@@ -34,6 +35,8 @@ function CampgroundForm() {
             freeSpaces: "68"
         }
     ]
+    const [formValid, setFormValid] = useState(true);
+    const [checkOnChange, setcheckOnChange] = useState(false);
 
     const greenCampingOption = {
         title: "Green Camping",
@@ -53,25 +56,32 @@ function CampgroundForm() {
 
     function handleMapClick(campgroundName, event){
         displayFreeSpaces(campgroundName);
+        if(checkOnChange){
+            validate();
+        }
     }
 
-    function submit(){
-        console.log(activeCampground, campsGreenly)
-        if(activeCampground === ""){
-            //must choose Campground!
-            return;
-        }
+    function validate(){
+        let isValid = activeCampground !== "";
+        setFormValid(isValid);
+        return isValid
+    }
 
-        setShopData((oldData) => {
-            let newData = {...oldData};
-            newData.campground = activeCampground;
-            newData.greenCamping = campsGreenly ? greenCampingOption : null;
-            return newData;
-        })
+    function submit(event){
+        event.preventDefault();
+        setcheckOnChange(true);
+        if(validate()){
+            setShopData((oldData) => {
+                let newData = {...oldData};
+                newData.campground = activeCampground;
+                newData.greenCamping = campsGreenly ? greenCampingOption : null;
+                return newData;
+            })
+        } 
 
     }
   return (
-    <div className='grid grid-col-1 md:grid-col-2 gap-4'>
+    <form className='grid grid-col-1 md:grid-col-2 gap-4'>
         <div className='col-start-1 md:max-h-96 w-full flex flex-col md:flex-row gap-4 bg-darkmode_black2 p-8'>
             <CampgroundsMap clickFunc={handleMapClick}></CampgroundsMap>
             <div className='text-shade_darker_white md:w-1/3 break-words'>
@@ -90,10 +100,11 @@ function CampgroundForm() {
         <div className='col-start-1 md:col-start-2'>
             <CheckboxCard {...greenCampingOption} setValue={setCampsGreenly}></CheckboxCard>
         </div>
-        <div className='col-start-1'>
+        <div className='col-start-1 md:col-start-2 md:row-start-2 w-full flex flex-row justify-end'>
+            {formValid? null : <ErrorP>Please select a Campground</ErrorP>}
             <PrimaryButton caption="Confirm" action={submit}></PrimaryButton>
         </div>       
-    </div>
+    </form>
   )
 }
 

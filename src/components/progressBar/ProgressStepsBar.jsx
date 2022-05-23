@@ -10,7 +10,7 @@ function ProgressStepsBar(props) {
                     return (
                         <>
                             <StepIndicator key={index} {...step} active={props.activeIndex === index}></StepIndicator>
-                            {/* do this with a :after for list problems */}
+                            {/* do this with a :after for list key problems */}
                             <div key={Math.random()} className='h-0 border-2 border-darkmode_black6 flex-auto'></div>
                         </>)
                 } else {

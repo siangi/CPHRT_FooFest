@@ -27,11 +27,11 @@ function NumberStepper(props) {
     }
     return (
         <div className='flex flex-row text-xl font-bold text-center'>
-            <button onClick={decrease}>-</button>
+            <button onClick={decrease} type="button">-</button>
             <input type="text" name={props.name} value={internalAmount} inputMode="numeric" onChange={handleManualChange}
                 className="w-8 bg-inherit font-bodyfont font-bold text-xl text-center border-none p-0"
             />
-            <button onClick={increase}>+</button>
+            <button onClick={increase} type="button">+</button>
         </div>
     )
 }
