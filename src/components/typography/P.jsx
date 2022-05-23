@@ -2,7 +2,7 @@ import React from 'react'
 
 function P({children}) {
   return (
-    <div className='text-base font-bodyFont'>{children}</div>
+    <p className='text-base font-bodyFont'>{children}</p>
   )
 }
 

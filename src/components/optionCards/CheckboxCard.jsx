@@ -15,7 +15,7 @@ function CheckboxCard(props) {
           <img src={props.imagePath} alt="" className={`col-start-2 row-start-1 row-end-2 w-12 h-12 justify-self-end`}></img>
         </div>
         <P>{props.description}</P>
-        <CheckBox labelText={props.labelText} name="main" id="main"></CheckBox>
+        <CheckBox onChange={props.setValue} labelText={props.labelText} name="main" id="main"></CheckBox>
       </div>
     </div>
   )

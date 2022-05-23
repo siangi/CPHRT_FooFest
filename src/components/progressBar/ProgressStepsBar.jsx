@@ -1,7 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
 import StepIndicator from "./StepIndicator";
+import { ShopContext } from '../../contexts/ShopContext';
 
 function ProgressStepsBar(props) {
+    const {shopData} = useContext(ShopContext);
   return (
     <div className='w-full h-16 flex justify-between items-center'>
         {
@@ -9,12 +12,12 @@ function ProgressStepsBar(props) {
                 if(index < props.steps.length - 1){
                     return (
                         <>
-                            <StepIndicator key={index} iconPath={step.iconPath} label={step.label} active={props.activeIndex === index}></StepIndicator>
-                            {/* do this with a :after for list problems */}
+                            <StepIndicator key={index} {...step} active={shopData.activeStep === index}></StepIndicator>
+                            {/* do this with a :after for list key problems */}
                             <div key={Math.random()} className='h-0 border-2 border-darkmode_black6 flex-auto'></div>
                         </>)
                 } else {
-                    return (<StepIndicator key={index} iconPath={step.iconPath} label={step.label} active={props.activeIndex === index}></StepIndicator>)
+                    return (<StepIndicator key={index} {...step} active={shopData.activeStep === index}></StepIndicator>)
                 }
             })
         }

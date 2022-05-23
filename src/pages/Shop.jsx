@@ -1,6 +1,7 @@
 import React from 'react';
 import ProgressStepsBar from '../components/progressBar/ProgressStepsBar';
 import { Outlet } from 'react-router-dom';
+import { ShopProvider } from "../contexts/ShopContext";
 
 function Shop() {
   const IconBasePath = process.env.PUBLIC_URL + "/icons/";
@@ -8,33 +9,36 @@ function Shop() {
     {
       label: "Tickets",
       iconPath: `${IconBasePath}/VIP.svg`,
-      url: "",
+      url: "/shop/tickets",
     },
     {
       label: "Tents",
       iconPath: `${IconBasePath}/tent.svg`,
-      url: "",
+      url: "/shop/tents",
     },
     {
       label: "Campground",
       iconPath: `${IconBasePath}/campfire.svg`,
-      url: "",
+      url: "/shop/campground",
     },
     {
       label: "Personal Info",
       iconPath: `${IconBasePath}/form.svg`,
-      url: "",
+      url: "/shop/",
     },
     {
       label: "Payment",
       iconPath: `${IconBasePath}/money.svg`,
-      url: "",
+      url: "/shop/",
     },
-  ]
+  ];
+
   return (
     <div className='bg-darkmode_black h-fit flex flex-col gap-2'>
-      <ProgressStepsBar steps={Steps} activeIndex={0}></ProgressStepsBar>
-      <Outlet />
+      <ShopProvider>
+        <ProgressStepsBar steps={Steps}></ProgressStepsBar>
+        <Outlet />
+      </ShopProvider>
     </div>
   )
 }
