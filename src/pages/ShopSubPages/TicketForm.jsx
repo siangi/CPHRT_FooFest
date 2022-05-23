@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../../contexts/ShopContext';
 import { useNavigate } from "react-router-dom"
 import OptionCard from '../../components/optionCards/OptionCard';
@@ -9,6 +9,13 @@ import ErrorP from '../../components/typography/ErrorP';
 function TicketForm() {
   let navigate = useNavigate();
   const {shopData, setShopData } = useContext(ShopContext);
+  useEffect(() => {
+    setShopData((oldData) => {
+        let newData = {...oldData};
+        newData.activeStep = 0;
+        return newData;
+    });
+  }, [setShopData]);
   const baseIconPath = process.env.PUBLIC_URL + "/icons/"
   const ticketOptions = [
     {
@@ -34,8 +41,8 @@ function TicketForm() {
   function updateAmount(id, newAmount){
     const toUpdate = ticketOptions.find((ticket) => ticket.id === id);
     if(toUpdate !== undefined){
-      console.log("set amount " + newAmount + " on " + toUpdate.title)
       toUpdate.amount = newAmount;
+      // console.log("set amount " + newAmount + " on " + toUpdate.title + "is now" + toUpdate.amount)
 
       if(checkOnChange){
         validate();

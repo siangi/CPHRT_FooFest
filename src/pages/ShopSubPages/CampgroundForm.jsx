@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { ShopContext } from '../../contexts/ShopContext';
 import CampgroundsMap from '../../components/selectionMap/CampgroundsMap';
 import CheckboxCard from "../../components/optionCards/CheckboxCard";
@@ -35,9 +35,6 @@ function CampgroundForm() {
             freeSpaces: "68"
         }
     ]
-    const [formValid, setFormValid] = useState(true);
-    const [checkOnChange, setcheckOnChange] = useState(false);
-
     const greenCampingOption = {
         title: "Green Camping",
         price: "249 Kr.",
@@ -45,6 +42,17 @@ function CampgroundForm() {
         labelText: "add green Camping",
         imagePath: process.env.PUBLIC_URL + "/icons/leaf.svg"
     } 
+    const [formValid, setFormValid] = useState(true);
+    const [checkOnChange, setcheckOnChange] = useState(false);
+
+
+    useEffect(() => {
+        setShopData((oldData) => {
+            let newData = {...oldData};
+            newData.activeStep = 2;
+            return newData;
+        });
+    }, [setShopData])
 
     function displayFreeSpaces(NewCampgroundName){
         let newCampground = Campgrounds.filter((campground) => {

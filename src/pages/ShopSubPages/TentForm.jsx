@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShopContext } from '../../contexts/ShopContext';
 import OptionCard from '../../components/optionCards/OptionCard'
@@ -9,7 +9,7 @@ import H3 from '../../components/typography/H3';
 import ErrorP from '../../components/typography/ErrorP';
 
 function TentForm() {
-    const {shopData, setShopData} = useContext(ShopContext)
+    const {shopData, setShopData} = useContext(ShopContext);
     let navigate = useNavigate();
     let amountOfTickets = shopData.tickets.reduce((previousValue, currentValue) => {return previousValue + currentValue.amount}, 0);
     const baseImagePath = process.env.PUBLIC_URL + "/images/";
@@ -35,6 +35,15 @@ function TentForm() {
     ];
     const [formValid, setFormValid] = useState(true);
     const [checkOnChange, setcheckOnChange] = useState(false);
+
+    useEffect(() => {
+        setShopData((oldData) => {
+            let newData = {...oldData};
+            newData.activeStep = 1;
+            return newData;
+        });
+    }, [setShopData]);
+    
 
     function calculateTentSuggestion(amountOfPeople){
         let leftoverPeople = amountOfPeople;
@@ -99,7 +108,6 @@ function TentForm() {
           }
         }
     }
-
     calculateTentSuggestion(amountOfTickets);
     
     return (

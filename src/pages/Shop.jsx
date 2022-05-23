@@ -31,11 +31,12 @@ function Shop() {
       iconPath: `${IconBasePath}/money.svg`,
       url: "/shop/",
     },
-  ]
+  ];
+
   return (
     <div className='bg-darkmode_black h-fit flex flex-col gap-2'>
       <ShopProvider>
-        <ProgressStepsBar steps={Steps} activeIndex={0}></ProgressStepsBar>
+        <ProgressStepsBar steps={Steps}></ProgressStepsBar>
         <Outlet />
       </ShopProvider>
     </div>
