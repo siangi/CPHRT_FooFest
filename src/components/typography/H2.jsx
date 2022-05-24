@@ -1,14 +1,14 @@
 import React from "react";
 
-function H2({ children }, props) {
+function H2({ children, classModifiers }) {
   return (
-    <div
-      className={`text-3xl font-displayFont${
-        props.classModifiers ? props.classModifiers : ""
+    <h2
+      className={`text-3xl font-displayFont ${
+        classModifiers ? classModifiers : ""
       }`}
     >
       {children}
-    </div>
+    </h2>
   );
 }
 

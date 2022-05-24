@@ -13,9 +13,9 @@ function Schedule() {
   ];
 
   return (
-    <section className="flex flex-col gap-14">
+    <section className="flex flex-col gap-28">
       {days.map((day) => (
-        <ScheduleDayCard day={day} />
+        <ScheduleDayCard key={day} day={day} />
       ))}
     </section>
   );

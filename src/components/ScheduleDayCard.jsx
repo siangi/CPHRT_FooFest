@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AllBandsContext } from "../App";
 import OverviewCard from "./OverviewCard";
-import H2 from "./typography/H3";
+import H2 from "./typography/H2";
 
 export default function ScheduleDayCard({ day }) {
   const allBands = React.useContext(AllBandsContext);
@@ -9,10 +9,12 @@ export default function ScheduleDayCard({ day }) {
 
   return (
     <article>
-      <H2 classModifiers="text-white">{day}</H2>
+      <H2 classModifiers="text-[5.5rem] w-full text-white leading-[7rem] font-displayFont">
+        {day}
+      </H2>
 
-      <div className="flex">
-        <div className="flex flex-col justify-evenly">
+      <div className="flex flex-col xl:flex-row xl:gap-0 gap-5">
+        <div className="flex xl:flex-col justify-between sm:justify-evenly">
           <input
             className="hidden peer"
             checked={stageFilter === "Midgard" ? true : false}
@@ -23,16 +25,16 @@ export default function ScheduleDayCard({ day }) {
             onChange={() => setStageFilter("Midgard")}
           />
           <label
-            className={`cursor-pointer bg-darkmode_black2 p-2 ${
+            className={`cursor-pointer bg-darkmode_black2 p-2 w-fit ${
               stageFilter === "Midgard" &&
-              "border-2 border-accent_red border-r-0"
-            } `}
+              "border-2 border-accent_red xl:border-r-0"
+            }`}
             htmlFor={`Midgard-${day}`}
           >
             <img
               src={process.env.PUBLIC_URL + "midgard.svg"}
               alt="Midgard stage"
-              className="w-20 mb-[-0.8rem] svg-accent_red"
+              className="w-12 sm:w-16 md:w-16 lg:w-20 mb-[-0.8rem] svg-accent_red"
             />
           </label>
 
@@ -46,16 +48,16 @@ export default function ScheduleDayCard({ day }) {
             onChange={() => setStageFilter("Jotunheim")}
           />
           <label
-            className={`cursor-pointer bg-darkmode_black2 p-2 ${
+            className={`cursor-pointer bg-darkmode_black2 p-2 w-fit ${
               stageFilter === "Jotunheim" &&
-              "border-2 border-accent_yellow border-r-0"
+              "border-2 border-accent_yellow xl:border-r-0"
             } `}
             htmlFor={`Jotunheim-${day}`}
           >
             <img
               src={process.env.PUBLIC_URL + "jotunheim.svg"}
               alt="Midgard stage"
-              className="w-20 mb-[-0.7rem] svg-accent_yellow"
+              className="w-12 sm:w-16 md:w-16 lg:w-20 mb-[-0.7rem] svg-accent_yellow"
             />
           </label>
 
@@ -69,25 +71,25 @@ export default function ScheduleDayCard({ day }) {
             onChange={() => setStageFilter("Vanaheim")}
           />
           <label
-            className={`cursor-pointer bg-darkmode_black2 p-2 ${
+            className={`cursor-pointer bg-darkmode_black2 p-2 w-fit ${
               stageFilter === "Vanaheim" &&
-              "border-2 border-accent_blue border-r-0"
+              "border-2 border-accent_blue xl:border-r-0"
             } `}
             htmlFor={`Vanaheim-${day}`}
           >
             <img
               src={process.env.PUBLIC_URL + "vanaheim.svg"}
               alt="Vanaheim stage"
-              className="w-20 mb-[-0.6rem] svg-accent_blue"
+              className="w-12 sm:w-16 md:w-16 lg:w-20 mb-[-0.6rem] svg-accent_blue"
             />
           </label>
         </div>
 
-        <div className="grid grid-cols-3 grid-rows-2 gap-4 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-5 w-full">
           {allBands
             .filter((band) => band.day === day && band.stage === stageFilter)
             .map((band) => (
-              <div className="h-60">
+              <div key={band.name} className="h-60">
                 <OverviewCard bandObj={band} />
               </div>
             ))}

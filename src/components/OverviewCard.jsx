@@ -11,7 +11,7 @@ export default function OverviewCard({ bandObj }) {
 
   return (
     <>
-      {loaded ? null : (
+      {!loaded && (
         <div className="flex items-center gap-4">
           <span className="text-white">Image is loading...</span>
           <svg
@@ -38,13 +38,15 @@ export default function OverviewCard({ bandObj }) {
       >
         <figure className="grid h-full w-full">
           <img
-            style={loaded ? {} : { display: "none" }}
-            className="h-full w-full object-cover row-start-1 col-start-1"
+            className={`h-full w-full object-cover row-start-1 col-start-1 ${
+              !loaded && "hidden"
+            }`}
             src={bandObj.logo}
             loading="lazy"
             onLoad={() => setLoaded(true)}
             alt={`${bandObj.name} band logo`}
           />
+
           <CardSticker bandObj={bandObj} />
         </figure>
       </button>
