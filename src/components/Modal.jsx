@@ -1,4 +1,3 @@
-import { BandContext } from "../pages/Overview";
 import { SetAllBandsContext } from "../App";
 import H2 from "../components/typography/H2";
 import H4 from "../components/typography/H4";
@@ -23,8 +22,7 @@ function useOutsideAlerter(ref, setModalOpen) {
   }, [ref, setModalOpen]);
 }
 
-export default function Modal({ modalOpen, setModalOpen }) {
-  const bandObj = React.useContext(BandContext);
+export default function Modal({ modalOpen, setModalOpen, bandObj }) {
   const setAllBands = React.useContext(SetAllBandsContext);
 
   const [isReadMore, setIsReadMore] = useState(true);

@@ -2,41 +2,26 @@ import { AllBandsContext } from "../App";
 import OverviewCard from "../components/OverviewCard";
 import React, { useState, useRef } from "react";
 
-function WrapperBig({ imgUrl, title, stage, runeUrl }) {
+function WrapperBig({ bandObj }) {
   return (
     <div className="col-span-1 row-span-1 sm:col-span-2 sm:row-span-2  h-full w-full flex flex-col gap-3">
-      <OverviewCard
-        imgUrl={imgUrl}
-        title={title}
-        stage={stage}
-        runeUrl={runeUrl}
-      />
+      <OverviewCard bandObj={bandObj} />
     </div>
   );
 }
 
-function WrapperTall({ imgUrl, title, stage, runeUrl }) {
+function WrapperTall({ bandObj }) {
   return (
     <div className="row-span-1 col-span-1 sm:row-span-2 h-full w-full flex flex-col gap-3">
-      <OverviewCard
-        imgUrl={imgUrl}
-        title={title}
-        stage={stage}
-        runeUrl={runeUrl}
-      />
+      <OverviewCard bandObj={bandObj} />
     </div>
   );
 }
 
-function WrapperSmall({ imgUrl, title, stage, runeUrl }) {
+function WrapperSmall({ bandObj }) {
   return (
     <div className="h-full w-full flex flex-col gap-3">
-      <OverviewCard
-        imgUrl={imgUrl}
-        title={title}
-        stage={stage}
-        runeUrl={runeUrl}
-      />
+      <OverviewCard bandObj={bandObj} />
     </div>
   );
 }
@@ -95,26 +80,11 @@ function Overview() {
           .map((band, index) => (
             <BandContext.Provider key={index} value={{ ...band }}>
               {index % 7 === 0 ? (
-                <WrapperBig
-                  imgUrl={band.logo}
-                  title={band.name}
-                  stage={band.stage}
-                  runeUrl={band.runeUrl}
-                />
+                <WrapperBig bandObj={{ ...band }} />
               ) : index % 5 === 0 ? (
-                <WrapperTall
-                  imgUrl={band.logo}
-                  title={band.name}
-                  stage={band.stage}
-                  runeUrl={band.runeUrl}
-                />
+                <WrapperTall bandObj={{ ...band }} />
               ) : (
-                <WrapperSmall
-                  imgUrl={band.logo}
-                  title={band.name}
-                  stage={band.stage}
-                  runeUrl={band.runeUrl}
-                />
+                <WrapperSmall bandObj={{ ...band }} />
               )}
             </BandContext.Provider>
           ))}

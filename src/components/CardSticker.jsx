@@ -1,8 +1,6 @@
-import { BandContext } from "../pages/Overview";
 import React from "react";
 
-export default function CardSticker() {
-  const bandObj = React.useContext(BandContext);
+export default function CardSticker({ bandObj }) {
   return (
     <figcaption
       className={`${

@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 import { useState } from "react";
 
-export default function OverviewCard({ imgUrl, title }) {
+export default function OverviewCard({ bandObj }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -38,16 +38,20 @@ export default function OverviewCard({ imgUrl, title }) {
           <img
             style={loaded ? {} : { display: "none" }}
             className="h-full w-full object-cover row-start-1 col-start-1"
-            src={imgUrl}
+            src={bandObj.logo}
             loading="lazy"
             onLoad={() => setLoaded(true)}
-            alt={`${title} band logo`}
+            alt={`${bandObj.name} band logo`}
           />
-          <CardSticker />
+          <CardSticker bandObj={bandObj} />
         </figure>
       </button>
 
-      <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <Modal
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        bandObj={bandObj}
+      />
     </>
   );
 }

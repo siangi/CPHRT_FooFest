@@ -98,7 +98,7 @@ export default function App() {
           <div className="px-14 md:px-40">
             <Routes>
               <Route path="/" element={<Home></Home>}></Route>
-              <Route path="/overview" element={<Overview />}></Route>
+              <Route path="/overview" element={<Overview></Overview>}></Route>
               <Route path="/schedule" element={<Schedule></Schedule>}></Route>
               <Route
                 path="/favorites"

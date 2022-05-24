@@ -34,6 +34,12 @@ export default function Header() {
             </Link>
             <Link
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
+              to="/overview"
+            >
+              Overview
+            </Link>
+            <Link
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
               to="/Schedule"
             >
               Schedule
