@@ -76,7 +76,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
               <img
                 src={process.env.PUBLIC_URL + bandObj.runeUrl}
                 alt={bandObj.stage}
-                className={` w-7 mb-[-0.4rem] ${
+                className={`w-7 mb-[-0.4rem] ${
                   bandObj.color === "accent_red"
                     ? "svg-accent_red"
                     : bandObj.color === "accent_blue"
