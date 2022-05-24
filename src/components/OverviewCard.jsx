@@ -1,11 +1,13 @@
 import CardSticker from "./CardSticker";
 import Modal from "./Modal";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function OverviewCard({ bandObj }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => setLoaded(false), [bandObj.logo]);
 
   return (
     <>

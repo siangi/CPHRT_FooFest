@@ -78,13 +78,13 @@ function Overview() {
             genreFilter === "all" ? band.genre : band.genre === genreFilter
           )
           .map((band, index) => (
-            <BandContext.Provider key={index} value={{ ...band }}>
+            <BandContext.Provider key={index} value={band}>
               {index % 7 === 0 ? (
-                <WrapperBig bandObj={{ ...band }} />
+                <WrapperBig bandObj={band} />
               ) : index % 5 === 0 ? (
-                <WrapperTall bandObj={{ ...band }} />
+                <WrapperTall bandObj={band} />
               ) : (
-                <WrapperSmall bandObj={{ ...band }} />
+                <WrapperSmall bandObj={band} />
               )}
             </BandContext.Provider>
           ))}
