@@ -64,6 +64,7 @@ function PersonalInfo() {
     let result = [];
     if(amountOfVIP + amountOfRegular === 1){
       result.push(
+        <div key={1} className='w-full lg:w-3/4'>
         <PersonForm 
               id={1}
               first={true} 
@@ -73,6 +74,7 @@ function PersonalInfo() {
               previous={previous}
               saveForm={saveForm}
               submitAll={submitAll}></PersonForm>
+        </div>
       )
     } else {
       for(let i = 1; i <= amountOfVIP; i++){
