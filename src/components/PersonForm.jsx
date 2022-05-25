@@ -7,23 +7,35 @@ function PersonForm(props) {
   const form = React.createRef();
   function previous(event){
     event.preventDefault();
-    if(form.current.reportValidity()){
-      props.previous();
-    }
-    
+    props.previous();    
   }
   function next(event){
     event.preventDefault();
-    console.log(form);
     if(form.current.reportValidity()){
+      props.saveForm(createObjectFromForm());
       props.next();
-    }
-    
+    }    
   }
 
   function submit(event){
     event.preventDefault();
-    console.log("submit");
+    if(form.current.reportValidity()){
+      props.saveForm(createObjectFromForm());
+      props.submitAll();
+    }
+  }
+
+  function createObjectFromForm(){
+    return {
+      id: props.id,
+      firstname: form.current.elements["firstname"].value,
+      lastname: form.current.elements["lastname"].value,
+      address: form.current.elements["address"].value,
+      zip: form.current.elements["zip"].value,
+      city: form.current.elements["city"].value,
+      email: form.current.elements["email"].value,
+      phone: form.current.elements["phone"].value
+    }
   }
   return (
     <div>
@@ -43,6 +55,7 @@ function PersonForm(props) {
         <div className='flex flex-row justify-between'>
           {!props.first && <PrimaryButton caption="previous" action={previous}></PrimaryButton>}
           {!props.last && <PrimaryButton caption="next" action={next}></PrimaryButton>}
+          {props.last && <PrimaryButton caption="submit" action={submit}></PrimaryButton>}
         </div>
       </form>
     </div>

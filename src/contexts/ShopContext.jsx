@@ -10,6 +10,7 @@ export const ShopProvider = ({ children }) => {
         tents: [],
         campground: "",
         greenCamping: {},
+        persons: [],
         activeStep: 0,
     });
     const value = {

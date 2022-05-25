@@ -6,6 +6,11 @@ function BaseInput(props) {
   function handleBlur(event){
     setIsValid(event.target.checkValidity());
   }
+  function handleOnInvalid(){
+    if(isValid){
+      setIsValid(false);
+    }
+  }
   return (
     <div className='my-3 w-full'>
       <div className='flex flex-row gap-4'>
@@ -15,7 +20,7 @@ function BaseInput(props) {
         {!isValid ? <ErrorP>{props.errormessage}</ErrorP> : null}
         
       </div>
-      <input onBlur={handleBlur} type={props.type? props.type :"text"} name={props.name} id={props.id} required={props.required}
+      <input onInvalid={handleOnInvalid} onBlur={handleBlur} type={props.type? props.type :"text"} name={props.name} id={props.id} required={props.required}
         className="w-full bg-darkmode_black8 border-none text-shade_darker_white font-bodyFont focus:ring-accent_yellow focus:ring-2"></input>
     </div>
   )
