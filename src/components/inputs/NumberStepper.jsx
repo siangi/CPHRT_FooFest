@@ -5,7 +5,7 @@ function NumberStepper(props) {
     const [internalAmount, setInternalAmount] = useState(props.initialVal);
     useEffect(() => {
       props.updateAmount(internalAmount)
-    }, [internalAmount])
+    }, [internalAmount, props])
     
     function increase(){
         setInternalAmount((oldVal) => oldVal + 1);
