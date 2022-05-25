@@ -24,7 +24,7 @@ function Shop() {
     {
       label: "Personal Info",
       iconPath: `${IconBasePath}/form.svg`,
-      url: "/shop/",
+      url: "/shop/personal-info",
     },
     {
       label: "Payment",

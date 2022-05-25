@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useContext, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { ShopContext } from '../../contexts/ShopContext';
 import CampgroundsMap from '../../components/selectionMap/CampgroundsMap';
 import CheckboxCard from "../../components/optionCards/CheckboxCard";
@@ -9,6 +10,7 @@ import H3 from "../../components/typography/H2";
 import H4 from "../../components/typography/H4";
 
 function CampgroundForm() {
+    const navigate = useNavigate();
     const {setShopData} = useContext(ShopContext);
     const [activeCampground, setactiveCampground] = useState("");
     const [campsGreenly, setCampsGreenly] = useState(false);
@@ -84,7 +86,8 @@ function CampgroundForm() {
                 newData.campground = activeCampground;
                 newData.greenCamping = campsGreenly ? greenCampingOption : null;
                 return newData;
-            })
+            });
+            navigate("../personal-info")
         } 
 
     }
