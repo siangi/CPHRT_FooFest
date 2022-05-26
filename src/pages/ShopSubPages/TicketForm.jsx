@@ -9,36 +9,9 @@ import ErrorP from '../../components/typography/ErrorP';
 function TicketForm() {
   let navigate = useNavigate();
   const {shopData, setShopData } = useContext(ShopContext);
-  const baseIconPath = process.env.PUBLIC_URL + "/icons/";
-  const ticketOptions = [
-    {
-      id: 0,
-      title:"Regular",
-      price:"799 Kr.",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit massa enim nec dui. Tortor posuere ac ut consequat semper viverra.",
-      imagePath: baseIconPath + "RegularTicketGold.svg",
-      amount: 0,
-    },{
-      id: 1,
-      title:"VIP",
-      price:"1299 Kr.",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit massa enim nec dui. Tortor posuere ac ut consequat semper viverra.",
-      imagePath: baseIconPath + "VIPGold.svg",
-      amount: 0,
-    }
-  ];
+  const ticketOptions = shopData.tickets;
   const [formValid, setFormValid] = useState(true);
   const [checkOnChange, setcheckOnChange] = useState(false);
-
-  function fillOptionsfromShopData(){
-    console.log("entered shopData");
-    if (shopData.tickets.length > 0){
-      shopData.tickets.forEach(ticket => {
-          console.log("filling ticket " + ticket.id)
-          updateAmount(ticket.id, ticket.amount);
-      });
-    }
-  }
 
   function updateAmount(id, newAmount){
     const toUpdate = ticketOptions.find((ticket) => ticket.id === id);
@@ -65,7 +38,7 @@ function TicketForm() {
     if (validate()){
       setShopData((oldData) => {
         let newData = {...oldData};
-        newData.tickets = ticketOptions.filter((ticket) => ticket.amount > 0);
+        newData.tickets = ticketOptions;
         return newData;
       });
   
@@ -80,7 +53,6 @@ function TicketForm() {
         return newData;
     });
   }, [setShopData]);
-  fillOptionsfromShopData();
 
   return (
     <form className='h-full lg:flex-auto flex flex-col gap-3 items-end'>

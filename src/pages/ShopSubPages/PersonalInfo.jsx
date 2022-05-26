@@ -9,8 +9,8 @@ import PrimaryButton from "../../components/buttons/PrimaryButton";
 
 function PersonalInfo() {
   const {shopData, setShopData} = useContext(ShopContext);
-  const amountOfVIP = 0;
-  const amountOfRegular = 1;
+  const amountOfVIP = shopData.tickets[1].amount;
+  const amountOfRegular = shopData.tickets[0].amount;
   let personForms = createPersonForms();
   const previousBtnRef = React.createRef();
   const nextBtnRef = React.createRef();
@@ -28,7 +28,6 @@ function PersonalInfo() {
   }
 
   function saveForm(personInfo){
-    console.log("save form", personInfo);
     let data = shopData.persons.find((inData) => inData.id === personInfo.id);
     let isNew = data === undefined;
     if (isNew){
