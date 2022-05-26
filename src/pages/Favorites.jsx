@@ -1,6 +1,7 @@
 import React from 'react'
 import DayWrapper from '../components/favoritesComponents/DayWrapper';
 import { AllBandsContext } from '../App';
+import H1 from '../components/typography/H1';
 import H2 from '../components/typography/H2';
 import { useState } from 'react';
 import {
@@ -51,21 +52,23 @@ export default function Favorites() {
   const allDays = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
 
   return (
+    <>
+    <H1>Favorites</H1>
+      <div className='grid grid-cols-[auto] text-center gap-10'>
+          <button className='text-white w-fit col-start-0 col-end-1 row-start-0 row-end-1'>
+            <HiOutlineArrowNarrowLeft size="2rem" />
+          </button>
+            {allDays.map((day, index) => (
+              index >= showThreeDays - 1  && index <= showThreeDays + 1 && <H2 classModifiers={`row-start-0 row-end-1 col-start-${index+1} col-end-${index+2}`}>{day.dayName}</H2>
+              ))}
+          <button onClick={() => setShowThreeDays((prev) => prev + 1)} className={`text-white w-fit col-start-${showThreeDays + 3} col-end-${showThreeDays + 4} row-start-0 row-end-1`}>
+              <HiOutlineArrowNarrowRight size="2rem"  />
+          </button>
 
-    <div className='grid grid-cols-[auto] text-center gap-10'>
-        <button className='text-white w-fit col-start-0 col-end-1 row-start-0 row-end-1'>
-          <HiOutlineArrowNarrowLeft size="2rem" />
-        </button>
-          {allDays.map((day, index) => (
-            index >= showThreeDays - 1  && index <= showThreeDays + 1 && <H2 classModifiers={`row-start-0 row-end-1 col-start-${index+1} col-end-${index+2}`}>{day.dayName}</H2>
-            ))}
-        <button onClick={() => setShowThreeDays((prev) => prev + 1)} className={`text-white w-fit col-start-${showThreeDays + 3} col-end-${showThreeDays + 4} row-start-0 row-end-1`}>
-            <HiOutlineArrowNarrowRight size="2rem"  />
-        </button>
-
-          {allDays.map((day, index) => (
-           index >= showThreeDays - 1  && index <= showThreeDays + 1  && <DayWrapper array={day.array} index={index} />
-            ))}
-    </div>
+            {allDays.map((day, index) => (
+            index >= showThreeDays - 1  && index <= showThreeDays + 1  && <DayWrapper array={day.array} index={index} />
+              ))}
+      </div>
+    </>
   );
 }

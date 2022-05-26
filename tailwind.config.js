@@ -13,6 +13,7 @@ module.exports = {
             "4xl": "3.052rem",
             "5xl": "3.819rem",
             "6xl": "4.773rem",
+            "12xl": "clamp(8rem, 21.3vw - 1.3rem, 12rem);",
         },
         extend: {
             colors: {
