@@ -1,6 +1,5 @@
-import React from 'react'
+import React from "react";
 import { AllBandsContext } from "../App";
-
 
 export default function Favorites() {
   const allBands = React.useContext(AllBandsContext);

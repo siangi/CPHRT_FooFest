@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function H1({children}) {
+function H1({ children }, props) {
   return (
-    <h1 className='text-4xl font-displayFont'>{children}</h1>
-  )
+    <h1
+      className={`text-4xl font-displayFont ${
+        props.classModifiers ? props.classModifiers : ""
+      }`}
+    >
+      {children}
+    </h1>
+  );
 }
 
-export default H1
+export default H1;

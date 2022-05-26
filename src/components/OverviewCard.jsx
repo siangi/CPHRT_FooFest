@@ -1,15 +1,17 @@
 import CardSticker from "./CardSticker";
 import Modal from "./Modal";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function OverviewCard({ imgUrl, title, stage, runeUrl }) {
+export default function OverviewCard({ bandObj }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
+  useEffect(() => setLoaded(false), [bandObj.logo]);
+
   return (
     <>
-      {loaded ? null : (
+      {!loaded && (
         <div className="flex items-center gap-4">
           <span className="text-white">Image is loading...</span>
           <svg
@@ -36,18 +38,24 @@ export default function OverviewCard({ imgUrl, title, stage, runeUrl }) {
       >
         <figure className="grid h-full w-full">
           <img
-            style={loaded ? {} : { display: "none" }}
-            className="h-full w-full object-cover row-start-1 col-start-1"
-            src={imgUrl}
+            className={`h-full w-full object-cover row-start-1 col-start-1 ${
+              !loaded && "hidden"
+            }`}
+            src={bandObj.logo}
             loading="lazy"
             onLoad={() => setLoaded(true)}
-            alt={`${title} band logo`}
+            alt={`${bandObj.name} band logo`}
           />
-          <CardSticker />
+
+          <CardSticker bandObj={bandObj} />
         </figure>
       </button>
 
-      <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      <Modal
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        bandObj={bandObj}
+      />
     </>
   );
 }

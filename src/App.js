@@ -20,100 +20,120 @@ export const AllBandsContext = React.createContext();
 export const SetAllBandsContext = React.createContext();
 
 export default function App() {
-    const [allBands, setAllBands] = useState([]);
+  const [allBands, setAllBands] = useState([]);
 
-    const getBands = axios.get("https://cphrt.herokuapp.com/bands");
-    const getStages = axios.get("https://cphrt.herokuapp.com/schedule");
+  const getBands = axios.get("https://cphrt.herokuapp.com/bands");
+  const getStages = axios.get("https://cphrt.herokuapp.com/schedule");
 
-    useEffect(() => {
-        Promise.all([getBands, getStages])
-            .then((allData) => {
-                const allBandsData = allData[0].data;
-                const allStagesData = allData[1].data;
-                const Days = {
-                    mon: "Monday",
-                    tue: "Tuesday",
-                    wed: "Wednesday",
-                    thu: "Thursday",
-                    fri: "Friday",
-                    sat: "Saturday",
-                    sun: "Sunday",
-                };
-                function makeStageData() {
-                    return allBandsData.map((item) => {
-                        let url = item.logo.includes("http://") ? item.logo : `https://cphrt.herokuapp.com/logos/${item.logo}`;
+  useEffect(() => {
+    Promise.all([getBands, getStages])
+      .then((allData) => {
+        const allBandsData = allData[0].data;
+        const allStagesData = allData[1].data;
+        const Days = {
+          mon: "Monday",
+          tue: "Tuesday",
+          wed: "Wednesday",
+          thu: "Thursday",
+          fri: "Friday",
+          sat: "Saturday",
+          sun: "Sunday",
+        };
+        function makeStageData() {
+          return allBandsData.map((item) => {
+            let url = item.logo.includes("http://")
+              ? item.logo
+              : `https://cphrt.herokuapp.com/logos/${item.logo}`;
 
-                        for (const stage in allStagesData) {
-                            for (const day in allStagesData[stage]) {
-                                for (let i = 0; i < allStagesData[stage][day].length; i++) {
-                                    const e = allStagesData[stage][day][i];
-                                    let color;
-                                    let runeUrl;
+            for (const stage in allStagesData) {
+              for (const day in allStagesData[stage]) {
+                for (let i = 0; i < allStagesData[stage][day].length; i++) {
+                  const e = allStagesData[stage][day][i];
+                  let color;
+                  let runeUrl;
 
-                                    if (stage === "Midgard") {
-                                        color = "accent_red";
-                                        runeUrl = "midgard.svg";
-                                    } else if (stage === "Vanaheim") {
-                                        color = "accent_blue";
-                                        runeUrl = "vanaheim.svg";
-                                    } else {
-                                        color = "accent_yellow";
-                                        runeUrl = "jotunheim.svg";
-                                    }
+                  if (stage === "Midgard") {
+                    color = "accent_red";
+                    runeUrl = "midgard.svg";
+                  } else if (stage === "Vanaheim") {
+                    color = "accent_blue";
+                    runeUrl = "vanaheim.svg";
+                  } else {
+                    color = "accent_yellow";
+                    runeUrl = "jotunheim.svg";
+                  }
 
-                                    if (e.act === item.name) {
-                                        item = {
-                                            ...item,
-                                            logo: url,
-                                            start: e.start,
-                                            end: e.end,
-                                            stage: stage,
-                                            day: Days[day],
-                                            color: color,
-                                            runeUrl: runeUrl,
-                                            favorite: false,
-                                            cancelled: e.cancelled,
-                                        };
-                                    }
-                                }
-                            }
-                        }
-
-                        return item;
-                    });
+                  if (e.act === item.name) {
+                    item = {
+                      ...item,
+                      logo: url,
+                      start: e.start,
+                      end: e.end,
+                      stage: stage,
+                      day: Days[day],
+                      color: color,
+                      runeUrl: runeUrl,
+                      favorite: false,
+                      cancelled: e.cancelled,
+                    };
+                  }
                 }
+              }
+            }
 
-                setAllBands(() => makeStageData());
-            })
-            .catch((errors) => {
-                console.error(errors);
-            });
-    }, []);
+            return item;
+          });
+        }
 
-    return (
-        <div className="App bg-darkmode_black">
-            <Navigation></Navigation>
+        setAllBands(() => makeStageData());
+      })
+      .catch((errors) => {
+        console.error(errors);
+      });
+  }, []);
 
-            <AllBandsContext.Provider value={allBands}>
-                <SetAllBandsContext.Provider value={setAllBands}>
-                    <div className="px-14 md:px-40">
-                        <Routes>
-                            <Route path="/" element={<Home></Home>}></Route>
-                            <Route path="/overview" element={<Overview />}></Route>
-                            <Route path="/schedule" element={<Schedule></Schedule>}></Route>
-                            <Route path="/favorites" element={<Favorites></Favorites>}></Route>
-                            <Route path="/shop" element={<Shop></Shop>}>
-                                <Route path="/shop/" element={<TicketForm></TicketForm>}></Route>
-                                <Route path="/shop/tickets" element={<TicketForm></TicketForm>}></Route>
-                                <Route path="/shop/tents" element={<TentForm></TentForm>}></Route>
-                                <Route path="/shop/campground" element={<CampgroundForm></CampgroundForm>}></Route>
-                                <Route path="/shop/personal-info" element={<PersonalInfo></PersonalInfo>}></Route>
-                            </Route>
-                        </Routes>
-                    </div>
-                    <Footer></Footer>
-                </SetAllBandsContext.Provider>
-            </AllBandsContext.Provider>
-        </div>
-    );
+  return (
+    <div className="App bg-darkmode_black">
+      <Navigation></Navigation>
+
+      <AllBandsContext.Provider value={allBands}>
+        <SetAllBandsContext.Provider value={setAllBands}>
+          <div className="px-14 md:px-40">
+            <Routes>
+              <Route path="/" element={<Home></Home>}></Route>
+              <Route path="/overview" element={<Overview />}></Route>
+              <Route path="/schedule" element={<Schedule></Schedule>}></Route>
+              <Route
+                path="/favorites"
+                element={<Favorites></Favorites>}
+              ></Route>
+              <Route path="/shop" element={<Shop></Shop>}>
+                <Route
+                  path="/shop/"
+                  element={<TicketForm></TicketForm>}
+                ></Route>
+                <Route
+                  path="/shop/tickets"
+                  element={<TicketForm></TicketForm>}
+                ></Route>
+                <Route
+                  path="/shop/tents"
+                  element={<TentForm></TentForm>}
+                ></Route>
+                <Route
+                  path="/shop/campground"
+                  element={<CampgroundForm></CampgroundForm>}
+                ></Route>
+                <Route
+                  path="/shop/personal-info"
+                  element={<PersonalInfo></PersonalInfo>}
+                ></Route>
+              </Route>
+            </Routes>
+          </div>
+          <Footer></Footer>
+        </SetAllBandsContext.Provider>
+      </AllBandsContext.Provider>
+    </div>
+  );
 }

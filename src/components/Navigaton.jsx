@@ -34,6 +34,12 @@ export default function Header() {
             </Link>
             <Link
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
+              to="/overview"
+            >
+              Overview
+            </Link>
+            <Link
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
               to="/Schedule"
             >
               Schedule
@@ -51,9 +57,9 @@ export default function Header() {
           </div>
         </nav>
       ) : (
-        <nav className="bg-darkmode_black">
+        <nav className="bg-darkmode_black ">
           <div
-            className="space-y-2 absolute top-0 left-0 px-8 py-8"
+            className="space-y-2  px-8 py-8"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8  bg-white"></span>
