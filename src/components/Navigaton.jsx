@@ -57,9 +57,9 @@ export default function Header() {
           </div>
         </nav>
       ) : (
-        <nav className="bg-darkmode_black">
+        <nav className="bg-darkmode_black ">
           <div
-            className="space-y-2 absolute top-0 left-0 px-8 py-8"
+            className="space-y-2  px-8 py-8"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8  bg-white"></span>
