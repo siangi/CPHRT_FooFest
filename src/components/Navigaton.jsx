@@ -95,6 +95,9 @@ export default function Header() {
                 <Link to="/schedule">Schedule</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
+                <Link to="/overview">Overview</Link>
+              </li>
+              <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
                 <Link to="/schedule">Your favorites</Link>
               </li>
             </ul>
