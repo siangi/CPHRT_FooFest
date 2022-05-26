@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ScheduleDayCard from "../components/ScheduleDayCard";
+import H1 from "../components/typography/H1";
 import {
   HiOutlineArrowNarrowRight,
   HiOutlineArrowNarrowLeft,
@@ -18,6 +19,8 @@ function Schedule() {
   const [cardIndex, setCardIndex] = useState(0);
 
   return (
+    <>
+    <H1>Schedule</H1>
     <section className="flex flex-col lg:gap-28">
       <div className="flex justify-between lg:hidden mb-16">
         <button
@@ -50,6 +53,7 @@ function Schedule() {
         />
       ))}
     </section>
+    </>
   );
 }
 

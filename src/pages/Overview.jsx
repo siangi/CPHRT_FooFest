@@ -1,6 +1,7 @@
 import { AllBandsContext } from "../App";
 import OverviewCard from "../components/OverviewCard";
 import React, { useState, useRef } from "react";
+import H1 from "../components/typography/H1";
 
 function WrapperBig({ bandObj }) {
   return (
@@ -38,6 +39,7 @@ function Overview() {
 
   return (
     <>
+    <H1>Overview</H1>
       <section className="flex gap-4 my-8 md:max-w-[90%] lg:max-w-5xl xl:max-w-6xl mx-auto">
         <select
           className="py-2 bg-white text-black"
