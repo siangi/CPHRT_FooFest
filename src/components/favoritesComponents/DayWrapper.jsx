@@ -1,23 +1,17 @@
 import React from 'react'
 import FavoriteBandCard from './FavoriteBandCard';
 import { BandContext } from '../../pages/Favorites';
-import H2 from '../typography/H2';
 
 
 export default function DayWrapper(props) {
-    const favoritedBands = React.useContext(BandContext);
+    // const favoritedBands = React.useContext(BandContext);
   return (
 
-      <div>
-          <div className="flex justify-center">
-            <H2>{props.day}</H2>
-          </div>
-        <div>
-            {favoritedBands
+      <div className={`h-fit row-start-1 row-end-2 col-start-${props.index+1} col-end-${props.index+2}`}>
+            {props.array
                 .map((band) => (
                     <FavoriteBandCard bandObj={band} />
                     ))}
-        </div>
       </div>
   );
 }

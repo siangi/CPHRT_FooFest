@@ -6,7 +6,8 @@ import H3 from "../typography/H3";
 export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
 
     return isCollapseOpen ? (
-      <div className="col-start-1 col-end-7">
+      
+      <div className=" col-start-1 col-end-7">
         <div className={`${
             bandObj.color === "accent_red"
             ? "bg-accent_red"
@@ -14,6 +15,7 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
             ? "bg-accent_blue"
             : "bg-accent_yellow"} h-full w-full mt-2 space-y-2`}>
        
+                <p><strong>Stage: </strong>{bandObj.stage}</p>
                 <p><strong>Genre: </strong>{bandObj.genre}</p>
                 <p><strong>Members: </strong>{bandObj.members.join(", ")}</p>
                 <div className="flex justify-between">
