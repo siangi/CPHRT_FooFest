@@ -15,6 +15,7 @@ import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
 import Overview from "./pages/Overview";
 
+
 export const AllBandsContext = React.createContext();
 export const SetAllBandsContext = React.createContext();
 
