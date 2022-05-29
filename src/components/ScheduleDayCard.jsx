@@ -4,6 +4,7 @@ import OverviewCard from "./OverviewCard";
 
 export default function ScheduleDayCard({ day, cardIndex, index }) {
   const allBands = React.useContext(AllBandsContext);
+
   const [stageFilter, setStageFilter] = useState("Midgard");
 
   return (
