@@ -1,4 +1,5 @@
 import CardSticker from "./CardSticker";
+import CancelledSticker from "./CancelledSticker";
 import Modal from "./Modal";
 
 import { useState, useEffect } from "react";
@@ -47,6 +48,7 @@ export default function OverviewCard({ bandObj }) {
             alt={`${bandObj.name} band logo`}
           />
 
+          {bandObj.cancelled && loaded && <CancelledSticker />}
           <CardSticker bandObj={bandObj} />
         </figure>
       </button>
