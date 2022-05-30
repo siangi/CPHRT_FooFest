@@ -15,7 +15,7 @@ function Basket() {
 }, [setShopData])
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 pt-4'>
       <div className='col-start-1'>
         <div className='bg-slate-100'>Tickets</div>
         <BasketList></BasketList>
