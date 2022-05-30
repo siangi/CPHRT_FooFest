@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { HiOutlineLockClosed } from "react-icons/hi";
+import { IconContext } from 'react-icons/lib';
 
 function PayNowButton(props) {
   return (
-    <button 
-    className='w-fit h-fit box-border bg-shade_darker_white 
-    font-bodyFont text-darkmode_black tracking-wider 
-    px-6 py-1 uppercase' 
-    onClick={props.action}>
-        Pay Now!
-    </button>
+    <IconContext.Provider value={{className: "align-middle h-5 w-5 mr-2"}}>
+      <button 
+      className='w-fit h-fit box-border bg-shade_darker_white 
+      font-bodyFont text-darkmode_black tracking-wider 
+      px-6 py-1 uppercase flex flex-row' 
+      onClick={props.action}>
+          <HiOutlineLockClosed></HiOutlineLockClosed> Pay Now!
+      </button>
+    </IconContext.Provider>
   )
 }
 

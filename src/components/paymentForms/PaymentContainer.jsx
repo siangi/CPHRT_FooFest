@@ -5,7 +5,7 @@ import MobilePayForm from './MobilePayForm';
 import BillForm from './BillForm';
 
 function PaymentContainer() {
-  const [activePayOption, setActivePayOption] = useState("bill")
+  const [activePayOption, setActivePayOption] = useState("mobile-pay")
   return (
     <div className='h-full bg-darkmode_black2 p-4'>
         <div className='flex flex-row w-full gap-3 text-shade_darker_white'>
@@ -15,6 +15,7 @@ function PaymentContainer() {
         </div>
         {activePayOption === "bill" && <BillForm></BillForm>}
         {activePayOption === "credit-card" && <CreditCardForm></CreditCardForm>}
+        {activePayOption === "mobile-pay" && <MobilePayForm></MobilePayForm>}
     </div>
   )
 }
