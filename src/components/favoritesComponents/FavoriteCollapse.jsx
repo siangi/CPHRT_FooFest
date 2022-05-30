@@ -117,7 +117,7 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
                   className="flex justify-between mt-6"
                 >
                   Listen on Spotify
-                  <BsSpotify size="1.5rem" />
+                  <BsSpotify color="black" size="1.5rem" />
                 </a>
               )
           )}
