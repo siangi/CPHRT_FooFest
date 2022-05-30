@@ -9,7 +9,7 @@ export default function Home() {
       <img src={process.env.PUBLIC_URL + "LogoText.svg"} alt="white Ragnarock logo with yellow rune"/>
       <div className='flex text-center items-center gap-6 mt-12'>
         <div className='bg-white h-1 w-1/3'></div>
-        <H4 classModifiers="text-white">Join the best rock festival in Copenhagen</H4>
+        <H4 classModifiers="text-white">Join us in Copenhagen</H4>
       </div>
 
       <div className='flex text-center items-center gap-6 my-12'>
@@ -32,7 +32,7 @@ export default function Home() {
         <img src={process.env.PUBLIC_URL + "jotunheim.svg"} alt="white Ragnarock logo with yellow rune" className="h-15 w-full svg-accent_yellow"/>
       </div>
 
-      <div className="h-full w-full grid grid-cols-3 gap-5 my-5">
+      {/* <div className="h-full w-full grid grid-cols-3 gap-5 my-5">
           <img
            className="h-full w-full object-cover"
             src={bandObj[2].logo}
@@ -48,9 +48,9 @@ export default function Home() {
             src={bandObj[11].logo}
             alt={`${bandObj[11].name} band logo`}
           />
-      </div>
+      </div> */}
 
-      <div className="h-full w-full grid grid-cols-2 gap-5">
+      {/* <div className="h-full w-full grid grid-cols-2 gap-5">
           <img
            className="h-full w-full object-cover"
             src={bandObj[10].logo}
@@ -61,7 +61,7 @@ export default function Home() {
             src={bandObj[9].logo}
             alt={`${bandObj[9].name} band logo`}
           />
-      </div>
+      </div> */}
     </div>
   );
 }
