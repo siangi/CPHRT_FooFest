@@ -1,42 +1,28 @@
 import { AllBandsContext } from "../App";
 import OverviewCard from "../components/OverviewCard";
 import React, { useState, useRef } from "react";
+import H1 from "../components/typography/H1";
 
-function WrapperBig({ imgUrl, title, stage, runeUrl }) {
+function WrapperBig({ bandObj }) {
   return (
     <div className="col-span-1 row-span-1 sm:col-span-2 sm:row-span-2  h-full w-full flex flex-col gap-3">
-      <OverviewCard
-        imgUrl={imgUrl}
-        title={title}
-        stage={stage}
-        runeUrl={runeUrl}
-      />
+      <OverviewCard bandObj={bandObj} />
     </div>
   );
 }
 
-function WrapperTall({ imgUrl, title, stage, runeUrl }) {
+function WrapperTall({ bandObj }) {
   return (
     <div className="row-span-1 col-span-1 sm:row-span-2 h-full w-full flex flex-col gap-3">
-      <OverviewCard
-        imgUrl={imgUrl}
-        title={title}
-        stage={stage}
-        runeUrl={runeUrl}
-      />
+      <OverviewCard bandObj={bandObj} />
     </div>
   );
 }
 
-function WrapperSmall({ imgUrl, title, stage, runeUrl }) {
+function WrapperSmall({ bandObj }) {
   return (
     <div className="h-full w-full flex flex-col gap-3">
-      <OverviewCard
-        imgUrl={imgUrl}
-        title={title}
-        stage={stage}
-        runeUrl={runeUrl}
-      />
+      <OverviewCard bandObj={bandObj} />
     </div>
   );
 }
@@ -53,9 +39,10 @@ function Overview() {
 
   return (
     <>
+    <H1>Overview</H1>
       <section className="flex gap-4 my-8 md:max-w-[90%] lg:max-w-5xl xl:max-w-6xl mx-auto">
         <select
-          className=" px-3 py-2 bg-white text-black"
+          className="py-2 bg-white text-black"
           name="stage-filter"
           ref={stageFilterSelect}
           onChange={() => {
@@ -69,7 +56,7 @@ function Overview() {
         </select>
 
         <select
-          className=" px-3 py-2 bg-white text-black"
+          className="py-2 bg-white text-black"
           name="genre-filter"
           ref={genreFilterSelect}
           onChange={() => {
@@ -93,28 +80,13 @@ function Overview() {
             genreFilter === "all" ? band.genre : band.genre === genreFilter
           )
           .map((band, index) => (
-            <BandContext.Provider key={index} value={{ ...band }}>
+            <BandContext.Provider key={index} value={band}>
               {index % 7 === 0 ? (
-                <WrapperBig
-                  imgUrl={band.logo}
-                  title={band.name}
-                  stage={band.stage}
-                  runeUrl={band.runeUrl}
-                />
+                <WrapperBig bandObj={band} />
               ) : index % 5 === 0 ? (
-                <WrapperTall
-                  imgUrl={band.logo}
-                  title={band.name}
-                  stage={band.stage}
-                  runeUrl={band.runeUrl}
-                />
+                <WrapperTall bandObj={band} />
               ) : (
-                <WrapperSmall
-                  imgUrl={band.logo}
-                  title={band.name}
-                  stage={band.stage}
-                  runeUrl={band.runeUrl}
-                />
+                <WrapperSmall bandObj={band} />
               )}
             </BandContext.Provider>
           ))}

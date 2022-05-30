@@ -1,4 +1,3 @@
-import { BandContext } from "../pages/Overview";
 import { SetAllBandsContext } from "../App";
 import H2 from "../components/typography/H2";
 import H4 from "../components/typography/H4";
@@ -23,8 +22,7 @@ function useOutsideAlerter(ref, setModalOpen) {
   }, [ref, setModalOpen]);
 }
 
-export default function Modal({ modalOpen, setModalOpen }) {
-  const bandObj = React.useContext(BandContext);
+export default function Modal({ modalOpen, setModalOpen, bandObj }) {
   const setAllBands = React.useContext(SetAllBandsContext);
 
   const [isReadMore, setIsReadMore] = useState(true);
@@ -36,8 +34,7 @@ export default function Modal({ modalOpen, setModalOpen }) {
     setAllBands((prev) =>
       prev.map((band) => {
         if (band.name === name) {
-          const newBand = { ...band };
-          newBand.favorite = !newBand.favorite;
+          const newBand = { ...band, favorite: !band.favorite };
           return newBand;
         }
         return band;
@@ -79,7 +76,7 @@ export default function Modal({ modalOpen, setModalOpen }) {
               <img
                 src={process.env.PUBLIC_URL + bandObj.runeUrl}
                 alt={bandObj.stage}
-                className={` w-7 mb-[-0.4rem] ${
+                className={`w-7 mb-[-0.4rem] ${
                   bandObj.color === "accent_red"
                     ? "svg-accent_red"
                     : bandObj.color === "accent_blue"

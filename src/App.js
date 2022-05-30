@@ -72,7 +72,7 @@ export default function App() {
                                             day: Days[day],
                                             color: color,
                                             runeUrl: runeUrl,
-                                            favorite: false,
+                                            favorite: true,
                                             cancelled: e.cancelled,
                                         };
                                     }
@@ -97,7 +97,7 @@ export default function App() {
 
             <AllBandsContext.Provider value={allBands}>
                 <SetAllBandsContext.Provider value={setAllBands}>
-                    <div className="px-14 md:px-40">
+                    <div className="px-14 md:px-20">
                         <Routes>
                             <Route path="/" element={<Home></Home>}></Route>
                             <Route path="/overview" element={<Overview />}></Route>
