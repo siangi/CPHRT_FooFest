@@ -30,8 +30,7 @@ export default function Favorites() {
   return (
     <>
       <H1>Favorites</H1>
-
-      <section className="grid grid-cols-4 sm:flex gap-10 items-baseline">
+      <section className="grid grid-cols-4 sm:flex gap-10 items-baseline justify-center">
         <IconContext.Provider value={{ size: 45, color: "white" }}>
           <button
             className={`${
