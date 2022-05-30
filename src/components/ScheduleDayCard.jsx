@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AllBandsContext } from "../App";
 import OverviewCard from "./OverviewCard";
+import H2 from "./typography/H2";
 
 export default function ScheduleDayCard({ day, cardIndex, index }) {
   const allBands = React.useContext(AllBandsContext);
@@ -8,9 +9,7 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
 
   return (
     <article className={`${cardIndex !== index && "hidden"} lg:block`}>
-      <h2 className="text-4xl w-full text-white leading-[7rem] font-bodyFont hidden lg:block">
-        {day}
-      </h2>
+      <H2 classModifiers={`hidden lg:block font-bodyFont`}>{day}</H2>
 
       <div className="flex flex-col xl:flex-row xl:gap-0 gap-5">
         <div className="flex xl:flex-col justify-between sm:justify-evenly">

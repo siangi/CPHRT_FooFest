@@ -43,15 +43,15 @@ function Overview() {
   return (
     <>
     <H1>Line-up</H1>
-    <H2 classModifiers={`text-5xl mb-5`} >Who are you the most exited to see?</H2>
+    <H2 classModifiers="text-5xl mb-5" >Who are you the most exited to see?</H2>
     <div className='grid grid-cols-1 gap-14 mb-10 lg:grid-cols-2'>
       <div className="grid gap-5">
         <p className='text-white'>Are you ready for Ragnarock? From August 8th to August 14th we are serving you the line-up of your dreams, spread out on our three main stages; Jotunheim, Vanaheim, and Midgard.</p>
       </div>
       <div className="flex flex-col">
-        <H2 classModifiers={`text-accent_red `}>Nirvana?</H2>
-        <H2 classModifiers={`text-accent_yellow `}>The rolling stones?</H2>
-        <H2 classModifiers={`text-accent_blue `}>Guns N' Roses?</H2>
+        <H2 classModifiers="text-accent_red">Nirvana?</H2>
+        <H2 classModifiers="text-accent_yellow">The rolling stones?</H2>
+        <H2 classModifiers="text-accent_blue">Guns N' Roses?</H2>
       </div>
     </div>
 

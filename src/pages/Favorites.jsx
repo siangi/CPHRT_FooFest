@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import H1 from "../components/typography/H1";
 import H2 from "../components/typography/H2";
+import P from "../components/typography/P";
 import FavoriteCol from "../components/favoritesComponents/FavoriteCol";
 import {
   HiOutlineArrowNarrowRight,
@@ -38,8 +39,8 @@ export default function Favorites() {
       <H2 classModifiers={`text-5xl`} > Personalised schedule</H2>
     </div>
     <div className='grid grid-cols-1 gap-10 mb-10 lg:grid-cols-2'>
-      <p className='text-white'>Ragnarock is the biggest rock festival in Europe - which is the equivalent of <span className='text-accent_yellow font-bold'>the line-up of your dreams</span>. This means a lot of <span className='font-bold text-accent_yellow'>bucket list concerts</span>, but also a lot of timeslots for you to remember. We want to make your life easier - so all you have to do is to enjoy!</p>
-      <p className='text-white'>We are therefor allowing you to create your very own <span className='text-accent_yellow font-bold'>ride or die personalised schedule!</span> Add a star to your favorite bands, and in your very own favorites-schedule you will find all the information you need; when, where and who.</p>
+      <P className='text-white'>Ragnarock is the biggest rock festival in Europe - which is the equivalent of <span className='text-accent_yellow font-bold'>the line-up of your dreams</span>. This means a lot of <span className='font-bold text-accent_yellow'>bucket list concerts</span>, but also a lot of timeslots for you to remember. We want to make your life easier - so all you have to do is to enjoy!</P>
+      <P className='text-white'>We are therefor allowing you to create your very own <span className='text-accent_yellow font-bold'>ride or die personalised schedule!</span> Add a star to your favorite bands, and in your very own favorites-schedule you will find all the information you need; when, where and who.</P>
     </div>
       <section className="grid grid-cols-4 sm:flex gap-10 items-baseline justify-center">
         <IconContext.Provider value={{ size: 45, color: "white" }}>
