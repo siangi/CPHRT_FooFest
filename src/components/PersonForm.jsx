@@ -3,6 +3,7 @@ import BaseInput from "./inputs/BaseInput";
 import P from "./typography/P";
 import PrimaryButton from './buttons/PrimaryButton';
 import PayNowButton from './buttons/PayNowButton';
+import SecondaryButton from './buttons/SecondaryButton';
 
 function PersonForm(props) {
   const form = React.createRef();
@@ -56,7 +57,7 @@ function PersonForm(props) {
             </div>
           ):(
             <div className='flex flex-row justify-between'>
-              {!props.first && <PrimaryButton caption="previous" action={previous}></PrimaryButton>}
+              {!props.first && <SecondaryButton caption="previous" action={previous}></SecondaryButton>}
               {!props.last && <PrimaryButton caption="next" action={next}></PrimaryButton>}
               {props.last && <PrimaryButton caption="submit" action={submit}></PrimaryButton>}
             </div>

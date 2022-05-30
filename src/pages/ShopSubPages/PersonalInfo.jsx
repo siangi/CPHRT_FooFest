@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {StackedCarousel} from "react-stacked-carousel";
 import 'react-stacked-carousel/dist/index.css';
 import { ShopContext } from '../../contexts/ShopContext';
@@ -8,6 +9,7 @@ import PersonFormContainer from '../../components/PersonFormContainer';
 
 function PersonalInfo() {
   const {shopData, setShopData} = useContext(ShopContext);
+  const navigate = useNavigate();
   const amountOfVIP = shopData.tickets[1].amount;
   const amountOfRegular = shopData.tickets[0].amount;
   let personForms = createPersonForms();
@@ -23,7 +25,7 @@ function PersonalInfo() {
   }, [setShopData])
 
   function submitAll(){
-    console.log(shopData);
+    navigate("../basket")
   }
 
   function saveForm(personInfo){
@@ -63,7 +65,7 @@ function PersonalInfo() {
     if(amountOfVIP + amountOfRegular === 1){
       result.push(
         <div key={1} className='w-full lg:w-3/4'>
-        <PersonFormContainer 
+          <PersonFormContainer 
               id={1}
               first={true} 
               last={true} 
@@ -71,6 +73,7 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
+              default={shopData.persons.find((person) => person.id === 1)}
               submitAll={submitAll}></PersonFormContainer>
         </div>
       )
@@ -86,6 +89,7 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
+              default={shopData.persons.find((person) => person.id === i)}
               submitAll={submitAll}></PersonFormContainer>
           </div>
         )
@@ -102,6 +106,7 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
+              default={shopData.persons.find((person) => person.id === i)}
               submitAll={submitAll}></PersonFormContainer>
           </div>
         )
