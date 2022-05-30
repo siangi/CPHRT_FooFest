@@ -54,10 +54,16 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
         >
           &times;
         </span>
+
         <img
           src={bandObj.logo}
           alt={bandObj.name}
-          className="object-cover justify-self-center w-full"
+          title={
+            bandObj.logoCredits
+              ? `Image of ${bandObj.name} ${bandObj.logoCredits}`
+              : `Logo of ${bandObj.name}`
+          }
+          className="object-cover justify-self-center w-[415px] h-[277px]"
         />
 
         <div className="flex flex-col">
