@@ -1,5 +1,5 @@
 import { BsSpotify } from "react-icons/bs";
-
+import P from "../typography/P";
 export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
   const spotifyUrls = [
     {
@@ -94,18 +94,18 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
             : "bg-accent_yellow"
         } h-full w-full mt-2 space-y-2`}
       >
-        <p>
+        <P classModifiers="text-darkmode_black">
           <strong>Stage: </strong>
           {bandObj.stage}
-        </p>
-        <p>
+        </P>
+        <P classModifiers="text-darkmode_black">
           <strong>Genre: </strong>
           {bandObj.genre}
-        </p>
-        <p>
+        </P>
+        <P classModifiers="text-darkmode_black">
           <strong>Members: </strong>
           {bandObj.members.join(", ")}
-        </p>
+        </P>
         <strong>
           {spotifyUrls.map(
             (band) =>

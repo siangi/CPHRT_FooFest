@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import H1 from "../components/typography/H1";
-import H2 from "../components/typography/H2";
 import P from "../components/typography/P";
 import FavoriteCol from "../components/favoritesComponents/FavoriteCol";
 import {
@@ -36,11 +35,11 @@ export default function Favorites() {
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" className="self-center bi bi-star-fill " viewBox="0 0 16 16">
         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
       </svg>
-      <H2 classModifiers={`text-5xl`} > Personalised schedule</H2>
+      <h2 className="text-4xl text-white font-displayFont" > Personalised schedule</h2>
     </div>
     <div className='grid grid-cols-1 gap-10 mb-10 lg:grid-cols-2'>
-      <P className='text-white'>Ragnarock is the biggest rock festival in Europe - which is the equivalent of <span className='text-accent_yellow font-bold'>the line-up of your dreams</span>. This means a lot of <span className='font-bold text-accent_yellow'>bucket list concerts</span>, but also a lot of timeslots for you to remember. We want to make your life easier - so all you have to do is to enjoy!</P>
-      <P className='text-white'>We are therefor allowing you to create your very own <span className='text-accent_yellow font-bold'>ride or die personalised schedule!</span> Add a star to your favorite bands, and in your very own favorites-schedule you will find all the information you need; when, where and who.</P>
+      <P>Ragnarock is the biggest rock festival in Europe - which is the equivalent of <span className='text-accent_yellow font-bold'>the line-up of your dreams</span>. This means a lot of <span className='font-bold text-accent_yellow'>bucket list concerts</span>, but also a lot of timeslots for you to remember. We want to make your life easier - so all you have to do is to enjoy!</P>
+      <P>We are therefor allowing you to create your very own <span className='text-accent_yellow font-bold'>ride or die personalised schedule!</span> Add a star to your favorite bands, and in your very own favorites-schedule you will find all the information you need; when, where and who.</P>
     </div>
       <section className="grid grid-cols-4 sm:flex gap-10 items-baseline justify-center">
         <IconContext.Provider value={{ size: 45, color: "white" }}>

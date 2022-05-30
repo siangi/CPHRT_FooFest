@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import H4 from "../typography/H4";
+import P from "../typography/P";
 import FavoriteCollapse from "./FavoriteCollapse";
 
 export default function FavoriteBandCard(props) {
@@ -18,9 +19,9 @@ export default function FavoriteBandCard(props) {
       } h-fit w-full grid grid-cols-6 mb-5 p-3 text-left`}
     >
       <div className="time_and_band col-start-1 align-left col-end-5 ml-0">
-        <p>
+        <P classModifiers="text-darkmode_black">
           {props.bandObj.start} - {props.bandObj.end}
-        </p>
+        </P>
         <H4>{props.bandObj.name}</H4>
       </div>
 

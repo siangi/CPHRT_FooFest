@@ -23,7 +23,7 @@ function Schedule() {
   return (
     <>
     <H1>Schedule</H1>
-    <H2 classModifiers="text-accent_yellow text-5xl mb-5">Are you ready?</H2>
+    <h2 className="text-4xl text-white font-displayFont" >Are you ready?</h2>
     <P classModifiers="max-w-lg mb-8">7 days of Ragnarock - are you ready? Click the stage-symbols or navigate through the days to see who is playing where and when. Remember to add bands to your favorites, for your very own personalised schedule.</P>
     <section className="flex flex-col lg:gap-28">
       <div className="flex justify-between lg:hidden mb-16">

@@ -1,6 +1,7 @@
 import { SetAllBandsContext } from "../App";
 import H2 from "../components/typography/H2";
 import H4 from "../components/typography/H4";
+import P from "./typography/P";
 import Heart from "./Heart";
 import HeartFull from "./HeartFull";
 import React, { useState, useRef, useEffect } from "react";
@@ -62,7 +63,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
 
         <div className="flex flex-col">
           <H2>{bandObj.name}</H2>
-          <h4 className="text-xl font-bodyFont flex">
+          <H4 className="text-xl font-bodyFont flex">
             Stage:
             <span
               className={`${
@@ -86,14 +87,14 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
               />
               {bandObj.stage}
             </span>
-          </h4>
+          </H4>
           <H4>
             Time: {bandObj.day}, {bandObj.start} - {bandObj.end}
           </H4>
 
           <H4>Genre: {bandObj.genre}</H4>
 
-          <p className="text-base font-bodyFont my-6">
+          <P className="my-6">
             {isReadMore
               ? bandObj.bio.slice(
                   0,
@@ -109,7 +110,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
                 {isReadMore ? " ...read more" : " show less"}
               </span>
             ) : null}
-          </p>
+          </P>
 
           <button
             className="block mt-auto ml-auto px-3 py-2 bg-white text-black"
