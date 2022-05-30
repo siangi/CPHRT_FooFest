@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import {StackedCarousel} from "react-stacked-carousel";
 import 'react-stacked-carousel/dist/index.css';
 import { ShopContext } from '../../contexts/ShopContext';
-import PersonForm from '../../components/PersonForm';
+import PersonFormContainer from '../../components/PersonFormContainer';
 
 
 function PersonalInfo() {
@@ -63,7 +63,7 @@ function PersonalInfo() {
     if(amountOfVIP + amountOfRegular === 1){
       result.push(
         <div key={1} className='w-full lg:w-3/4'>
-        <PersonForm 
+        <PersonFormContainer 
               id={1}
               first={true} 
               last={true} 
@@ -71,14 +71,14 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
-              submitAll={submitAll}></PersonForm>
+              submitAll={submitAll}></PersonFormContainer>
         </div>
       )
     } else {
       for(let i = 1; i <= amountOfVIP; i++){
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
-            <PersonForm 
+            <PersonFormContainer 
               id={i}
               first={i === 1} 
               last={i === amountOfVIP + amountOfRegular} 
@@ -86,7 +86,7 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
-              submitAll={submitAll}></PersonForm>
+              submitAll={submitAll}></PersonFormContainer>
           </div>
         )
       }
@@ -94,7 +94,7 @@ function PersonalInfo() {
       for(let i = amountOfVIP + 1; i <= amountOfVIP + amountOfRegular; i++){
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
-            <PersonForm 
+            <PersonFormContainer 
               id={i}
               first={i === 1} 
               last={i === amountOfVIP + amountOfRegular} 
@@ -102,7 +102,7 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
-              submitAll={submitAll}></PersonForm>
+              submitAll={submitAll}></PersonFormContainer>
           </div>
         )
       }

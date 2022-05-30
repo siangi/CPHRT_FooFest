@@ -29,7 +29,7 @@ function Shop() {
     {
       label: "Payment",
       iconPath: `${IconBasePath}/money.svg`,
-      url: "/shop/",
+      url: "/shop/basket",
     },
   ];
 
