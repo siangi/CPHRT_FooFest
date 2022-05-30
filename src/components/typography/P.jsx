@@ -1,8 +1,8 @@
 import React from 'react'
 
-function P({children}) {
+function P(props) {
   return (
-    <p className='text-base font-bodyFont'>{children}</p>
+    <p className={`text-base font-bodyFont ${props.classModifiers}`}>{props.children}</p>
   )
 }
 

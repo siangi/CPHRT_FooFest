@@ -4,7 +4,6 @@ import {StackedCarousel} from "react-stacked-carousel";
 import 'react-stacked-carousel/dist/index.css';
 import { ShopContext } from '../../contexts/ShopContext';
 import PersonForm from '../../components/PersonForm';
-import PrimaryButton from "../../components/buttons/PrimaryButton";
 
 
 function PersonalInfo() {
@@ -21,7 +20,7 @@ function PersonalInfo() {
         newData.activeStep = 3;
         return newData;
     });
-}, [setShopData])
+  }, [setShopData])
 
   function submitAll(){
     console.log(shopData);

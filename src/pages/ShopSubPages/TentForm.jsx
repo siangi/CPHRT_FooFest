@@ -95,7 +95,9 @@ function TentForm() {
             <H3 classModifiers="text-shade_darker_white">You have booked for {amountOfTickets} People, if you want tents, everyone has to fit.</H3>
                 {tentOptions.map((tentOption, index) => {
                 return (<OptionCard 
-                            key={tentOption.id} {...tentOption} 
+                            key={tentOption.id} 
+                            {...tentOption} 
+                            price={tentOption.price + " Kr."}
                             reversed={index % 2 === 0} imageAsBackground={true} 
                             updateAmount={(newAmount) => updateAmount(tentOption.id, newAmount)} 
                             initialAmount={tentOption.amountOfTents}>

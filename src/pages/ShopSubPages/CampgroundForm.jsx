@@ -11,7 +11,7 @@ import H4 from "../../components/typography/H4";
 
 function CampgroundForm() {
     const navigate = useNavigate();
-    const {setShopData} = useContext(ShopContext);
+    const { shopData, setShopData} = useContext(ShopContext);
     const [activeCampground, setactiveCampground] = useState("");
     const [campsGreenly, setCampsGreenly] = useState(false);
 
@@ -37,13 +37,7 @@ function CampgroundForm() {
             freeSpaces: "68"
         }
     ]
-    const greenCampingOption = {
-        title: "Green Camping",
-        price: "249 Kr.",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit massa enim nec dui. Tortor posuere ac ut consequat semper viverra.",
-        labelText: "add green Camping",
-        imagePath: process.env.PUBLIC_URL + "/icons/leaf.svg"
-    } 
+    const greenCampingOption = shopData.greenCamping;
     const [formValid, setFormValid] = useState(true);
     const [checkOnChange, setcheckOnChange] = useState(false);
 
@@ -84,7 +78,7 @@ function CampgroundForm() {
             setShopData((oldData) => {
                 let newData = {...oldData};
                 newData.campground = activeCampground;
-                newData.greenCamping = campsGreenly ? greenCampingOption : null;
+                newData.greenCamping.selected = campsGreenly;
                 return newData;
             });
             navigate("../personal-info")
@@ -109,7 +103,7 @@ function CampgroundForm() {
             </div>    
         </div>
         <div className='col-start-1 md:col-start-2'>
-            <CheckboxCard {...greenCampingOption} setValue={setCampsGreenly}></CheckboxCard>
+            <CheckboxCard {...greenCampingOption} price={greenCampingOption.price + " Kr."} setValue={setCampsGreenly}></CheckboxCard>
         </div>
         <div className='col-start-1 md:col-start-2 md:row-start-2 w-full flex flex-row justify-end'>
             {formValid? null : <ErrorP>Please select a Campground</ErrorP>}

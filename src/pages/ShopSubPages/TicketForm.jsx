@@ -57,7 +57,7 @@ function TicketForm() {
   return (
     <form className='h-full lg:flex-auto flex flex-col gap-3 items-end'>
         {ticketOptions.map((ticket, index) => {
-          return (<OptionCard key={ticket.id} {...ticket} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)
+          return (<OptionCard key={ticket.id} {...ticket} price={ticket.price + " Kr."} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)
         })}¨
         <div className='flex flex-row justify-start gap-3'>
           {formValid ? null : <ErrorP>Select at least one ticket!</ErrorP>}

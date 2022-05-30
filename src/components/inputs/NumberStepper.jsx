@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 function NumberStepper(props) {
     const [internalAmount, setInternalAmount] = useState(props.initialVal);
+    
     useEffect(() => {
       props.updateAmount(internalAmount)
     }, [internalAmount, props])
@@ -26,10 +27,10 @@ function NumberStepper(props) {
         props.updateAmount(internalAmount);
     }
     return (
-        <div className='flex flex-row text-xl font-bold text-center'>
+        <div className={`flex flex-row ${props.small? "": "text-xl"} font-bold text-center`}>
             <button onClick={decrease} type="button">-</button>
             <input type="text" name={props.name} value={internalAmount} inputMode="numeric" onChange={handleManualChange}
-                className="w-8 bg-inherit font-bodyfont font-bold text-xl text-center border-none p-0"
+                className={`w-8 bg-inherit font-bodyfont ${props.small? "": "text-xl"} font-bold text-center border-none p-0`}
             />
             <button onClick={increase} type="button">+</button>
         </div>

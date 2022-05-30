@@ -12,6 +12,7 @@ import CampgroundForm from "./pages/ShopSubPages/CampgroundForm";
 import TentForm from "./pages/ShopSubPages/TentForm";
 import TicketForm from "./pages/ShopSubPages/TicketForm";
 import PersonalInfo from "./pages/ShopSubPages/PersonalInfo";
+import Basket from "./pages/ShopSubPages/Basket";
 import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
 import Overview from "./pages/Overview";
@@ -108,6 +109,7 @@ export default function App() {
                                 <Route path="/shop/tents" element={<TentForm></TentForm>}></Route>
                                 <Route path="/shop/campground" element={<CampgroundForm></CampgroundForm>}></Route>
                                 <Route path="/shop/personal-info" element={<PersonalInfo></PersonalInfo>}></Route>
+                                <Route path="/shop/basket" element={<Basket></Basket>}></Route>
                             </Route>
                         </Routes>
                     </div>
