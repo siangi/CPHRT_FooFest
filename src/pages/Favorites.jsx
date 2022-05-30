@@ -1,74 +1,80 @@
-import React from 'react'
-import DayWrapper from '../components/favoritesComponents/DayWrapper';
-import { AllBandsContext } from '../App';
-import H1 from '../components/typography/H1';
-import H2 from '../components/typography/H2';
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import H1 from "../components/typography/H1";
+import FavoriteCol from "../components/favoritesComponents/FavoriteCol";
 import {
   HiOutlineArrowNarrowRight,
   HiOutlineArrowNarrowLeft,
 } from "react-icons/hi";
+import { IconContext } from "react-icons";
+
 export const BandContext = React.createContext();
 
-
 export default function Favorites() {
-  const [showThreeDays, setShowThreeDays] = useState(1);
-  const allBands = React.useContext(AllBandsContext);
-  const Monday = {
-    dayName : "Monday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Monday")
-  };
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [colIndex, setColIndex] = useState(0);
 
-  const Tuesday = {
-    dayName : "Tuesday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Tuesday")
-  };
+  const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
 
-  const Wednesday = {
-    dayName : "Wednesday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Wednesday")
-  };
-
-  const Thursday = {
-    dayName : "Thursday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Thursday")
-  };
-
-  const Friday = {
-    dayName : "Friday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Friday")
-  };
-
-  const Saturday = {
-    dayName : "Saturday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Saturday")
-  };
-
-  const Sunday = {
-    dayName : "Sunday", 
-    array : allBands.filter((band) => band.favorite && band.day === "Sunday")
-  };
-
-  const allDays = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+  });
 
   return (
     <>
-    <H1>Favorites</H1>
-      <div className='grid grid-cols-[auto] text-center gap-10'>
-          <button className='text-white w-fit col-start-0 col-end-1 row-start-0 row-end-1'>
-            <HiOutlineArrowNarrowLeft size="2rem" />
-          </button>
-            {allDays.map((day, index) => (
-              index >= showThreeDays - 1  && index <= showThreeDays + 1 && <H2 classModifiers={`row-start-0 row-end-1 col-start-${index+1} col-end-${index+2}`}>{day.dayName}</H2>
-              ))}
-          <button onClick={() => setShowThreeDays((prev) => prev + 1)} className={`text-white w-fit col-start-${showThreeDays + 3} col-end-${showThreeDays + 4} row-start-0 row-end-1`}>
-              <HiOutlineArrowNarrowRight size="2rem"  />
+      <H1>Favorites</H1>
+      <section className="grid grid-cols-4 sm:flex gap-10 items-baseline justify-center">
+        <IconContext.Provider value={{ size: 45, color: "white" }}>
+          <button
+            className={`${
+              colIndex === 0 && "invisible"
+            } row-start-1 row-end-2 col-start-1 col-end-2 z-10`}
+          >
+            <HiOutlineArrowNarrowLeft
+              onClick={() => setColIndex((prev) => prev - 1)}
+            />
           </button>
 
-            {allDays.map((day, index) => (
-            index >= showThreeDays - 1  && index <= showThreeDays + 1  && <DayWrapper array={day.array} index={index} />
-              ))}
-      </div>
+          {days
+            .slice(
+              colIndex,
+              screenWidth > 1000
+                ? colIndex + 3
+                : screenWidth < 800
+                ? colIndex + 1
+                : colIndex + 2
+            )
+            .map((day, index) => (
+              <FavoriteCol key={index} day={day} />
+            ))}
+
+          <button
+            className={`${
+              (colIndex === 4 || colIndex === 5 || colIndex === 6) &&
+              screenWidth > 1000
+                ? "invisible"
+                : (colIndex === 5 || colIndex === 6) &&
+                  screenWidth > 800 &&
+                  screenWidth < 1000
+                ? "invisible"
+                : colIndex === 6 && screenWidth < 800
+                ? "invisible"
+                : ""
+            } row-start-1 row-end-2 col-start-4 col-end-5 z-10 justify-self-end`}
+          >
+            <HiOutlineArrowNarrowRight
+              onClick={() => setColIndex((prev) => prev + 1)}
+            />
+          </button>
+        </IconContext.Provider>
+      </section>
     </>
   );
 }
