@@ -111,15 +111,11 @@ function BasketList(props) {
   function calculateTotal(){
     let subTotal = 0;
     subTotal += shopData.tickets.reduce((prev, cur) => prev + (cur.amount * cur.price), 0);
-    console.log("tickets " + subTotal );
     subTotal += shopData.tents.reduce((prev, cur) => prev + (cur.price * cur.amountOfTents),0);
-    console.log("tents " + subTotal );
     if(shopData.greenCamping.selected){
       subTotal += shopData.greenCamping.price * shopData.tickets.reduce((prev, cur) => prev + cur.amount, 0);
     } 
-    console.log("greenCamp " + subTotal );
     subTotal += shopData.bookingFee.price;
-    console.log("bookingfee " + subTotal );
     return subTotal;
   }
 

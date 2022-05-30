@@ -20,7 +20,9 @@ function BaseInput(props) {
         {!isValid ? <ErrorP>{props.errormessage}</ErrorP> : null}
         
       </div>
-      <input onInvalid={handleOnInvalid} onBlur={handleBlur} type={props.type? props.type :"text"} name={props.name} id={props.id} required={props.required}
+      <input onInvalid={handleOnInvalid} 
+        onBlur={handleBlur} 
+        defaultValue={props.initialValue} type={props.type? props.type :"text"} name={props.name} id={props.id} required={props.required}
         className="w-full bg-darkmode_black8 border-none text-shade_darker_white font-bodyFont focus:ring-accent_yellow focus:ring-2"></input>
     </div>
   )

@@ -39,16 +39,16 @@ function PersonForm(props) {
     }
   }
   return (
-      <form ref={form} className=' p-2 lg:p-4' onSubmit={submit}>
-        <BaseInput label="First Name" id="firstname" name="firstname" errormessage="please enter a first name" required={true}></BaseInput>
-        <BaseInput label="Last Name" id="lastname" name="lastname" errormessage="please enter a last name" required={true}></BaseInput>
-        <BaseInput label="Address" id="address" name="address" errormessage="please enter address (street and number)" required={true}></BaseInput>
+      <form ref={form} className='' onSubmit={submit}>
+        <BaseInput label="First Name" id="firstname" name="firstname" errormessage="please enter a first name" initialValue={props.default?.firstname} required={true}></BaseInput>
+        <BaseInput label="Last Name" id="lastname" name="lastname" errormessage="please enter a last name" initialValue={props.default?.lastname} required={true}></BaseInput>
+        <BaseInput label="Address" id="address" name="address" errormessage="please enter address (street and number)" initialValue={props.default?.address} required={true}></BaseInput>
         <div className='flex flex-row gap-3' >
-          <BaseInput label="Zip Code" id="zip" name="zip" errormessage="please enter a Zip-Code"required={true}></BaseInput>
-          <BaseInput label="City" id="city" name="city" errormessage="please enter a City" required={true}></BaseInput>
+          <BaseInput label="Zip Code" id="zip" name="zip" errormessage="please enter a Zip-Code" initialValue={props.default?.zip} required={true}></BaseInput>
+          <BaseInput label="City" id="city" name="city" errormessage="please enter a City" initialValue={props.default?.city} required={true}></BaseInput>
         </div>
-        <BaseInput label="E-Mail" id="email" name="email" type="email" errormessage="please enter a valid e-mail (example@example.com)" required={true}></BaseInput>
-        <BaseInput label="Phone" id="phone" name="phone" errormessage="please enter a valid phone number" required={true}></BaseInput>
+        <BaseInput label="E-Mail" id="email" name="email" type="email" errormessage="please enter a valid e-mail (example@example.com)" initialValue={props.default?.email} required={true}></BaseInput>
+        <BaseInput label="Phone" id="phone" name="phone" errormessage="please enter a valid phone number" initialValue={props.default?.phone} required={true}></BaseInput>
         {
           props.billing?(
             <div className='flex flex-row justify-start'>

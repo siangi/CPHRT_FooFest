@@ -14,6 +14,7 @@ function PaymentContainer() {
             <RadioButton groupName="pay-options" id="bill" label="bill"></RadioButton>  
         </div>
         {activePayOption === "bill" && <BillForm></BillForm>}
+        {activePayOption === "credit-card" && <CreditCardForm></CreditCardForm>}
     </div>
   )
 }
