@@ -36,7 +36,7 @@ export default function Header() {
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
               to="/overview"
             >
-              Overview
+              Line-up
             </Link>
             <Link
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
@@ -95,7 +95,7 @@ export default function Header() {
                 <Link to="/schedule">Schedule</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/overview">Overview</Link>
+                <Link to="/overview">Line-up</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
                 <Link to="/schedule">Your favorites</Link>
