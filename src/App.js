@@ -27,12 +27,6 @@ export default function App() {
       .get("https://cphrt1.herokuapp.com/allbands")
       .then(function ({ data }) {
         setAllBands(data);
-      });
-
-    axios
-      .get("https://cphrt1.herokuapp.com/events")
-      .then(function ({ data }) {
-        console.log(data);
       })
 
       .catch(function (err) {

@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 import { useState, useEffect } from "react";
 
-export default function OverviewCard({ bandObj }) {
+export default function OverviewCard({ bandObj, time }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -49,7 +49,7 @@ export default function OverviewCard({ bandObj }) {
           />
 
           {bandObj.cancelled && loaded && <CancelledSticker />}
-          <CardSticker bandObj={bandObj} />
+          <CardSticker bandObj={bandObj} time={time} />
         </figure>
       </button>
 

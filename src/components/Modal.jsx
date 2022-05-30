@@ -118,7 +118,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
           </p>
 
           <button
-            className="block mt-auto ml-auto px-3 py-2 bg-white text-black"
+            className="flex items-center gap-4 mt-auto ml-auto px-3 py-2 bg-white text-black"
             onClick={() => changeFav(bandObj.name)}
           >
             {bandObj.favorite ? (

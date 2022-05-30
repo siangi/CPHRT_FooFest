@@ -88,8 +88,8 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
           {allBands
             .filter((band) => band.day === day && band.stage === stageFilter)
             .map((band) => (
-              <div key={band.name} className="h-60">
-                <OverviewCard bandObj={band} />
+              <div key={band.name} className="h-60 ">
+                <OverviewCard time={true} bandObj={band} />
               </div>
             ))}
         </div>
