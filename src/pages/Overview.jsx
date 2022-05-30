@@ -2,6 +2,9 @@ import { AllBandsContext } from "../App";
 import OverviewCard from "../components/OverviewCard";
 import React, { useState, useRef } from "react";
 import H1 from "../components/typography/H1";
+import H2 from "../components/typography/H2";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+
 
 function WrapperBig({ bandObj }) {
   return (
@@ -39,7 +42,20 @@ function Overview() {
 
   return (
     <>
-    <H1>Overview</H1>
+    <H1>Line-up</H1>
+    <H2 classModifiers={`text-5xl mb-5`} >Who are you the most exited to see?</H2>
+    <div className='grid grid-cols-1 gap-14 mb-10 lg:grid-cols-2'>
+      <div className="grid gap-5">
+        <p className='text-white'>Are you ready for Ragnarock? From August 8th to August 14th we are serving you the line-up of your dreams, spread out on our three main stages; Jotunheim, Vanaheim, and Midgard.</p>
+      </div>
+      <div className="flex flex-col">
+        <H2 classModifiers={`text-accent_red `}>Nirvana?</H2>
+        <H2 classModifiers={`text-accent_yellow `}>The rolling stones?</H2>
+        <H2 classModifiers={`text-accent_blue `}>Guns N' Roses?</H2>
+      </div>
+    </div>
+
+
       <section className="flex gap-4 my-8 md:max-w-[90%] lg:max-w-5xl xl:max-w-6xl mx-auto">
         <select
           className="py-2 bg-white text-black"

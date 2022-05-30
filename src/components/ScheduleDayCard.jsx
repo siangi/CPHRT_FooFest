@@ -8,7 +8,7 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
 
   return (
     <article className={`${cardIndex !== index && "hidden"} lg:block`}>
-      <h2 className="text-[5.5rem] w-full text-white leading-[7rem] font-displayFont hidden lg:block">
+      <h2 className="text-4xl w-full text-white leading-[7rem] font-bodyFont hidden lg:block">
         {day}
       </h2>
 
