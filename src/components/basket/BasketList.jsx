@@ -5,12 +5,7 @@ import H4 from '../typography/H4';
 import BasketTotal from './BasketTotal';
 
 function BasketList(props) {
-  const {shopData, setShopData} = useContext(ShopContext);
-
-
-  function updateSomeAmount(){
-
-  }
+  const {shopData } = useContext(ShopContext);
 
   function calculateTotal(){
     let subTotal = 0;
@@ -29,17 +24,18 @@ function BasketList(props) {
       {
         shopData.tickets.filter((ticket) => ticket.amount > 0).map((ticket) =>
         {
-          return <BasketArticle key={Math.random()} title={ticket.title + " Ticket"} price={ticket.price} amount={ticket.amount}></BasketArticle>
+          return <BasketArticle editUrl="../tickets" key={Math.random()} title={ticket.title + " Ticket"} price={ticket.price} amount={ticket.amount}></BasketArticle>
         })
       }
       {
         shopData.tents.filter((tent) => tent.amountOfTents > 0).map((tent) =>
         {
-          return <BasketArticle key={Math.random()} title={tent.title + " Ticket"} price={tent.price} amount={tent.amountOfTents}></BasketArticle>
+          return <BasketArticle editUrl="../tents" key={Math.random()} title={tent.title} price={tent.price} amount={tent.amountOfTents}></BasketArticle>
         })
       }
       { shopData.greenCamping.selected ? 
         <BasketArticle 
+          editUrl="../campground"
           key={Math.random()} 
           title={shopData.greenCamping.title} 
           price={shopData.greenCamping.price}
