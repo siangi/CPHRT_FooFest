@@ -98,7 +98,7 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
               : bandObj.color === "accent_blue"
               ? "bg-accent_blue"
               : "bg-accent_yellow"
-          } h-full w-full mt-2 space-y-2`}
+          } h-full w-full mt-2 space-y-2  mb-4`}
         >
           <p>
             <strong>Stage: </strong>
@@ -121,7 +121,7 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
                     href={band.link}
                     rel="noreferrer"
                     target="_blank"
-                    className="flex justify-between mt-6 mb-4"
+                    className="flex justify-between mt-6"
                   >
                     Listen on Spotify
                     <BsSpotify color="black" size="1.5rem" />
@@ -131,7 +131,11 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
           </strong>
         </div>
 
-        <ToggleFavorite setAllBands={setAllBands} bandObj={bandObj} />
+        <ToggleFavorite
+          setAllBands={setAllBands}
+          bandObj={bandObj}
+          fav={true}
+        />
       </div>
     )
   );

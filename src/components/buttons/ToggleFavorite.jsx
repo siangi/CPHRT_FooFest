@@ -2,7 +2,7 @@ import React from "react";
 import Heart from "../Heart";
 import HeartFull from "../HeartFull";
 
-export default function ToggleFavorite({ setAllBands, bandObj }) {
+export default function ToggleFavorite({ setAllBands, bandObj, fav }) {
   const changeFav = (name) => {
     setAllBands((prev) =>
       prev.map((band) => {
@@ -17,7 +17,10 @@ export default function ToggleFavorite({ setAllBands, bandObj }) {
 
   return (
     <button
-      className="flex items-center gap-4 mt-auto ml-auto px-3 py-2 bg-white text-black"
+      style={fav && { margin: "0" }}
+      className={`flex items-center gap-4 mt-auto ${
+        fav ? "w-full justify-between" : "ml-auto"
+      } px-3 py-2 bg-white text-black`}
       onClick={() => changeFav(bandObj.name)}
     >
       {bandObj.favorite ? (
