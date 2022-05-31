@@ -32,6 +32,7 @@ function BillForm(props) {
         key={preset.id}
         billing={true}
         default={preset}
+        submitAll={props.onSubmit}
       ></PersonForm>
     </div>
   )

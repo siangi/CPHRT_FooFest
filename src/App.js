@@ -13,6 +13,7 @@ import TentForm from "./pages/ShopSubPages/TentForm";
 import TicketForm from "./pages/ShopSubPages/TicketForm";
 import PersonalInfo from "./pages/ShopSubPages/PersonalInfo";
 import Basket from "./pages/ShopSubPages/Basket";
+import Confirmation from "./pages/Confirmation";
 import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
 import Overview from "./pages/Overview";
@@ -92,7 +93,7 @@ export default function App() {
     }, []);
 
     return (
-        <div className="App bg-darkmode_black">
+        <div className="App bg-darkmode_black flex flex-col justify-between min-h-screen">
             <Navigation></Navigation>
 
             <AllBandsContext.Provider value={allBands}>
@@ -111,6 +112,7 @@ export default function App() {
                                 <Route path="/shop/personal-info" element={<PersonalInfo></PersonalInfo>}></Route>
                                 <Route path="/shop/basket" element={<Basket></Basket>}></Route>
                             </Route>
+                            <Route path="/confirmation" element={<Confirmation></Confirmation>}></Route>
                         </Routes>
                     </div>
                     <Footer></Footer>

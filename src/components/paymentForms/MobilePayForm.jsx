@@ -3,7 +3,7 @@ import BaseInput from '../inputs/BaseInput';
 import P from '../typography/P';
 import PayNowButton from '../buttons/PayNowButton';
 
-function MobilePayForm() {
+function MobilePayForm(props) {
   return (
     <form>
       <BaseInput
@@ -14,7 +14,7 @@ function MobilePayForm() {
         required={true}>
       </BaseInput>
       <P classModifiers="text-shade_darker_white">You will be redirected to the Mobile Pay App as soon as you submit</P>
-      <PayNowButton></PayNowButton>
+      <PayNowButton action={props.onSubmit}></PayNowButton>
     </form>
   )
 }

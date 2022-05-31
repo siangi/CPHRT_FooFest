@@ -4,7 +4,7 @@ import BasketList from '../../components/basket/BasketList';
 import PaymentContainer from '../../components/paymentForms/PaymentContainer';
 
 function Basket() {
-  let {shopData, setShopData} = useContext(ShopContext);
+  let {setShopData} = useContext(ShopContext);
 
   useEffect(() => {
     setShopData((oldData) => {

@@ -2,9 +2,11 @@ import React from 'react'
 import PayNowButton from '../buttons/PayNowButton'
 import BaseInput from '../inputs/BaseInput'
 
-function CreditCardForm() {
+function CreditCardForm(props) {
+  const form = React.createRef();
+  
   return (
-    <form>
+    <form ref={form}>
       <BaseInput name="holder-name"
         id="holder-name"
         required={true}
@@ -31,7 +33,7 @@ function CreditCardForm() {
           errormessage="please enter a valid security code!">
         </BaseInput>
       </div>
-      <PayNowButton></PayNowButton>
+      <PayNowButton action={props.onSubmit}></PayNowButton>
     </form>
   )
 }
