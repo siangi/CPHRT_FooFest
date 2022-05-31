@@ -37,7 +37,7 @@ export default function Favorites() {
       </svg>
       <h2 className="text-4xl text-white font-displayFont" > Personalised schedule</h2>
     </div>
-    <div className='grid grid-cols-1 gap-10 mb-10 lg:grid-cols-2'>
+    <div className='grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-28 mb-10'>
       <P>Ragnarock is the biggest rock festival in Europe - which is the equivalent of <span className='text-accent_yellow font-bold'>the line-up of your dreams</span>. This means a lot of <span className='font-bold text-accent_yellow'>bucket list concerts</span>, but also a lot of timeslots for you to remember. We want to make your life easier - so all you have to do is to enjoy!</P>
       <P>We are therefor allowing you to create your very own <span className='text-accent_yellow font-bold'>ride or die personalised schedule!</span> Add a star to your favorite bands, and in your very own favorites-schedule you will find all the information you need; when, where and who.</P>
     </div>
