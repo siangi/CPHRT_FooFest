@@ -10,10 +10,12 @@ module.exports = {
             'xl': "calc(1.25rem + (1.563 - 1.25) * ((100vw - 300px) / (1600 - 300)));",
             "2xl": "calc(1.563rem + (1.953 - 1.563) * ((100vw - 300px) / (1600 - 300)));",
             "3xl": "calc(1.953rem + (2.441 - 1.953) * ((100vw - 300px) / (1600 - 300)));",
-            "4xl": "calc(3.052rem + (1.953 - 3.052) * ((100vw - 300px) / (1600 - 300)));",
-            "5xl": "calc(3.819rem + (3.052 - 3.819) * ((100vw - 300px) / (1600 - 300)));",
-            "6xl": "calc(4.773rem + (3.819 - 4.773) * ((100vw - 300px) / (1600 - 300)));",
-            "12xl": "calc(9.313rem + (9.313 - 7.451) * ((100vw - 300px) / (1600 - 300)));",
+            "4xl": "calc(1.953rem + (3.052 - 1.953) * ((100vw - 300px) / (1600 - 300)));",
+            "5xl": "calc(3.052rem + (3.819 - 3.052) * ((100vw - 300px) / (1600 - 300)));",
+            "6xl": "calc(3.819rem + (4.773 - 3.819) * ((100vw - 300px) / (1600 - 300)));",
+            "12xl": "calc(7.451rem + (9.313 - 7.451) * ((100vw - 300px) / (1600 - 300)));",
+            //font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+            //font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         },
         extend: {
             colors: {
