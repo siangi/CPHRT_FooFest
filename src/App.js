@@ -24,7 +24,7 @@ export default function App() {
 
   useEffect(() => {
     axios
-      .get("https://cphrt1.herokuapp.com/allbands")
+      .get("https://cphrt1.herokuapp.com/information")
       .then(function ({ data }) {
         setAllBands(data);
       })

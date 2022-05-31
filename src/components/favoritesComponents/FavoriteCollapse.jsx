@@ -111,6 +111,7 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
             (band) =>
               band.name === bandObj.name && (
                 <a
+                  key={bandObj.name}
                   href={band.link}
                   rel="noreferrer"
                   target="_blank"

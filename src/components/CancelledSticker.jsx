@@ -1,7 +1,12 @@
 export default function CancelledSticker() {
   return (
-    <div className="bg-red-600 drop-shadow-lg leading-7 text-lg lg:text-xl text-center row-start-0 col-start-0 row-start-1 col-start-1 self-start justify-self-start font-bodyFont  py-3 w-full">
-      CANCELLED
+    <div className="bg-transparent_black   text-center row-start-0 col-start-0 row-start-1 col-start-1 z-10 py-3 h-full w-full">
+      <figure className="flex flex-col gap-5 max-w-[40%] m-auto items-center opacity-100">
+        <img src={process.env.PUBLIC_URL + "./icons/crossEyes.svg"} alt="" />
+        <figcaption className="text-white font-bodyFont text-lg lg:text-3xl">
+          CANCELLED
+        </figcaption>
+      </figure>
     </div>
   );
 }

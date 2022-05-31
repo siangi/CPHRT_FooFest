@@ -27,6 +27,7 @@ module.exports = {
                 darkmode_black8: "#545463",
 
                 shade_darker_white: "#F4F4F6",
+                transparent_black: "rgba(0, 0, 0, 0.8)",
 
                 accent_yellow: "#E19F54",
                 accent_yellow2: "#E7B174",
