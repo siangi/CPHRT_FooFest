@@ -20,7 +20,8 @@ function MobilePayForm(props) {
         id="phone"
         label="Phone Number (connected to Mobile Pay)"
         errormessage="please enter a valid phone number!"
-        required={true}>
+        required={true}
+        pattern="(\+?\d*\s*)*">
       </BaseInput>
       <P classModifiers="text-shade_darker_white">You will be redirected to the Mobile Pay App as soon as you submit</P>
       <PayNowButton action={handleSubmit}></PayNowButton>

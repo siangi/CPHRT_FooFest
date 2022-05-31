@@ -17,26 +17,30 @@ function CreditCardForm(props) {
         id="holder-name"
         required={true}
         label="Cardholder"
-        errormessage="please enter the name of the card owner">
+        errormessage="enter the name of the card owner">
       </BaseInput>
       <BaseInput name="card-number" 
         id="card-number" 
         required={true} 
-        label="Card Number" 
-        errormessage="please enter a valid (17 digit) credit card number">
+        label="Card Number"
+        pattern="^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$" // yes this is not a good regex for a credit card number. 
+        // doesn't matter that much, there is no money involved anyway
+        errormessage="enter a valid (17 digit) card number">
       </BaseInput>
       <div className='flex flex-row gap-4'>
         <BaseInput name="expiry-date"
           id="expiry-date"
           required={true}
           label="Expiration Date (MM/YY)"
-          errormessage="please enter a valid expiration date format (MM/YY)">
+          pattern="^((0[1-9])|(1[0-2]))[\/\.\-]*(([2-9][1-9]))$"
+          errormessage="enter a valid expiration date">
         </BaseInput>
         <BaseInput name="security-code"
           id="security-code"
           required={true}
           label="Security Code"
-          errormessage="please enter a valid security code!">
+          pattern="^\d{3}$"
+          errormessage="enter a valid security code">
         </BaseInput>
       </div>
       <PayNowButton action={handleSubmit}></PayNowButton>
