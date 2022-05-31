@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 850);
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 950);
   const updateMedia = () => {
-    setDesktop(window.innerWidth > 850);
+    setDesktop(window.innerWidth > 950);
   };
 
   useEffect(() => {
