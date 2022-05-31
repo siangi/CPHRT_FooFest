@@ -22,7 +22,7 @@ function Footer() {
     </div>
     <hr className="my-6 border-darkmode_black8 sm:mx-auto lg:my-8" />
     <div className="sm:flex sm:items-center sm:justify-between my-6">
-        <span className="text-sm text-darkmode_black8 sm:text-center">© 2022 George Nicolae, Simon Giesler & Tomine Ødegård.</span>
+        <span className="text-sm text-darkmode_black8 sm:text-center">© 2022 George Nicolae, Simon Gisler & Tomine Ødegård.</span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="https://github.com/siangi/CPHRT_FooFest" className="text-darkmode_black8 hover:text-accent_yellow">
                 <AiFillGithub className="w-5 h-5 hover:fill-accent_yellow" cursor-pointer/>
