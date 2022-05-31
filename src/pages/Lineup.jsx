@@ -32,7 +32,7 @@ function WrapperSmall({ bandObj }) {
 
 export const BandContext = React.createContext();
 
-function Overview() {
+function Lineup() {
   const allBands = React.useContext(AllBandsContext);
   const [stageFilter, setStageFilter] = useState("all");
   const [genreFilter, setGenreFilter] = useState("all");
@@ -42,7 +42,7 @@ function Overview() {
 
   return (
     <>
-    <H1>Line-up</H1>
+    <H1>Full line up</H1>
     {/* <H2 classModifiers="text-5xl mb-5" >Who are you the most exited to see?</H2> */}
     <h2 className="text-4xl text-white font-displayFont" >Who are you the most exited to see?</h2>
     <div className='grid grid-cols-1 gap-14 mb-10 lg:grid-cols-2'>
@@ -112,4 +112,4 @@ function Overview() {
   );
 }
 
-export default Overview;
+export default Lineup;

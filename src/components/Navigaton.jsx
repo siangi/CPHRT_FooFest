@@ -34,26 +34,24 @@ export default function Header() {
             </Link>
             <Link
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
-              to="/overview"
+              to="/lineup"
             >
               Line-up
             </Link>
             <Link
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
-              to="/Schedule"
+              to="/schedule"
             >
               Schedule
             </Link>
             <Link
               className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
-              to="/Favorites"
+              to="/favorites"
             >
               Your favorites
             </Link>
-            <PrimaryButton
-              caption="Get tickets"
-              onClick={"/shop"}
-            ></PrimaryButton>
+            <Link to="/shop"><PrimaryButton
+              caption="Get tickets"></PrimaryButton></Link>
           </div>
         </nav>
       ) : (
@@ -95,7 +93,7 @@ export default function Header() {
                 <Link to="/schedule">Schedule</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/overview">Line-up</Link>
+                <Link to="/lineup">Line-up</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
                 <Link to="/schedule">Your favorites</Link>

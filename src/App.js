@@ -14,7 +14,7 @@ import TicketForm from "./pages/ShopSubPages/TicketForm";
 import PersonalInfo from "./pages/ShopSubPages/PersonalInfo";
 import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
-import Overview from "./pages/Overview";
+import Lineup from "./pages/Lineup";
 
 export const AllBandsContext = React.createContext();
 export const SetAllBandsContext = React.createContext();
@@ -40,10 +40,10 @@ export default function App() {
 
       <AllBandsContext.Provider value={allBands}>
         <SetAllBandsContext.Provider value={setAllBands}>
-          <div className="px-14 md:px-20">
+          <div className="px-8 md:px-14 lg:px-20">
             <Routes>
               <Route path="/" element={<Home></Home>}></Route>
-              <Route path="/overview" element={<Overview />}></Route>
+              <Route path="/lineup" element={<Lineup />}></Route>
               <Route path="/schedule" element={<Schedule></Schedule>}></Route>
               <Route
                 path="/favorites"
