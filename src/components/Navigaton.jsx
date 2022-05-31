@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import PrimaryButton from "./buttons/PrimaryButton";
 import { Link } from "react-router-dom";
 
+
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  function handleLinkClicked(state) {
+    setIsNavOpen(state.isNavOpen);
+  };
+
   const [isDesktop, setDesktop] = useState(window.innerWidth > 950);
   const updateMedia = () => {
     setDesktop(window.innerWidth > 950);
@@ -17,6 +23,7 @@ export default function Header() {
   return (
     <>
       {isDesktop ? (
+        // DESKTOP NAVIGATION
         <nav className="flex justify-between px-8 py-8 items-center">
           <Link to="/">
             <img
@@ -57,6 +64,7 @@ export default function Header() {
           </div>
         </nav>
       ) : (
+        // BURGERMENU
         <nav className="bg-darkmode_black ">
           <div
             className="space-y-2  px-8 py-8"
@@ -86,19 +94,19 @@ export default function Header() {
 
             <ul className="grid grid-cols-1 gap-x-6">
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/" className="self-center">Home</Link>
+                <Link onClick = {handleLinkClicked} to="/" className="self-center">Home</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/shop" className="self-center">Buy tickets</Link>
+                <Link onClick = {handleLinkClicked} to="/shop" className="self-center">Buy tickets</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/schedule" className="self-center">Schedule</Link>
+                <Link onClick = {handleLinkClicked} to="/schedule" className="self-center">Schedule</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/lineup" className="self-center">Line-up</Link>
+                <Link onClick = {handleLinkClicked} to="/lineup" className="self-center">Line-up</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/favorites" className="flex self-center gap-3">
+                <Link onClick = {handleLinkClicked} to="/favorites" className="flex self-center gap-3">
                   Your favorites <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#E19F54" className="self-center bi bi-star-fill " viewBox="0 0 16 16">
                   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                 </svg></Link>
