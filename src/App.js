@@ -54,7 +54,7 @@ export default function App() {
                                 <Route path="/shop/tents" element={<TentForm></TentForm>}></Route>
                                 <Route path="/shop/campground" element={<CampgroundForm></CampgroundForm>}></Route>
                                 <Route path="/shop/personal-info" element={<PersonalInfo></PersonalInfo>}></Route>
-                                <Route path="shop/basket" element={<Basket></Basket>}></Route>
+                                <Route path="/shop/basket" element={<Basket></Basket>}></Route>
                             </Route>
                             <Route path="/confirmation" element={<Confirmation></Confirmation>}></Route>
                         </Routes>
