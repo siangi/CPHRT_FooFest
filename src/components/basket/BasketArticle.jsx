@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import P from '../typography/P';
 import { HiPencil } from "react-icons/hi"
-import NumberStepper from '../inputs/NumberStepper';
 
 function BasketArticle(props) {
   return (

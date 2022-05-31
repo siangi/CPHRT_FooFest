@@ -5,6 +5,8 @@ import BasketList from '../../components/basket/BasketList';
 import PaymentContainer from '../../components/paymentForms/PaymentContainer';
 
 function Basket() {
+  const API_KEY = "62961c39c4d5c3756d35a3d6";
+  const DB_URL = "https://cphrtfoofest-74ae.restdb.io/rest/orders";
   let reservationID = useRef();
   let { shopData, setShopData} = useContext(ShopContext);
 
@@ -26,6 +28,7 @@ function Basket() {
       await axios.post("https://cphrt.herokuapp.com/fullfill-reservation", {id: reservationID.current})
         .then((response) => {
           if (response.data.message === "Reservation completed"){
+            saveShopData();
             returnVal = true;
           } 
       });
@@ -40,6 +43,11 @@ function Basket() {
     }
     return returnVal;
   }
+
+  function saveShopData(){
+    axios.post(DB_URL, {"shopData": JSON.stringify(shopData)}, {headers: {"x-apikey": API_KEY}});
+  }
+
 
   useEffect(() => {
     setShopData((oldData) => {
