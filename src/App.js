@@ -4,6 +4,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
+import Lineup from "./pages/Lineup";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
 import ErrorPage from "./pages/ErrorPage";
@@ -14,7 +15,6 @@ import TicketForm from "./pages/ShopSubPages/TicketForm";
 import PersonalInfo from "./pages/ShopSubPages/PersonalInfo";
 import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
-import Lineup from "./pages/Lineup";
 
 export const AllBandsContext = React.createContext();
 export const SetAllBandsContext = React.createContext();

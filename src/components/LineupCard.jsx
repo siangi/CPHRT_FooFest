@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 import { useState, useEffect } from "react";
 
-export default function OverviewCard({ bandObj }) {
+export default function LinupCard({ bandObj }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 

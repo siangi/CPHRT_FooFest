@@ -1,5 +1,5 @@
 import { AllBandsContext } from "../App";
-import OverviewCard from "../components/OverviewCard";
+import LineupCard from "../components/LineupCard";
 import React, { useState, useRef } from "react";
 import H1 from "../components/typography/H1";
 import H2 from "../components/typography/H2";
@@ -9,7 +9,7 @@ import P from "../components/typography/P";
 function WrapperBig({ bandObj }) {
   return (
     <div className="col-span-1 row-span-1 sm:col-span-2 sm:row-span-2  h-full w-full flex flex-col gap-3">
-      <OverviewCard bandObj={bandObj} />
+      <LineupCard bandObj={bandObj} />
     </div>
   );
 }
@@ -17,7 +17,7 @@ function WrapperBig({ bandObj }) {
 function WrapperTall({ bandObj }) {
   return (
     <div className="row-span-1 col-span-1 sm:row-span-2 h-full w-full flex flex-col gap-3">
-      <OverviewCard bandObj={bandObj} />
+      <LineupCard bandObj={bandObj} />
     </div>
   );
 }
@@ -25,7 +25,7 @@ function WrapperTall({ bandObj }) {
 function WrapperSmall({ bandObj }) {
   return (
     <div className="h-full w-full flex flex-col gap-3">
-      <OverviewCard bandObj={bandObj} />
+      <LineupCard bandObj={bandObj} />
     </div>
   );
 }

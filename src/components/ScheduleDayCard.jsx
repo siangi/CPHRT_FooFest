@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AllBandsContext } from "../App";
-import OverviewCard from "./OverviewCard";
+import LineupCard from "./LineupCard";
 import H2 from "./typography/H2";
 
 export default function ScheduleDayCard({ day, cardIndex, index }) {
@@ -88,7 +88,7 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
             .filter((band) => band.day === day && band.stage === stageFilter)
             .map((band) => (
               <div key={band.name} className="h-60">
-                <OverviewCard bandObj={band} />
+                <LineupCard bandObj={band} />
               </div>
             ))}
         </div>
