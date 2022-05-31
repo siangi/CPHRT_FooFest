@@ -12,7 +12,7 @@ export default function OverviewCard({ bandObj, time }) {
 
   return (
     <>
-      {!loaded && (
+      {!loaded && !bandObj.cancelled && (
         <div className="flex items-center gap-4">
           <span className="text-white">Image is loading...</span>
           <svg
@@ -34,8 +34,10 @@ export default function OverviewCard({ bandObj, time }) {
         </div>
       )}
       <button
-        className={`w-full flex-grow-0 ${loaded ? "h-full" : "h-fit"}`}
-        onClick={() => setModalOpen(true)}
+        className={`w-full flex-grow-0 ${loaded ? "h-full" : "h-fit"} ${
+          !bandObj.cancelled ? "cursor-pointer" : "cursor-auto"
+        }`}
+        onClick={() => !bandObj.cancelled && setModalOpen(true)}
       >
         <figure className="grid h-full w-full">
           <img
@@ -48,7 +50,7 @@ export default function OverviewCard({ bandObj, time }) {
             alt={`${bandObj.name} band logo`}
           />
 
-          {bandObj.cancelled && loaded && <CancelledSticker />}
+          {bandObj.cancelled && <CancelledSticker />}
           <CardSticker bandObj={bandObj} time={time} />
         </figure>
       </button>

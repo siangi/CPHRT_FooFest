@@ -1,6 +1,11 @@
 import { BsSpotify } from "react-icons/bs";
+import ToggleFavorite from "../buttons/ToggleFavorite";
+import { SetAllBandsContext } from "../../App";
+import React from "react";
 
 export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
+  const setAllBands = React.useContext(SetAllBandsContext);
+
   const spotifyUrls = [
     {
       name: "Queen",
@@ -83,47 +88,51 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
     },
   ];
 
-  return isCollapseOpen ? (
-    <div className=" col-start-1 col-end-7">
-      <div
-        className={`${
-          bandObj.color === "accent_red"
-            ? "bg-accent_red"
-            : bandObj.color === "accent_blue"
-            ? "bg-accent_blue"
-            : "bg-accent_yellow"
-        } h-full w-full mt-2 space-y-2`}
-      >
-        <p>
-          <strong>Stage: </strong>
-          {bandObj.stage}
-        </p>
-        <p>
-          <strong>Genre: </strong>
-          {bandObj.genre}
-        </p>
-        <p>
-          <strong>Members: </strong>
-          {bandObj.members.join(", ")}
-        </p>
-        <strong>
-          {spotifyUrls.map(
-            (band) =>
-              band.name === bandObj.name && (
-                <a
-                  key={bandObj.name}
-                  href={band.link}
-                  rel="noreferrer"
-                  target="_blank"
-                  className="flex justify-between mt-6"
-                >
-                  Listen on Spotify
-                  <BsSpotify color="black" size="1.5rem" />
-                </a>
-              )
-          )}
-        </strong>
+  return (
+    isCollapseOpen && (
+      <div className="p-3 pt-0 ">
+        <div
+          className={`${
+            bandObj.color === "accent_red"
+              ? "bg-accent_red"
+              : bandObj.color === "accent_blue"
+              ? "bg-accent_blue"
+              : "bg-accent_yellow"
+          } h-full w-full mt-2 space-y-2`}
+        >
+          <p>
+            <strong>Stage: </strong>
+            {bandObj.stage}
+          </p>
+          <p>
+            <strong>Genre: </strong>
+            {bandObj.genre}
+          </p>
+          <p>
+            <strong>Members: </strong>
+            {bandObj.members.join(", ")}
+          </p>
+          <strong>
+            {spotifyUrls.map(
+              (band) =>
+                band.name === bandObj.name && (
+                  <a
+                    key={bandObj.name}
+                    href={band.link}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="flex justify-between mt-6 mb-4"
+                  >
+                    Listen on Spotify
+                    <BsSpotify color="black" size="1.5rem" />
+                  </a>
+                )
+            )}
+          </strong>
+        </div>
+
+        <ToggleFavorite setAllBands={setAllBands} bandObj={bandObj} />
       </div>
-    </div>
-  ) : null;
+    )
+  );
 }

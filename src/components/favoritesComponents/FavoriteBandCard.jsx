@@ -7,36 +7,38 @@ export default function FavoriteBandCard(props) {
   const [isCollapseOpen, setIsCollapseOpen] = useState(false);
 
   return (
-    <button
-      onClick={() => setIsCollapseOpen((prev) => !prev)}
+    <article
       className={`${
         props.bandObj.color === "accent_red"
           ? "bg-accent_red"
           : props.bandObj.color === "accent_blue"
           ? "bg-accent_blue"
           : "bg-accent_yellow"
-      } h-fit w-full grid grid-cols-6 mb-5 p-3 text-left`}
+      } h-fit w-full mb-5 text-left`}
     >
-      <div className="time_and_band col-start-1 align-left col-end-5 ml-0">
-        <p>
-          {props.bandObj.start} - {props.bandObj.end}
-        </p>
-        <H4>{props.bandObj.name}</H4>
-      </div>
+      <button
+        className="time_and_band ml-0 flex items-center  p-3 "
+        onClick={() => setIsCollapseOpen((prev) => !prev)}
+      >
+        <div className="w-[80%] text-left">
+          <p>
+            {props.bandObj.start} - {props.bandObj.end}
+          </p>
+          <H4>{props.bandObj.name}</H4>
+        </div>
 
-      <div className="icon flex flex-row col-end-7 col-span-2">
         <img
           src={process.env.PUBLIC_URL + props.bandObj.runeUrl}
           alt={props.bandObj.stage}
-          className="h-10 w-full flex justify-center"
+          className="h-full w-full w-[20%]"
         />
-      </div>
+      </button>
 
       <FavoriteCollapse
         bandObj={props.bandObj}
         isCollapseOpen={isCollapseOpen}
         setIsCollapseOpen={setIsCollapseOpen}
       ></FavoriteCollapse>
-    </button>
+    </article>
   );
 }
