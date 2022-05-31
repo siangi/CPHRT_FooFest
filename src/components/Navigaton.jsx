@@ -27,28 +27,30 @@ export default function Header() {
           </Link>
           <div className="flex gap-12">
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow self-center"
               to="/"
             >
               Home
             </Link>
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow self-center"
               to="/lineup"
             >
               Line-up
             </Link>
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow self-center"
               to="/schedule"
             >
               Schedule
             </Link>
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow flex self-center gap-3"
               to="/favorites"
             >
-              Your favorites
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#E19F54" className="self-center bi bi-star-fill" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg> Your favorites
             </Link>
             <Link to="/shop"><PrimaryButton
               caption="Get tickets"></PrimaryButton></Link>
@@ -84,19 +86,22 @@ export default function Header() {
 
             <ul className="grid grid-cols-1 gap-x-6">
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/">Home</Link>
+                <Link to="/" className="self-center">Home</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/shop">Buy tickets</Link>
+                <Link to="/shop" className="self-center">Buy tickets</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/schedule">Schedule</Link>
+                <Link to="/schedule" className="self-center">Schedule</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/lineup">Line-up</Link>
+                <Link to="/lineup" className="self-center">Line-up</Link>
               </li>
               <li className="m-8 font-bodyFont font-semibold text-lg tracking-wide">
-                <Link to="/schedule">Your favorites</Link>
+                <Link to="/schedule" className="flex self-center gap-3">
+                  Your favorites <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#E19F54" className="self-center bi bi-star-fill " viewBox="0 0 16 16">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg></Link>
               </li>
             </ul>
           </div>
