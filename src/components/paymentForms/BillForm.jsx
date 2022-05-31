@@ -7,6 +7,8 @@ function BillForm(props) {
   const {shopData} = useContext(ShopContext);
   const [preset, setPreset] = useState({id: 0, firstname: "", lastname: "", address: "", zip: "", city: "", email: "", phone: ""});
   const persons = shopData.persons;
+  
+
   function getSelectOptionsFromPersons(){
     let options = persons.map((person) => {return { value: person.id, caption: `${person.firstname} ${person.lastname}` }})
     options.unshift({value: 0, caption: "enter custom information"});

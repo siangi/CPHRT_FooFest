@@ -4,8 +4,17 @@ import P from '../typography/P';
 import PayNowButton from '../buttons/PayNowButton';
 
 function MobilePayForm(props) {
+  const form = React.createRef();
+  
+  function handleSubmit(event){
+    event.preventDefault(); 
+    if(form.current.reportValidity()){
+      props.onSubmit();
+    }
+  }
+
   return (
-    <form>
+    <form ref={form}>
       <BaseInput
         name="phone"
         id="phone"
@@ -14,7 +23,7 @@ function MobilePayForm(props) {
         required={true}>
       </BaseInput>
       <P classModifiers="text-shade_darker_white">You will be redirected to the Mobile Pay App as soon as you submit</P>
-      <PayNowButton action={props.onSubmit}></PayNowButton>
+      <PayNowButton action={handleSubmit}></PayNowButton>
     </form>
   )
 }

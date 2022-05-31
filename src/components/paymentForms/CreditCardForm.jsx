@@ -5,6 +5,12 @@ import BaseInput from '../inputs/BaseInput'
 function CreditCardForm(props) {
   const form = React.createRef();
   
+  function handleSubmit(event){
+    event.preventDefault(); 
+    if(form.current.reportValidity()){
+      props.onSubmit();
+    }
+  }
   return (
     <form ref={form}>
       <BaseInput name="holder-name"
@@ -33,7 +39,7 @@ function CreditCardForm(props) {
           errormessage="please enter a valid security code!">
         </BaseInput>
       </div>
-      <PayNowButton action={props.onSubmit}></PayNowButton>
+      <PayNowButton action={handleSubmit}></PayNowButton>
     </form>
   )
 }

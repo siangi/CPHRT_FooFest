@@ -5,12 +5,17 @@ import CreditCardForm from './CreditCardForm';
 import MobilePayForm from './MobilePayForm';
 import BillForm from './BillForm';
 
-function PaymentContainer() {
+function PaymentContainer(props) {
   const [activePayOption, setActivePayOption] = useState("mobile-pay");
   const navigate = useNavigate();
 
-  function onSubmit(){
-    navigate("/confirmation");
+  async function onSubmit(){
+    let confirmed = await props.confirmReservation()
+    if(confirmed){
+      navigate("/confirmation");
+    } else {
+      console.log("not fulfilled in function");
+    }
   }
   return (
     <div className='h-full'>

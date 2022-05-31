@@ -58,7 +58,7 @@ export const ShopProvider = ({ children }) => {
             description: "Lorem Ipsum dolor Sit amet",
         },
         persons: [],
-        activeStep: 0,
+        activeStep: 0
     });
     const value = {
         shopData,

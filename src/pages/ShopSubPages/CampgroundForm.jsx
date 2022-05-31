@@ -8,39 +8,49 @@ import PrimaryButton from '../../components/buttons/PrimaryButton';
 import ErrorP from '../../components/typography/ErrorP';
 import H3 from "../../components/typography/H2";
 import H4 from "../../components/typography/H4";
+import axios from 'axios';
 
 function CampgroundForm() {
     const navigate = useNavigate();
     const { shopData, setShopData} = useContext(ShopContext);
+    const [Campgrounds, setCampgrounds] = useState([
+        {
+            area: "Helheim",
+            spots: "loading...",
+            available: "loading..",
+        },
+        {
+            area: "Svartheim",
+            spots: "loading...",
+            available: "loading.."
+        },
+        {
+            area: "Alfheim",
+            spots: "loading...",
+            available: "loading.."
+        },
+        {
+            area: "Nilfheim",
+            spots: "loading...",
+            available: "loading.."
+        },
+        {
+            area: "Muspelheim",
+            spots: "loading...",
+            available: "loading.."
+        }
+    ])
     const [activeCampground, setactiveCampground] = useState("");
     const [campsGreenly, setCampsGreenly] = useState(false);
 
-    const Campgrounds = [
-        {
-            name: "Helheim",
-            freeSpaces: "220",
-        },
-        {
-            name: "Svartheim",
-            freeSpaces: "330"
-        },
-        {
-            name: "Alfheim",
-            freeSpaces: "100"
-        },
-        {
-            name: "Nilfheim",
-            freeSpaces: "225"
-        },
-        {
-            name: "Muspelheim",
-            freeSpaces: "68"
-        }
-    ]
     const greenCampingOption = shopData.greenCamping;
     const [formValid, setFormValid] = useState(true);
     const [checkOnChange, setcheckOnChange] = useState(false);
 
+    useEffect(() => {
+        axios.get("https://cphrt.herokuapp.com/available-spots")
+            .then((response) => setCampgrounds(response.data));
+    }, [])
 
     useEffect(() => {
         setShopData((oldData) => {
@@ -51,11 +61,11 @@ function CampgroundForm() {
     }, [setShopData])
 
     function displayFreeSpaces(NewCampgroundName){
-        let newCampground = Campgrounds.filter((campground) => {
-            return campground.name === NewCampgroundName
+        let newCampground = Campgrounds.find((campground) => {
+            return campground.area === NewCampgroundName
         })
 
-        setactiveCampground(newCampground[0]);
+        setactiveCampground(newCampground);
     }
 
     function handleMapClick(campgroundName, event){
@@ -93,9 +103,9 @@ function CampgroundForm() {
                 <H3>choose your Campground</H3>
                 {activeCampground?
                     <>
-                        <H4>{activeCampground.name}</H4>
+                        <H4>{activeCampground.area}</H4>
                         <p className='font-bodyFont text-lg'>
-                            free spaces: {activeCampground.freeSpaces}
+                            free spaces: {activeCampground.available}
                         </p>
                     </>: null
                 }
