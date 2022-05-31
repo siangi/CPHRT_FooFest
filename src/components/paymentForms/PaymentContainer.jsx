@@ -24,7 +24,7 @@ function PaymentContainer(props) {
             <RadioButton groupName="pay-options" id="mobile-pay" label="mobile pay" checked={activePayOption==="mobile-pay"} onChange={() => setActivePayOption("mobile-pay")}></RadioButton>
             <RadioButton groupName="pay-options" id="bill" label="bill" checked={activePayOption==="bill"} onChange={() => setActivePayOption("bill")}></RadioButton>  
         </div>
-        <div className='bg-darkmode_black2 p-4'>
+        <div className='border border-accent_yellow p-8'>
           {activePayOption === "bill" && <BillForm onSubmit={onSubmit}></BillForm>}
           {activePayOption === "credit-card" && <CreditCardForm onSubmit={onSubmit}></CreditCardForm>}
           {activePayOption === "mobile-pay" && <MobilePayForm onSubmit={onSubmit}></MobilePayForm>}

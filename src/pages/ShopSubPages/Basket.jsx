@@ -3,6 +3,7 @@ import axios from "axios";
 import { ShopContext } from '../../contexts/ShopContext';
 import BasketList from '../../components/basket/BasketList';
 import PaymentContainer from '../../components/paymentForms/PaymentContainer';
+import VisualTicket from '../../components/basket/VisualTicket'
 
 function Basket() {
   const API_KEY = "62961c39c4d5c3756d35a3d6";
@@ -63,8 +64,12 @@ function Basket() {
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 pt-4'>
-      <div className='col-start-1'>
-        <div className='bg-slate-100'>Tickets</div>
+      <div className='col-start-1 grid'>
+        <div className="flex gap-5">
+          {shopData.persons.map((ticketData) => (
+            <VisualTicket className="" value={ticketData}></VisualTicket>
+            ))}
+          </div>
         <BasketList></BasketList>
       </div>
       <div className='col-start-1 md:col-start-2'>
