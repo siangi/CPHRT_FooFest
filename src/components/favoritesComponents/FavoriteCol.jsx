@@ -3,6 +3,7 @@ import H2 from "../typography/H2";
 import P from "../typography/P";
 import { AllBandsContext } from "../../App";
 import FavoriteBandCard from "./FavoriteBandCard";
+import sortingTimes from "../../utils/sorting";
 
 export default function FavoriteCol({ day }) {
   const allBands = React.useContext(AllBandsContext);
@@ -18,6 +19,7 @@ export default function FavoriteCol({ day }) {
         0 ? (
           allBands
             .filter((band) => band.day === day && band.favorite)
+            .sort(sortingTimes)
             .map((band, index) => (
               <FavoriteBandCard key={index} bandObj={band} />
             ))
