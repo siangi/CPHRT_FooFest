@@ -1,14 +1,15 @@
 import React from 'react';
 import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {StackedCarousel} from "react-stacked-carousel";
 import 'react-stacked-carousel/dist/index.css';
 import { ShopContext } from '../../contexts/ShopContext';
-import PersonForm from '../../components/PersonForm';
-import PrimaryButton from "../../components/buttons/PrimaryButton";
+import PersonFormContainer from '../../components/PersonFormContainer';
 
 
 function PersonalInfo() {
   const {shopData, setShopData} = useContext(ShopContext);
+  const navigate = useNavigate();
   const amountOfVIP = shopData.tickets[1].amount;
   const amountOfRegular = shopData.tickets[0].amount;
   let personForms = createPersonForms();
@@ -21,10 +22,10 @@ function PersonalInfo() {
         newData.activeStep = 3;
         return newData;
     });
-}, [setShopData])
+  }, [setShopData])
 
   function submitAll(){
-    console.log(shopData);
+    navigate("../basket")
   }
 
   function saveForm(personInfo){
@@ -64,7 +65,7 @@ function PersonalInfo() {
     if(amountOfVIP + amountOfRegular === 1){
       result.push(
         <div key={1} className='w-full lg:w-3/4'>
-        <PersonForm 
+          <PersonFormContainer 
               id={1}
               first={true} 
               last={true} 
@@ -72,14 +73,15 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
-              submitAll={submitAll}></PersonForm>
+              default={shopData.persons.find((person) => person.id === 1)}
+              submitAll={submitAll}></PersonFormContainer>
         </div>
       )
     } else {
       for(let i = 1; i <= amountOfVIP; i++){
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
-            <PersonForm 
+            <PersonFormContainer 
               id={i}
               first={i === 1} 
               last={i === amountOfVIP + amountOfRegular} 
@@ -87,7 +89,8 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
-              submitAll={submitAll}></PersonForm>
+              default={shopData.persons.find((person) => person.id === i)}
+              submitAll={submitAll}></PersonFormContainer>
           </div>
         )
       }
@@ -95,7 +98,7 @@ function PersonalInfo() {
       for(let i = amountOfVIP + 1; i <= amountOfVIP + amountOfRegular; i++){
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
-            <PersonForm 
+            <PersonFormContainer 
               id={i}
               first={i === 1} 
               last={i === amountOfVIP + amountOfRegular} 
@@ -103,7 +106,8 @@ function PersonalInfo() {
               next={next} 
               previous={previous}
               saveForm={saveForm}
-              submitAll={submitAll}></PersonForm>
+              default={shopData.persons.find((person) => person.id === i)}
+              submitAll={submitAll}></PersonFormContainer>
           </div>
         )
       }
