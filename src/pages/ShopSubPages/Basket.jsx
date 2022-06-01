@@ -68,7 +68,7 @@ function Basket() {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 rows-start-2 gap-4 pt-5'>
       <div className='col-start-1 grid'>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 gap-5">
           <P classModifiers="text-white">*Please doublecheck your personal information before you confirm</P>
           {shopData.persons.map((ticketData) => (
             <VisualTicket className="" value={ticketData}></VisualTicket>
