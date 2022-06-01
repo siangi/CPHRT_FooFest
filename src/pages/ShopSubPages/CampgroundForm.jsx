@@ -48,7 +48,7 @@ function CampgroundForm() {
         console.log(shopData.greenCamping);
         axios.get("https://cphrt.herokuapp.com/available-spots")
             .then((response) => setCampgrounds(response.data));
-    }, [])
+    });
 
     useEffect(() => {
         setShopData((oldData) => {

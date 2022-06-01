@@ -63,7 +63,7 @@ function Basket() {
 
   useEffect(() => {
     reserveSpots();
-  }, [shopData.tickets, shopData.campground.area]);
+  });
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 rows-start-2 gap-4 pt-5'>

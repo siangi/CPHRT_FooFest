@@ -1,11 +1,9 @@
-import { Reac, useContext } from 'react'
-import { ShopContext } from '../../contexts/ShopContext';
+import { React } from 'react'
 import H2 from '../typography/H2';
 import H4 from '../typography/H4';
 import P from '../typography/P';
 
 export default function VisualTicket(props) {
-    let { shopData } = useContext(ShopContext);
     return (
         <>
         <div className='border border-white grid grid-cols-2 p-6 mb-4 w-full lg:w-fit h-full gap-4 lg:gap-0'>
