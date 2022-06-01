@@ -30,12 +30,12 @@ function Footer() {
         </div>
       </div>
 
-      <div className="flex md:justify-end mt-6 sm:justify-start"></div>
-      <hr className="my-6 border-darkmode_black8 sm:mx-auto lg:my-8" />
-      <div className="sm:flex sm:items-center sm:justify-between my-6">
-        <span className="text-sm text-darkmode_black8 sm:text-center">
-          © 2022 George Nicolae, Simon Giesler & Tomine Ødegård.
-        </span>
+
+    <div className='flex md:justify-end mt-6 sm:justify-start'>
+    </div>
+    <hr className="my-6 border-darkmode_black8 sm:mx-auto lg:my-8" />
+    <div className="sm:flex sm:items-center sm:justify-between my-6">
+        <span className="text-sm text-darkmode_black8 sm:text-center">© 2022 George Nicolae, Simon Gisler & Tomine Ødegård.</span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
             href="https://github.com/siangi/CPHRT_FooFest"

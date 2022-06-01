@@ -8,7 +8,7 @@ function PayNowButton(props) {
       <button 
       className='w-fit h-fit box-border bg-shade_darker_white 
       font-bodyFont text-darkmode_black tracking-wider 
-      px-6 py-1 uppercase flex flex-row' 
+      px-6 py-1 uppercase justify-end flex flex-row' 
       onClick={props.action}>
           <HiOutlineLockClosed></HiOutlineLockClosed> Pay Now!
       </button>

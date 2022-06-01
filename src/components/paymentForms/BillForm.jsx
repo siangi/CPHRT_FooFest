@@ -11,7 +11,7 @@ function BillForm(props) {
 
   function getSelectOptionsFromPersons(){
     let options = persons.map((person) => {return { value: person.id, caption: `${person.firstname} ${person.lastname}` }})
-    options.unshift({value: 0, caption: "enter custom information"});
+    options.unshift({value: 0, caption: "Enter custom information"});
     return options
   }
   

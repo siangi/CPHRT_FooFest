@@ -3,6 +3,9 @@ import axios from "axios";
 import { ShopContext } from '../../contexts/ShopContext';
 import BasketList from '../../components/basket/BasketList';
 import PaymentContainer from '../../components/paymentForms/PaymentContainer';
+import VisualTicket from '../../components/basket/VisualTicket'
+import H2 from '../../components/typography/H2';
+import P from '../../components/typography/P';
 
 function Basket() {
   const API_KEY = "62961c39c4d5c3756d35a3d6";
@@ -63,13 +66,19 @@ function Basket() {
   }, [shopData.tickets, shopData.campground.area]);
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 pt-4'>
-      <div className='col-start-1'>
-        <div className='bg-slate-100'>Tickets</div>
-        <BasketList></BasketList>
-      </div>
-      <div className='col-start-1 md:col-start-2'>
+    <div className='grid grid-cols-1 md:grid-cols-2 rows-start-2 gap-4 pt-5'>
+      <div className='col-start-1 grid'>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <P classModifiers="text-white">*Please doublecheck your personal information before you confirm</P>
+          {shopData.persons.map((ticketData) => (
+            <VisualTicket className="" value={ticketData}></VisualTicket>
+            ))}
+          </div>
         <PaymentContainer confirmReservation={fulfillReservation}></PaymentContainer>
+      </div>
+      <div className='col-start-1 row-start-1 md:col-start-2 w-full md:w-3/4 h-fit justify-self-end'>
+        <H2>Your basket</H2>
+        <BasketList></BasketList>
       </div>
       
     </div>

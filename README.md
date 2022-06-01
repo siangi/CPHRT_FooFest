@@ -2,4 +2,4 @@
 
 Live demo: coming ...
 
-Develompent team: George Nicolae, Simon Giesler and Tomine Ødegård
+Develompent team: George Nicolae, Simon Gisler and Tomine Ødegård
