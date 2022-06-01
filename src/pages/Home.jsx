@@ -88,7 +88,7 @@ export default function Home() {
         <>
           <div className="h-full w-full grid grid-cols-3 gap-5 my-5">
             {allBands
-              .filter((band) => !band.cancelled)
+              .filter((band) => !band.cancelled && band.name !== "Tool")
               .slice(0, 3)
 
               .map((band) => (
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
           <div className="h-full w-full grid grid-cols-2 gap-5">
             {allBands
-              .filter((band) => !band.cancelled)
+              .filter((band) => !band.cancelled && band.name !== "Tool")
               .slice(3, 5)
               .map((band) => (
                 <LineupCard bandObj={band} />
