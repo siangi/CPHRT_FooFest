@@ -69,6 +69,7 @@ function PersonalInfo() {
               id={1}
               first={true} 
               last={true} 
+              type={amountOfVIP === 1? "VIP" : "Regular"}
               title={`Ticket 1/1`} 
               next={next} 
               previous={previous}
@@ -85,6 +86,7 @@ function PersonalInfo() {
               id={i}
               first={i === 1} 
               last={i === amountOfVIP + amountOfRegular} 
+              type="VIP"
               title={`Ticket ${i}/${amountOfRegular + amountOfVIP} (VIP)`} 
               next={next} 
               previous={previous}
@@ -102,6 +104,7 @@ function PersonalInfo() {
               id={i}
               first={i === 1} 
               last={i === amountOfVIP + amountOfRegular} 
+              type="Regular"
               title={`Ticket ${i}/${amountOfRegular + amountOfVIP} (Regular)`} 
               next={next} 
               previous={previous}

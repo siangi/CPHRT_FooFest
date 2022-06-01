@@ -30,6 +30,7 @@ function PersonForm(props) {
   function createObjectFromForm(){
     return {
       id: props.id,
+      type: props.type,
       firstname: form.current.elements["firstname"].value,
       lastname: form.current.elements["lastname"].value,
       address: form.current.elements["address"].value,
