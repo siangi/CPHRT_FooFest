@@ -10,7 +10,7 @@ export default function FavoriteCol({ day }) {
 
   return (
     <article
-      className={`row-start-1 row-end-2 col-start-1 col-end-5 flex flex-col items-center w-[20rem]`}
+      className={`row-start-1 row-end-2 col-start-1 col-end-5 flex flex-col items-center w-full xs:w-[20rem]`}
     >
       <H2>{day}</H2>
 

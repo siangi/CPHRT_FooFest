@@ -4,6 +4,12 @@ module.exports = {
   //will remove quotes around some of the tags if not ignored, weird
   // prettier-ignore
   theme: {
+    screens: {
+      'xs': '400px',
+      'sm': '576px',
+      'md': '960px',
+      'lg': '1440px',
+    },
         fontSize: {
             'base': "calc(1rem + (1.2 - 1) * ((100vw - 300px) / (1600 - 300)));",
             'lg': "calc(1rem + (1.25 - 1) * ((100vw - 300px) / (1600 - 300)));",
