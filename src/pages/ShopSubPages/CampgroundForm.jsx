@@ -6,8 +6,9 @@ import CampgroundsMap from '../../components/selectionMap/CampgroundsMap';
 import CheckboxCard from "../../components/optionCards/CheckboxCard";
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import ErrorP from '../../components/typography/ErrorP';
-import H3 from "../../components/typography/H2";
+import P from "../../components/typography/P";
 import H4 from "../../components/typography/H4";
+import H2 from "../../components/typography/H2";
 import axios from 'axios';
 
 function CampgroundForm() {
@@ -48,7 +49,7 @@ function CampgroundForm() {
         console.log(shopData.greenCamping);
         axios.get("https://cphrt.herokuapp.com/available-spots")
             .then((response) => setCampgrounds(response.data));
-    }, [])
+    });
 
     useEffect(() => {
         setShopData((oldData) => {
@@ -106,17 +107,17 @@ function CampgroundForm() {
         })
     }
   return (
+      <>
+    <H2>Step 3:</H2>
+    <H2 classModifiers="mb-10">Choose your campground</H2>
     <form className='grid grid-col-1 md:grid-col-2 gap-4'>
         <div className='col-start-1 md:max-h-96 w-full flex flex-col md:flex-row gap-4 bg-darkmode_black2 p-8'>
             <CampgroundsMap value={activeCampground?.area} clickFunc={handleMapClick}></CampgroundsMap>
             <div className='text-shade_darker_white md:w-1/3 break-words'>
-                <H3>choose your Campground</H3>
+                <H4>Choose your campground</H4>
                 {activeCampground?
                     <>
-                        <H4>{activeCampground.area}</H4>
-                        <p className='font-bodyFont text-lg'>
-                            free spaces: {activeCampground.available}
-                        </p>
+                        <P classModifiers="font-bold mt-5">Avaliable spaces at {activeCampground.area}: <span className='font-medium text-accent_yellow'>{activeCampground.available}</span></P> 
                     </>: null
                 }
                 
@@ -131,6 +132,7 @@ function CampgroundForm() {
             <PrimaryButton caption="Confirm" action={submit}></PrimaryButton>
         </div>       
     </form>
+    </>
   )
 }
 

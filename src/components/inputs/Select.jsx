@@ -2,15 +2,7 @@ import {React, useState} from 'react'
 import ErrorP from '../typography/ErrorP';
 
 function Select(props) {
-    const [isValid, setIsValid] = useState(true)
-  function handleBlur(event){
-    setIsValid(event.target.checkValidity());
-  }
-  function handleOnInvalid(){
-    if(isValid){
-      setIsValid(false);
-    }
-  }
+    const [isValid] = useState(true)
   return (
     <div className='my-3 w-full'>
       <div className='flex flex-row gap-4'>

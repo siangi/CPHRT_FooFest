@@ -13,17 +13,15 @@ module.exports = {
       '2xl': '1536px',
     },
         fontSize: {
-            'base': "calc(1rem + (1.2 - 1) * ((100vw - 300px) / (1600 - 300)));",
-            'lg': "calc(1rem + (1.25 - 1) * ((100vw - 300px) / (1600 - 300)));",
-            'xl': "calc(1.25rem + (1.563 - 1.25) * ((100vw - 300px) / (1600 - 300)));",
-            "2xl": "calc(1.563rem + (1.953 - 1.563) * ((100vw - 300px) / (1600 - 300)));",
-            "3xl": "calc(1.953rem + (2.441 - 1.953) * ((100vw - 300px) / (1600 - 300)));",
-            "4xl": "calc(1.953rem + (3.052 - 1.953) * ((100vw - 300px) / (1600 - 300)));",
-            "5xl": "calc(3.052rem + (3.819 - 3.052) * ((100vw - 300px) / (1600 - 300)));",
-            "6xl": "calc(3.819rem + (4.773 - 3.819) * ((100vw - 300px) / (1600 - 300)));",
-            "12xl": "calc(7.451rem + (9.313 - 7.451) * ((100vw - 300px) / (1600 - 300)));",
-            //font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-            //font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+            'base': "clamp(1rem, 1.1vw + 0.5rem, 1.2rem);",
+            'lg': "clamp(1rem, 1.3vw + 0.4rem, 1.25rem);",
+            'xl': "clamp(1.25rem, 1.7vw + 0.5rem, 1.563rem);",
+            "2xl": "clamp(1.563rem, 2.1vw + 0.7rem, 1.953rem);",
+            "3xl": "clamp(1.953rem, 2.6vw + 0.8rem, 2.441rem);",
+            "4xl": "clamp(1.8rem, 6.7vw - 1.1rem, 3.052rem);;",
+            "5xl": "clamp(3.052rem, 4.1vw + 1.3rem, 3.819rem);",
+            "6xl": "clamp(3.819rem, 5.1vw + 1.6rem, 4.773rem);",
+            "12xl": "clamp(5.5rem, 20.3vw - 3.4rem, 9.313rem);",
         },
         extend: {
             colors: {
@@ -43,13 +41,10 @@ module.exports = {
                 accent_yellow2: "#E7B174",
                 accent_yellow3: "#EABB85",
 
-                accent_red: "#B85C38",
-                accent_red2: "#C56844",
-                accent_red3: "#CA7553",
+                accent_red: "#C56844",
+                accent_red2: "#CA7553",
 
                 accent_blue: "#448FA3",
-                accent_blue2: "#52A1B7",
-                accent_blue3: "#61A9BD",
             },
             fontFamily: {
                 bodyFont: "futura-pt, sans-serif",

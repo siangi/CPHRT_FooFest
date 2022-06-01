@@ -5,6 +5,7 @@ import {StackedCarousel} from "react-stacked-carousel";
 import 'react-stacked-carousel/dist/index.css';
 import { ShopContext } from '../../contexts/ShopContext';
 import PersonFormContainer from '../../components/PersonFormContainer';
+import H2 from '../../components/typography/H2';
 
 
 function PersonalInfo() {
@@ -120,27 +121,32 @@ function PersonalInfo() {
   }
 
   return (
-    <div className='h-screen flex flex-col items-center'>
-      <div className='w-full lg:w-3/5'>
-        {
-          amountOfVIP + amountOfRegular === 1
-          ?
+    <>
+    <H2>Step 4:</H2>
+    <H2 classModifiers="mb-10">Please enter your personal information</H2>
+      <div className='h-screen flex flex-col items-center'>
+
+        <div className='w-full lg:w-3/5'>
+          {
+            amountOfVIP + amountOfRegular === 1
+            ?
             <div>
-              {personForms}
-            </div>
-          :
+                {personForms}
+              </div>
+            :
             <StackedCarousel
             autoRotate={false}
             containerClassName="w-full h-full"
             cardClassName="flex flex-row justify-center w-full"
             leftButton={<div ref={previousBtnRef}></div>}
             rightButton={<div ref={nextBtnRef}></div>}>              
-              {personForms}
-            </StackedCarousel>  
-        }
-        
-      </div>      
-    </div>
+                {personForms}
+              </StackedCarousel>  
+          }
+          
+        </div>      
+      </div>
+    </>
   )
 }
 

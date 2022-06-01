@@ -1,5 +1,5 @@
 # FooFestival - 3rd semester exam
 
-Live demo: coming ...
+Link to live demo: https://ragnarock.netlify.app/
 
-Develompent team: George Nicolae, Simon Giesler and Tomine Ødegård
+Develompent team: George Nicolae, Simon Gisler and Tomine Ødegård

@@ -1,6 +1,5 @@
 import React from 'react';
 import BaseInput from "./inputs/BaseInput";
-import P from "./typography/P";
 import PrimaryButton from './buttons/PrimaryButton';
 import PayNowButton from './buttons/PayNowButton';
 import SecondaryButton from './buttons/SecondaryButton';

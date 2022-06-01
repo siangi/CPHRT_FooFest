@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import OptionCard from '../../components/optionCards/OptionCard';
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ErrorP from '../../components/typography/ErrorP';
+import H2 from '../../components/typography/H2';
 
 function TicketForm() {
   let navigate = useNavigate();
@@ -55,6 +56,8 @@ function TicketForm() {
   }, [setShopData]);
 
   return (
+    <>
+    <H2 classModifiers="mb-10">Step 1: Choose your ticket(s)</H2>
     <form className='h-full lg:flex-auto flex flex-col gap-3 items-end'>
         {ticketOptions.map((ticket, index) => {
           return (<OptionCard key={ticket.id} {...ticket} price={ticket.price + " Kr."} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)
@@ -64,6 +67,7 @@ function TicketForm() {
           <PrimaryButton caption="Confirm" action={submit} type="submit"></PrimaryButton>          
         </div>
     </form>
+  </>
   )
 }
 
