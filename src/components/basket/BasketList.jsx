@@ -1,7 +1,6 @@
 import {React, useContext } from 'react';
 import { ShopContext } from '../../contexts/ShopContext';
 import BasketArticle from "./BasketArticle";
-import H4 from '../typography/H4';
 import BasketTotal from './BasketTotal';
 
 function BasketList(props) {
@@ -19,8 +18,7 @@ function BasketList(props) {
   }
 
   return (
-    <div className='border border-accent_yellow text-shade_darker_white p-4'>
-      <H4>Basket</H4>
+    <div className='border border-accent_yellow text-shade_darker_white p-4 mt-4'>
       {
         shopData.tickets.filter((ticket) => ticket.amount > 0).map((ticket) =>
         {
