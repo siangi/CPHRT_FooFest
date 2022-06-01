@@ -6,9 +6,11 @@ module.exports = {
   theme: {
     screens: {
       'xs': '400px',
-      'sm': '576px',
-      'md': '960px',
-      'lg': '1440px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
     },
         fontSize: {
             'base': "calc(1rem + (1.2 - 1) * ((100vw - 300px) / (1600 - 300)));",

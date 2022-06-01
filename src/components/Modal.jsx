@@ -45,7 +45,11 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
 
         <img
           src={bandObj.logo}
-          alt={bandObj.name}
+          alt={
+            bandObj.logoCredits
+              ? `Image of ${bandObj.name} ${bandObj.logoCredits}`
+              : `Logo of ${bandObj.name}`
+          }
           title={
             bandObj.logoCredits
               ? `Image of ${bandObj.name} ${bandObj.logoCredits}`
