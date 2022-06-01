@@ -4,6 +4,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
+import Lineup from "./pages/Lineup";
 import Favorites from "./pages/Favorites";
 import Shop from "./pages/Shop";
 import ErrorPage from "./pages/ErrorPage";
@@ -12,9 +13,10 @@ import CampgroundForm from "./pages/ShopSubPages/CampgroundForm";
 import TentForm from "./pages/ShopSubPages/TentForm";
 import TicketForm from "./pages/ShopSubPages/TicketForm";
 import PersonalInfo from "./pages/ShopSubPages/PersonalInfo";
+import Basket from "./pages/ShopSubPages/Basket";
+import Confirmation from "./pages/Confirmation";
 import Navigation from "./components/Navigaton";
 import Footer from "./components/Footer";
-import Overview from "./pages/Overview";
 
 export const AllBandsContext = React.createContext();
 export const SetAllBandsContext = React.createContext();
@@ -24,8 +26,8 @@ export default function App() {
 
   useEffect(() => {
     axios
-      .get("https://cphrt1.herokuapp.com/allbands")
-      .then(function ({ data }) {
+      .get("https://cphrt1.herokuapp.com/information")
+      .then(({ data }) => {
         setAllBands(data);
       })
 
@@ -34,86 +36,16 @@ export default function App() {
       });
   }, []);
 
-  // const getBands = axios.get("https://cphrt.herokuapp.com/bands");
-  // const getStages = axios.get("https://cphrt.herokuapp.com/schedule");
-
-  // useEffect(() => {
-  //   Promise.all([getBands, getStages])
-  //     .then((allData) => {
-  //       const allBandsData = allData[0].data;
-  //       const allStagesData = allData[1].data;
-  //       const Days = {
-  //         mon: "Monday",
-  //         tue: "Tuesday",
-  //         wed: "Wednesday",
-  //         thu: "Thursday",
-  //         fri: "Friday",
-  //         sat: "Saturday",
-  //         sun: "Sunday",
-  //       };
-  //       function makeStageData() {
-  //         return allBandsData.map((item) => {
-  //           let url = item.logo.includes("http://")
-  //             ? item.logo
-  //             : `https://cphrt.herokuapp.com/logos/${item.logo}`;
-
-  //           for (const stage in allStagesData) {
-  //             for (const day in allStagesData[stage]) {
-  //               for (let i = 0; i < allStagesData[stage][day].length; i++) {
-  //                 const e = allStagesData[stage][day][i];
-  // let color;
-  // let runeUrl;
-
-  // if (stage === "Midgard") {
-  //   color = "accent_red";
-  //   runeUrl = "midgard.svg";
-  // } else if (stage === "Vanaheim") {
-  //   color = "accent_blue";
-  //   runeUrl = "vanaheim.svg";
-  // } else {
-  //   color = "accent_yellow";
-  //   runeUrl = "jotunheim.svg";
-  // }
-
-  //                 if (e.act === item.name) {
-  //                   item = {
-  //                     ...item,
-  //                     logo: url,
-  //                     start: e.start,
-  //                     end: e.end,
-  //                     stage: stage,
-  //                     day: Days[day],
-  // color: color,
-  // runeUrl: runeUrl,
-  //                     favorite: true,
-  //                     cancelled: e.cancelled,
-  //                   };
-  //                 }
-  //               }
-  //             }
-  //           }
-
-  //           return item;
-  //         });
-  //       }
-
-  //       setAllBands(() => makeStageData());
-  //     })
-  //     .catch((errors) => {
-  //       console.error(errors);
-  //     });
-  // }, []);
-
   return (
-    <div className="App bg-darkmode_black">
+    <div className="App bg-darkmode_black flex flex-col justify-between min-h-screen">
       <Navigation></Navigation>
 
       <AllBandsContext.Provider value={allBands}>
         <SetAllBandsContext.Provider value={setAllBands}>
-          <div className="px-14 md:px-20">
+          <div className="px-8 md:px-14 lg:px-20">
             <Routes>
               <Route path="/" element={<Home></Home>}></Route>
-              <Route path="/overview" element={<Overview />}></Route>
+              <Route path="/lineup" element={<Lineup />}></Route>
               <Route path="/schedule" element={<Schedule></Schedule>}></Route>
               <Route
                 path="/favorites"
@@ -140,7 +72,12 @@ export default function App() {
                   path="/shop/personal-info"
                   element={<PersonalInfo></PersonalInfo>}
                 ></Route>
+                <Route path="/shop/basket" element={<Basket></Basket>}></Route>
               </Route>
+              <Route
+                path="/confirmation"
+                element={<Confirmation></Confirmation>}
+              ></Route>
             </Routes>
           </div>
           <Footer></Footer>
