@@ -2,12 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 
 function CampgroundsMap(props) {
-    const [activeCampGround, setactiveCampGround] = useState("");
     const activeClassString = "transition-all duration-300 origin-center scale-110 opacity-100";
     const nonActiveClass = "transition-all duration-300 origin-center opacity-90";
 
     function clickHandler(campground, event){
-        setactiveCampGround(campground);
         props.clickFunc(campground, event)
     }
     
@@ -41,7 +39,7 @@ function CampgroundsMap(props) {
             
                 <rect x="225.3" y="50.3" transform="matrix(0.687 -0.7266 0.7266 0.687 28.4346 193.3564)" fill="none" stroke="#000000" strokeWidth="4" width="26.7" height="26.7"/>
         </g>
-        <g onClick={(event) => clickHandler("Svartheim", event)} className={activeCampGround === "Svartheim" ? activeClassString : nonActiveClass}>
+        <g onClick={(event) => clickHandler("Svartheim", event)} className={props.value === "Svartheim" ? activeClassString : nonActiveClass}>
             <path fill="#B85C38" d="M151.3,0H42.6L20.7,198.6l51.7,63.6l69.6-74.1l52.7-62.9l-9.1-50.8L151.3,0z"/>
             <path fill="#0E0E0E" d="M56.8,120.1c-0.1-0.7-0.4-1.3-1-1.7c-0.6-0.4-1.3-0.6-2.2-0.6c-0.6,0-1.2,0.1-1.7,0.3
                 c-0.5,0.2-0.9,0.5-1.1,0.9c-0.3,0.4-0.4,0.8-0.4,1.2c0,0.4,0.1,0.7,0.3,1c0.2,0.3,0.4,0.5,0.7,0.7c0.3,0.2,0.6,0.3,0.9,0.4
@@ -80,7 +78,7 @@ function CampgroundsMap(props) {
                 c-0.4,0.2-0.7,0.6-0.9,1c-0.2,0.4-0.3,0.9-0.3,1.4v6.8H127.2z"/>
             <path d="M87,70v26.8l11.2-9V106h4.1V79.2l-11.2,9V70H87z"/>
         </g>
-        <g onClick={(event) => clickHandler("Nilfheim", event)} className={activeCampGround === "Nilfheim" ? activeClassString : nonActiveClass}>
+        <g onClick={(event) => clickHandler("Nilfheim", event)} className={props.value === "Nilfheim" ? activeClassString : nonActiveClass}>
             <path fill="#61A9BD" d="M433.2,23.6L291.4,131.8l17.3,171.4L451,319.7L477,211L433.2,23.6z"/>
             <path fill="#0E0E0E" d="M354.6,198.5V213h-1.7l-7.9-11.4h-0.1V213h-1.8v-14.5h1.7l8,11.4h0.1v-11.4H354.6z M357.9,213v-10.9h1.7V213
                 H357.9z M358.8,200.3c-0.3,0-0.6-0.1-0.8-0.3c-0.2-0.2-0.3-0.5-0.3-0.8c0-0.3,0.1-0.6,0.3-0.8c0.2-0.2,0.5-0.3,0.8-0.3
@@ -104,7 +102,7 @@ function CampgroundsMap(props) {
                 c-0.4,0.2-0.7,0.6-0.9,1c-0.2,0.4-0.3,0.9-0.3,1.4v6.8H402.8z"/>
             <path d="M377.5,155v13.7l-7.9-6.3l-2.6,3.2l10.5,8.4v17h4.1v-13.7l7.9,6.3l2.6-3.2l-10.4-8.4v-17H377.5z"/>
         </g>
-        <g onClick={(event) => clickHandler("Muspelheim", event)} className={activeCampGround === "Muspelheim" ? activeClassString : nonActiveClass}>
+        <g onClick={(event) => clickHandler("Muspelheim", event)} className={props.value === "Muspelheim" ? activeClassString : nonActiveClass}>
             <path fill="#EABB85" d="M307.9,303.2l-62.1,45.5L292,495.9l150.7-53.8l22.5-120.6L307.9,303.2z"/>
             <path fill="#0E0E0E" d="M300.9,393.5h2.1l4.9,12.1h0.2l4.9-12.1h2.1V408h-1.6v-11.1h-0.1l-4.5,11.1h-1.6l-4.5-11.1h-0.1V408h-1.6
                 V393.5z M325.4,403.5v-6.4h1.7V408h-1.7v-1.8h-0.1c-0.3,0.6-0.7,1-1.2,1.4c-0.5,0.4-1.2,0.6-2,0.6c-0.7,0-1.3-0.1-1.8-0.4
@@ -144,7 +142,7 @@ function CampgroundsMap(props) {
             <path d="M369.5,353l-13.2,10.6L343,353v36h4.1v-12.8l9.2-7.3l9.2,7.3V389h4.1V353z M347.1,361.5l5.9,4.7l-5.9,4.7V361.5z
                 M359.5,366.2l5.9-4.7v9.5L359.5,366.2z"/>
         </g>
-        <g onClick={(event) => clickHandler("Helheim", event)} className={activeCampGround === "Helheim" ? activeClassString : nonActiveClass}>
+        <g onClick={(event) => clickHandler("Helheim", event)} className={props.value === "Helheim" ? activeClassString : nonActiveClass}>
             <path fill="#CA7553" d="M84.6,306.2L15.5,348l28.2,151.6l156-35.4l47-116.2L84.6,306.2z"/>
             <path fill="#0E0E0E" d="M79.7,424v-14.5h1.8v6.5h7.8v-6.5h1.8V424h-1.8v-6.5h-7.8v6.5H79.7z M98.8,424.2c-1.1,0-2-0.2-2.7-0.7
                 c-0.8-0.5-1.3-1.1-1.8-2c-0.4-0.8-0.6-1.8-0.6-2.9c0-1.1,0.2-2.1,0.6-3c0.4-0.9,1-1.5,1.7-2c0.7-0.5,1.6-0.7,2.6-0.7
@@ -169,7 +167,7 @@ function CampgroundsMap(props) {
                 c-0.4,0.2-0.7,0.6-0.9,1c-0.2,0.4-0.3,0.9-0.3,1.4v6.8H138.8z"/>
             <path d="M120.2,364v18.2l-7.1-5.7V364H109v36h4.1v-18.2l7.1,5.7V400h4.1v-36H120.2z"/>
         </g>
-        <g onClick={(event) => clickHandler("Alfheim", event)} className={activeCampGround === "Alfheim" ? activeClassString : nonActiveClass}>
+        <g onClick={(event) => clickHandler("Alfheim", event)} className={props.value === "Alfheim" ? activeClassString : nonActiveClass}>
             <path fill="#448FA3" d="M291.3,131l-96.9-7.5L44.9,292.3l39.7,13.9L246.7,348l61.9-45.6L291.3,131z"/>
             <path fill="#0E0E0E" d="M164.9,280.1H163l5.3-14.5h1.8l5.3,14.5h-1.8l-4.3-12.2h-0.1L164.9,280.1z M165.5,274.4h7.4v1.6h-7.4V274.4z
                 M179.2,265.5v14.5h-1.7v-14.5H179.2z M187.2,269.2v1.4h-5.9v-1.4H187.2z M183,280.1v-12.4c0-0.6,0.1-1.1,0.4-1.6

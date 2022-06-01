@@ -45,6 +45,7 @@ function Basket() {
   }
 
   function saveShopData(){
+    console.log(shopData);
     axios.post(DB_URL, {"shopData": JSON.stringify(shopData)}, {headers: {"x-apikey": API_KEY}});
   }
 
