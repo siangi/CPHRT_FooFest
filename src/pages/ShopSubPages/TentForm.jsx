@@ -5,7 +5,9 @@ import { ShopContext } from '../../contexts/ShopContext';
 import OptionCard from '../../components/optionCards/OptionCard'
 import PrimaryButton from '../../components/buttons/PrimaryButton'
 import SecondaryButton from '../../components/buttons/SecondaryButton';
-import H3 from '../../components/typography/H3';
+import P from '../../components/typography/P';
+import H4 from '../../components/typography/H4';
+import H2 from '../../components/typography/H2';
 import ErrorP from '../../components/typography/ErrorP';
 
 function TentForm() {
@@ -91,16 +93,25 @@ function TentForm() {
     calculateTentSuggestion(amountOfTickets);
     
     return (
+        <>
+        <H4 classModifiers="text-white">Step 2:</H4>
+        <H2 classModifiers="mb-10">Choose tent(s)</H2>
         <form className='h-full lg:flex-auto flex flex-col gap-3'>
-            <H3 classModifiers="text-shade_darker_white">You have booked for {amountOfTickets} People, if you want tents, everyone has to fit.</H3>
+            <div className=' border border-accent_yellow p-6 mb-10'>
+                <H4 classModifiers="text-shade_darker_white font-bold mb-4">You have booked tickets for {amountOfTickets} person/people.</H4>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                    <P>At Ragnarock, it is mandatory to have a tent to sleep in - this counts for all campgrounds. We are happy to offer you the option to rent a tent - either a tent for two or three people.</P>
+                    <P>If you choose the to rent a tent from Ragnarock, you can leave all your tent-related stress at home - we will build it for you! <span className='text-accent_yellow'>The important thing everyone has a designated spot in their own tent.</span></P>
+                </div>
+            </div>
                 {tentOptions.map((tentOption, index) => {
-                return (<OptionCard 
-                            key={tentOption.id} 
-                            {...tentOption} 
-                            price={tentOption.price + " Kr."}
-                            reversed={index % 2 === 0} imageAsBackground={true} 
-                            updateAmount={(newAmount) => updateAmount(tentOption.id, newAmount)} 
-                            initialAmount={tentOption.amountOfTents}>
+                    return (<OptionCard 
+                        key={tentOption.id} 
+                        {...tentOption} 
+                        price={tentOption.price + " Kr."}
+                        reversed={index % 2 === 0} imageAsBackground={true} 
+                        updateAmount={(newAmount) => updateAmount(tentOption.id, newAmount)} 
+                        initialAmount={tentOption.amountOfTents}>
                         </OptionCard>)
                 })}
                 <div className='flex flex-row gap-4 justify-end'>
@@ -109,6 +120,7 @@ function TentForm() {
                     <PrimaryButton caption="Confirm Selection" action={submitTentForm}></PrimaryButton>
                 </div>
         </form>
+        </>
   )
 }
 
