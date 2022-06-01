@@ -1,13 +1,12 @@
 import React from "react";
 import { AiFillGithub, AiFillFacebook, AiFillInstagram } from "react-icons/ai";
-import H4 from "./typography/H4";
 import PrimaryButton from "./buttons/PrimaryButton";
 
 function Footer() {
   return (
     <footer className="p-4 sm:p-6 bg-darkmode_black mt-20">
       <div className="flex flex-col justify-between lg:flex-row gap-10 lg:gap-0">
-        <a href="">
+        <a href="/">
           <img
             src={process.env.PUBLIC_URL + "/LogoText.svg"}
             className="mr-3 h-12"

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 
 function CampgroundsMap(props) {
     const activeClassString = "transition-all duration-300 origin-center scale-110 opacity-100";
