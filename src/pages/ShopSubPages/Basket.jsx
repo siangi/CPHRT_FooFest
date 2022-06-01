@@ -15,8 +15,9 @@ function Basket() {
     .then((response) => {
       if (response.data.message === "Reserved"){
         reservationID.current = response.data.id;
-        console.log(reservationID);
+        
       } else {
+
         console.error("unable to reserve spaces!", response);
       }
     });

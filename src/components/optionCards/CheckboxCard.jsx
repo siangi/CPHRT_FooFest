@@ -14,8 +14,8 @@ function CheckboxCard(props) {
           <H3 classModifiers="leading-none mb-3 col-start-1 row-start-2">{props.price}</H3>
           <img src={props.imagePath} alt="" className={`col-start-2 row-start-1 row-end-2 w-12 h-12 justify-self-end`}></img>
         </div>
-        <P>{props.description}</P>
-        <CheckBox onChange={props.setValue} labelText={props.labelText} name="main" id="main"></CheckBox>
+        <P  classModifiers={"text-darkmode_black"}>{props.description}</P>
+        <CheckBox onChange={props.setValue} value={props.value} labelText={props.labelText} name="main" id="main"></CheckBox>
       </div>
     </div>
   )
