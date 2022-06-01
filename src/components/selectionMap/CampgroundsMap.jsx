@@ -10,7 +10,7 @@ function CampgroundsMap(props) {
     
   return (
     <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-	 viewBox="-20 -30 527 559" className='h-96 md:h-auto max-h-full max-w-full flex-auto'>
+	 viewBox="-20 -30 527 559" className='h-96 md:h-auto max-h-full max-w-full'>
         <g>
             <path fill="#545463" d="M185.6,75.7l72.7-66.8L379,65.5l-87.6,66.3l-96.9-8.3L185.6,75.7z"/>
             <path fill="#0E0E0E" d="M250.3,88.5V103h-3.1V88.5H250.3z M255.8,96.7v6.3h-3V92.1h2.9V94h0.1c0.2-0.6,0.6-1.1,1.2-1.5
