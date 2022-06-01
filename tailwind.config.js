@@ -32,13 +32,10 @@ module.exports = {
                 accent_yellow2: "#E7B174",
                 accent_yellow3: "#EABB85",
 
-                accent_red: "#B85C38",
-                accent_red2: "#C56844",
-                accent_red3: "#CA7553",
+                accent_red: "#C56844",
+                accent_red2: "#CA7553",
 
                 accent_blue: "#448FA3",
-                accent_blue2: "#52A1B7",
-                accent_blue3: "#61A9BD",
             },
             fontFamily: {
                 bodyFont: "futura-pt, sans-serif",
