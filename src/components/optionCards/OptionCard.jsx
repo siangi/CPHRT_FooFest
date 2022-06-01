@@ -15,7 +15,7 @@ function OptionCard(props) {
       <div className={`${props.reversed? "col-start-1 col-end-3 md:col-end-2": "col-start-2 col-end-4 md:col-end-3"}  row-start-1 self-center justify-self-center h-fit w-full md:w-5/6 relative z-1 p-4 bg-accent_yellow`}>
         <H4>{props.title}</H4>
         <H3 classModifiers="leading-none mb-3">{props.price}</H3>
-        <P>{props.description}</P>
+        <P classModifiers={"text-darkmode_black"}>{props.description}</P>
         <div className='flex flex-row justify-end'>
           <NumberStepper name="amount" initialVal={props.initialAmount? props.initialAmount : 0} updateAmount={props.updateAmount}></NumberStepper>
         </div>

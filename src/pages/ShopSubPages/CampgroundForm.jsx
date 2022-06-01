@@ -39,15 +39,13 @@ function CampgroundForm() {
             spots: "loading...",
             available: "loading.."
         }
-    ])
-    const [activeCampground, setactiveCampground] = useState("");
-    const [campsGreenly, setCampsGreenly] = useState(false);
-
-    const greenCampingOption = shopData.greenCamping;
+    ]);
+    const [activeCampground, setactiveCampground] = useState(null);
     const [formValid, setFormValid] = useState(true);
     const [checkOnChange, setcheckOnChange] = useState(false);
 
     useEffect(() => {
+        console.log(shopData.greenCamping);
         axios.get("https://cphrt.herokuapp.com/available-spots")
             .then((response) => setCampgrounds(response.data));
     }, [])
@@ -59,6 +57,10 @@ function CampgroundForm() {
             return newData;
         });
     }, [setShopData])
+    
+    function amountOfTickets(){
+        return shopData.tickets.reduce((prev, cur) => prev + cur.amount, 0);
+    }
 
     function displayFreeSpaces(NewCampgroundName){
         let newCampground = Campgrounds.find((campground) => {
@@ -76,7 +78,8 @@ function CampgroundForm() {
     }
 
     function validate(){
-        let isValid = activeCampground !== "";
+        let isValid = activeCampground !== null && activeCampground.available > amountOfTickets();
+
         setFormValid(isValid);
         return isValid
     }
@@ -88,17 +91,24 @@ function CampgroundForm() {
             setShopData((oldData) => {
                 let newData = {...oldData};
                 newData.campground = activeCampground;
-                newData.greenCamping.selected = campsGreenly;
                 return newData;
             });
             navigate("../personal-info")
         } 
 
     }
+
+    function setCampsGreenly(value){
+        setShopData((oldData) => {
+            let newData = {...oldData};
+            newData.greenCamping.selected = value;
+            return newData;
+        })
+    }
   return (
     <form className='grid grid-col-1 md:grid-col-2 gap-4'>
         <div className='col-start-1 md:max-h-96 w-full flex flex-col md:flex-row gap-4 bg-darkmode_black2 p-8'>
-            <CampgroundsMap clickFunc={handleMapClick}></CampgroundsMap>
+            <CampgroundsMap value={activeCampground?.area} clickFunc={handleMapClick}></CampgroundsMap>
             <div className='text-shade_darker_white md:w-1/3 break-words'>
                 <H3>choose your Campground</H3>
                 {activeCampground?
@@ -110,13 +120,14 @@ function CampgroundForm() {
                     </>: null
                 }
                 
+                
             </div>    
         </div>
         <div className='col-start-1 md:col-start-2'>
-            <CheckboxCard {...greenCampingOption} price={greenCampingOption.price + " Kr."} setValue={setCampsGreenly}></CheckboxCard>
+            <CheckboxCard {...shopData.greenCamping} price={shopData.greenCamping.price + " Kr."} value={shopData.greenCamping.selected} setValue={setCampsGreenly}></CheckboxCard>
         </div>
         <div className='col-start-1 md:col-start-2 md:row-start-2 w-full flex flex-row justify-end'>
-            {formValid? null : <ErrorP>Please select a Campground</ErrorP>}
+            {formValid? null : <ErrorP>Please select a Campground with enough free spaces</ErrorP>}
             <PrimaryButton caption="Confirm" action={submit}></PrimaryButton>
         </div>       
     </form>
