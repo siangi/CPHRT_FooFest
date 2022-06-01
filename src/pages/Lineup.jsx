@@ -5,7 +5,6 @@ import H1 from "../components/typography/H1";
 import H2 from "../components/typography/H2";
 import P from "../components/typography/P";
 
-
 function WrapperBig({ bandObj }) {
   return (
     <div className="col-span-1 row-span-1 sm:col-span-2 sm:row-span-2  h-full w-full flex flex-col gap-3">
@@ -42,23 +41,28 @@ function Lineup() {
 
   return (
     <>
-    <H1>Full line up</H1>
-    <h2 className="text-4xl text-white font-displayFont mb-6" >Who are you the most exited to see?</h2>
-    <div className='grid grid-cols-1 gap-14 mb-10 lg:grid-cols-2'>
-      <div className="grid gap-5">
-        <P className='text-white'>Are you ready for Ragnarock? From August 8th to August 14th we are serving you the line-up of your dreams, spread out on our three main stages; Jotunheim, Vanaheim, and Midgard.</P>
+      <H1>Full line up</H1>
+      <h2 className="text-4xl text-white font-displayFont mb-6">
+        Who are you the most exited to see?
+      </h2>
+      <div className="grid grid-cols-1 gap-14 mb-10 lg:grid-cols-2">
+        <div className="grid gap-5">
+          <P className="text-white">
+            Are you ready for Ragnarock? From August 8th to August 14th we are
+            serving you the line-up of your dreams, spread out on our three main
+            stages; Jotunheim, Vanaheim, and Midgard.
+          </P>
+        </div>
+        <div className="flex flex-col">
+          <H2 classModifiers="text-accent_red">Nirvana?</H2>
+          <H2 classModifiers="text-accent_yellow">The rolling stones?</H2>
+          <H2 classModifiers="text-accent_blue">Guns N' Roses?</H2>
+        </div>
       </div>
-      <div className="flex flex-col">
-        <H2 classModifiers="text-accent_red">Nirvana?</H2>
-        <H2 classModifiers="text-accent_yellow">The rolling stones?</H2>
-        <H2 classModifiers="text-accent_blue">Guns N' Roses?</H2>
-      </div>
-    </div>
-
 
       <section className="flex gap-4 my-8 md:max-w-[90%] lg:max-w-5xl xl:max-w-6xl mx-auto">
         <select
-          className="py-2 bg-white text-black"
+          className="form-select w-fit bg-darkmode_black8 border-none text-shade_darker_white font-bodyFont focus:ring-accent_yellow focus:ring-2"
           name="stage-filter"
           ref={stageFilterSelect}
           onChange={() => {
@@ -72,7 +76,7 @@ function Lineup() {
         </select>
 
         <select
-          className="py-2 bg-white text-black"
+          className="form-select w-fit bg-darkmode_black8 border-none text-shade_darker_white font-bodyFont focus:ring-accent_yellow focus:ring-2"
           name="genre-filter"
           ref={genreFilterSelect}
           onChange={() => {
