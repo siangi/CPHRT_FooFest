@@ -1,9 +1,10 @@
 import CardSticker from "./CardSticker";
+import CancelledSticker from "./CancelledSticker";
 import Modal from "./Modal";
 
 import { useState, useEffect } from "react";
 
-export default function LinupCard({ bandObj }) {
+export default function LineupCard({ bandObj, time }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -11,7 +12,7 @@ export default function LinupCard({ bandObj }) {
 
   return (
     <>
-      {!loaded && (
+      {!loaded && !bandObj.cancelled && (
         <div className="flex items-center gap-4">
           <span className="text-white">Image is loading...</span>
           <svg
@@ -33,8 +34,10 @@ export default function LinupCard({ bandObj }) {
         </div>
       )}
       <button
-        className={`w-full flex-grow-0 ${loaded ? "h-full" : "h-fit"}`}
-        onClick={() => setModalOpen(true)}
+        className={`w-full flex-grow-0 ${loaded ? "h-full" : "h-fit"} ${
+          !bandObj.cancelled ? "cursor-pointer" : "cursor-auto"
+        }`}
+        onClick={() => !bandObj.cancelled && setModalOpen(true)}
       >
         <figure className="grid h-full w-full">
           <img
@@ -47,7 +50,8 @@ export default function LinupCard({ bandObj }) {
             alt={`${bandObj.name} band logo`}
           />
 
-          <CardSticker bandObj={bandObj} />
+          {bandObj.cancelled && <CancelledSticker />}
+          <CardSticker bandObj={bandObj} time={time} />
         </figure>
       </button>
 

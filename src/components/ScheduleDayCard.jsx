@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AllBandsContext } from "../App";
 import LineupCard from "./LineupCard";
 import H2 from "./typography/H2";
+import sortingTimes from "../utils/sorting";
 
 export default function ScheduleDayCard({ day, cardIndex, index }) {
   const allBands = React.useContext(AllBandsContext);
@@ -86,9 +87,10 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-5 w-full">
           {allBands
             .filter((band) => band.day === day && band.stage === stageFilter)
+            .sort(sortingTimes)
             .map((band) => (
               <div key={band.name} className="h-60">
-                <LineupCard bandObj={band} />
+                <LineupCard time={true} bandObj={band} />
               </div>
             ))}
         </div>

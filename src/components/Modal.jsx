@@ -2,9 +2,8 @@ import { SetAllBandsContext } from "../App";
 import H2 from "../components/typography/H2";
 import H4 from "../components/typography/H4";
 import P from "./typography/P";
-import Heart from "./Heart";
-import HeartFull from "./HeartFull";
 import React, { useState, useRef, useEffect } from "react";
+import ToggleFavorite from "./buttons/ToggleFavorite";
 
 function useOutsideAlerter(ref, setModalOpen) {
   useEffect(() => {
@@ -31,20 +30,8 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
 
   useOutsideAlerter(modal, setModalOpen);
 
-  const changeFav = (name) => {
-    setAllBands((prev) =>
-      prev.map((band) => {
-        if (band.name === name) {
-          const newBand = { ...band, favorite: !band.favorite };
-          return newBand;
-        }
-        return band;
-      })
-    );
-  };
-
   return modalOpen ? (
-    <section className="fixed z-10 w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)] inset-0">
+    <section className="fixed w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)] inset-0 z-20">
       <div
         ref={modal}
         className="px-6  pt-4 pb-10 bg-darkmode_black2 text-white mx-auto my-[5%] w-[80%] grid  lg:grid-cols-2 gap-6 animate-fade-in"
@@ -55,10 +42,16 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
         >
           &times;
         </span>
+
         <img
           src={bandObj.logo}
           alt={bandObj.name}
-          className="object-cover justify-self-center w-full"
+          title={
+            bandObj.logoCredits
+              ? `Image of ${bandObj.name} ${bandObj.logoCredits}`
+              : `Logo of ${bandObj.name}`
+          }
+          className="object-cover justify-self-center w-[415px] h-[277px]"
         />
 
         <div className="flex flex-col">
@@ -94,7 +87,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
 
           <H4>Genre: {bandObj.genre}</H4>
 
-          <P className="my-6">
+          <P classModifiers="my-6">
             {isReadMore
               ? bandObj.bio.slice(
                   0,
@@ -112,20 +105,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
             ) : null}
           </P>
 
-          <button
-            className="block mt-auto ml-auto px-3 py-2 bg-white text-black"
-            onClick={() => changeFav(bandObj.name)}
-          >
-            {bandObj.favorite ? (
-              <>
-                Remove from favorites <HeartFull />
-              </>
-            ) : (
-              <>
-                Add to favorites <Heart />
-              </>
-            )}
-          </button>
+          <ToggleFavorite setAllBands={setAllBands} bandObj={bandObj} />
         </div>
       </div>
     </section>
