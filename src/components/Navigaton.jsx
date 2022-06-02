@@ -34,25 +34,25 @@ export default function Header() {
           </Link>
           <div className="flex gap-12">
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow self-center"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow2 self-center"
               to="/"
             >
               Home
             </Link>
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow self-center"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow2 self-center"
               to="/lineup"
             >
               Line-up
             </Link>
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow self-center"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow2 self-center"
               to="/schedule"
             >
               Schedule
             </Link>
             <Link
-              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow flex self-center gap-3"
+              className="text-white font-bodyFont font-semibold text-lg tracking-wide hover:text-accent_yellow2 flex self-center gap-3"
               to="/favorites"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#E19F54" className="self-center bi bi-star-fill" viewBox="0 0 16 16">
