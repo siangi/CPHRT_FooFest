@@ -5,22 +5,28 @@ import { useState } from "react";
 export const ShopContext = createContext();
 
 export const ShopProvider = ({ children }) => {
-    const baseIconPath = process.env.PUBLIC_URL + "/icons/";
     const baseImagePath = process.env.PUBLIC_URL + "/images/";
     const [shopData, setShopData] = useState({
         tickets: [{
             id: 0,
             title:"Regular",
             price:799,
-            description:"Access to the 3 stages, 5 campgrounds, 13 bars, 15 food stands and our renessaince fair all in one! Experience as much party as possible during our 7 day festival! This tickets gets you the best value for your stay at RAGNAROCK festival. Camping and hygiene facilites are included.",
-            imagePath: baseIconPath + "RegularTicketGold.svg",
+            description:"- Access to our 3 stages and 5 campgrounds.",
+            description2:"- 13 bars with a Copenhagens biggest selection of tap-beer, as well as a variaty alcohol and non-alcohol beverages.",
+            description3:"- 15 food trucks and stands with a broad selection of food and snacks.",
+            description4:"- 24/7 access to hygiene facilities, including approxamatly 20 hot showers (20 kr per shower) and over 100 free cold showers.",
+            imagePath: baseImagePath + "barcode_regular.svg",
             amount: 0,
+            
           },{
             id: 1,
             title:"VIP",
             price:1299,
-            description:"Do you want to see behind the scenes and experience RAGNAROCK to the fullest? Then this ticket is for you! You have all the access a regular ticket gives you, plus access to a backstage bar and raised plattform in front of every stage, for even better views. You also get a personal locker inside the festival area, so you don't have to worry about your valuables while in the moshpit.",
-            imagePath: baseIconPath + "VIPGold.svg",
+            description:"The VIP-ticket will give you the benefits of the regular ticket, plus:",
+            description2:"- Access to our raised plattforms to get the best view, and VIP-bar.",
+            description3:"- 50% on all warm-water showers located at our hygiene facilites.",
+            description4:"- Free access to our refresh-tents with mirrors, electricity, hairdryers and powerbanks.",    
+            imagePath: baseImagePath + "barcode_vip_gold.svg",
             amount: 0,
           }],
         tents: [
