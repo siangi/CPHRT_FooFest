@@ -32,20 +32,21 @@ export const ShopProvider = ({ children }) => {
         tents: [
             {
                 id: 0,
-                title:"3 Person Tent",
-                price:399,
-                description:"You can leave all your tent related worries at home, as long as you book this spacious three person tent. It will be completely set up and ready as soon as you arrive. Marked and reserved und your name.",
-                imagePath: baseImagePath + "3PersonTent.jpg",
-                spaceForPeople: 3,
-                amountOfTents: 0,
-            },
-            {
-                id: 1,
                 title:"2 Person Tent",
                 price:299,
                 description:"This tent comfortably fits two people and their luggage, so you can skip the annoying set-up and get to partying immediatly. It will be completely set up and ready as soon as you arrive. Marked and reserved und your name.",
                 imagePath: baseImagePath + "2PersonTent.jpg",
                 spaceForPeople: 2,
+                amountOfTents: 0,
+                
+            },
+            {
+                id: 1,
+                title:"3 Person Tent",
+                price:399,
+                description:"You can leave all your tent related worries at home, as long as you book this spacious three person tent. It will be completely set up and ready as soon as you arrive. Marked and reserved und your name.",
+                imagePath: baseImagePath + "3PersonTent.jpg",
+                spaceForPeople: 3,
                 amountOfTents: 0,
             }
         ],
