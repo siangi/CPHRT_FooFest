@@ -1,7 +1,5 @@
 import React from "react";
 import { AiFillGithub, AiFillFacebook, AiFillInstagram } from "react-icons/ai";
-import SecondaryButton from "./buttons/SecondaryButton";
-import { Link } from "react-router-dom";
 
 
 function Footer() {
@@ -15,9 +13,6 @@ function Footer() {
             alt="Ragnarock Logo"
           />
         </a>
-        <Link to="/shop"><SecondaryButton
-          caption="Get your tickets now"
-        ></SecondaryButton></Link>
         <div className="flex">
           <AiFillFacebook
             className="text-white h-10 w-auto hover:fill-accent_yellow cursor-pointer"
