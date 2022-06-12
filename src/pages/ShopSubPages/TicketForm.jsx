@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../../contexts/ShopContext';
 import { useNavigate } from "react-router-dom"
-import OptionCard from '../../components/optionCards/OptionCard';
+import TicketOption from '../../components/optionCards/TicketOption';
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ErrorP from '../../components/typography/ErrorP';
 import P from '../../components/typography/P';
@@ -66,7 +66,7 @@ function TicketForm() {
     <form className='h-full grid grid-cols-1 md:grid-cols-2 w-full gap-3'>
         {ticketOptions.map((ticket, index) => {
           return (
-          <OptionCard key={ticket.id} {...ticket} price={ticket.price + " kr,-"} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></OptionCard>)})}
+          <TicketOption key={ticket.id} {...ticket} price={ticket.price + " kr,-"} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></TicketOption>)})}
     </form>
     <div className='item-end flex justify-end mt-4'>
         <div className='flex flex-row justify-start mr-4 md:mr-6'>
