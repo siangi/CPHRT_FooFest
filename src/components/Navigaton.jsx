@@ -65,9 +65,9 @@ export default function Header() {
         </nav>
       ) : (
         // BURGERMENU
-        <nav className="bg-darkmode_black ">
+        <nav className="bg-darkmode_black">
           <div
-            className="space-y-2  px-8 py-8"
+            className="absolute top-5 right-5 space-y-2 px-8 py-8"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8  bg-white"></span>
@@ -77,7 +77,7 @@ export default function Header() {
 
           <div className={isNavOpen ? "showBurgerMenu" : "hideBurgerMenu"}>
             <div
-              className="absolute top-0 left-0 px-8 py-8"
+              className="absolute top-0 right-0 px-8 py-8"
               onClick={() => setIsNavOpen(false)}
             >
               <svg
