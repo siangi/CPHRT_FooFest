@@ -130,7 +130,7 @@ function CampgroundForm() {
             <CheckboxCard {...shopData.greenCamping} price={shopData.greenCamping.price + " Kr."} value={shopData.greenCamping.selected} setValue={setCampsGreenly}></CheckboxCard>
         </div> */}
         <div className='col-start-1 md:col-start-2 md:row-start-2 w-full flex flex-row justify-end'>
-            {formValid? null : <ErrorP>Please select a Campground with enough free spaces</ErrorP>}
+            {formValid? null : <ErrorP>Please select a campground with enough free spaces</ErrorP>}
             <PrimaryButton caption="Confirm" action={submit}></PrimaryButton>
         </div>       
     </form>
