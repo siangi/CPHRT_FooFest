@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom"
 import TicketOption from '../../components/optionCards/TicketOption';
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ErrorP from '../../components/typography/ErrorP';
-import P from '../../components/typography/P';
 import H2 from '../../components/typography/H2';
-import H4 from '../../components/typography/H4';
 
 function TicketForm() {
   let navigate = useNavigate();
@@ -59,11 +57,9 @@ function TicketForm() {
 
   return (
     <>
-    <H2 classModifiers="text-5xl">Step 1:</H2>
-    <H4 classModifiers="text-white">How would you like to spend your 7 days at Ragnarock?</H4>
-    <P classModifiers="mb-4">Below you can read what is included in a regular ticket, and the extra benefits of a VIP ticket.</P>
+    <H2 classModifiers="text-5xl mb-4">Step 1:</H2>
     
-    <form className='h-full grid grid-cols-1 md:grid-cols-2 w-full gap-3'>
+    <form className='h-full grid grid-cols-1 md:grid-cols-3 w-full gap-4 md:gap-6 lg:gap-8'>
         {ticketOptions.map((ticket, index) => {
           return (
           <TicketOption key={ticket.id} {...ticket} price={ticket.price + " kr,-"} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></TicketOption>)})}
