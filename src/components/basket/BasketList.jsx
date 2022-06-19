@@ -22,7 +22,7 @@ function BasketList(props) {
       {
         shopData.tickets.filter((ticket) => ticket.amount > 0).map((ticket) =>
         {
-          return <BasketArticle editUrl="../tickets" key={Math.random()} title={ticket.title + " Ticket"} price={ticket.price} amount={ticket.amount}></BasketArticle>
+          return <BasketArticle editUrl="../tickets" key={Math.random()} title={ticket.title + " ticket"} price={ticket.price} amount={ticket.amount}></BasketArticle>
         })
       }
       {
@@ -31,15 +31,18 @@ function BasketList(props) {
           return <BasketArticle editUrl="../tents" key={Math.random()} title={tent.title} price={tent.price} amount={tent.amountOfTents}></BasketArticle>
         })
       }
-      { shopData.greenCamping.selected ? 
-        <BasketArticle 
+    
+    { shopData.greenCamping.selected === true ? 
+       <BasketArticle 
           editUrl="../campground"
           key={Math.random()} 
           title={shopData.greenCamping.title} 
           price={shopData.greenCamping.price}
-          amount={shopData.tickets.reduce((prev, cur) => prev + cur.amount, 0)}
-        ></BasketArticle>
+          amountFixed={true}
+          amount={1}
+        ></BasketArticle> 
         : null}
+       
       <BasketArticle title={shopData.bookingFee.title} price={shopData.bookingFee.price} amount={1} amountFixed={true}></BasketArticle>
       <hr />
       <BasketTotal title="Total" price={calculateTotal()}></BasketTotal>

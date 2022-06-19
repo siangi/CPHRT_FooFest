@@ -5,11 +5,11 @@ import { ShopContext } from '../../contexts/ShopContext';
 import CampgroundsMap from '../../components/selectionMap/CampgroundsMap';
 import H2 from "../../components/typography/H2";
 import H3 from '../../components/typography/H3';
-// import CheckboxCard from "../../components/optionCards/CheckboxCard";
+import CheckboxCard from "../../components/optionCards/CheckboxCard";
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import ErrorP from '../../components/typography/ErrorP';
 import P from "../../components/typography/P";
-// import H4 from "../../components/typography/H4";
+import H4 from "../../components/typography/H4";
 import axios from 'axios';
 
 function CampgroundForm() {
@@ -100,13 +100,13 @@ function CampgroundForm() {
 
     }
 
-    // function setCampsGreenly(value){
-    //     setShopData((oldData) => {
-    //         let newData = {...oldData};
-    //         newData.greenCamping.selected = value;
-    //         return newData;
-    //     })
-    // }
+    function setCampsGreenly(value){
+        setShopData((oldData) => {
+            let newData = {...oldData};
+            newData.greenCamping.selected = value;
+            return newData;
+        })
+    }
   return (
       <>
       <H2 classModifiers="mb-10 text-5xl">Step 3:</H2>
@@ -126,9 +126,9 @@ function CampgroundForm() {
             </div>  
               
         </div>
-        {/* <div className='col-start-1 md:col-start-2'>
+        <div className='col-start-1 md:col-start-2'>
             <CheckboxCard {...shopData.greenCamping} price={shopData.greenCamping.price + " Kr."} value={shopData.greenCamping.selected} setValue={setCampsGreenly}></CheckboxCard>
-        </div> */}
+        </div>
         <div className='col-start-1 md:col-start-2 md:row-start-2 w-full flex flex-row justify-end'>
             {formValid? null : <ErrorP>Please select a campground with enough free spaces</ErrorP>}
             <PrimaryButton caption="Confirm" action={submit}></PrimaryButton>
