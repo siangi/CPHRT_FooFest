@@ -2,11 +2,13 @@ import { React } from 'react'
 import H2 from '../typography/H2';
 import H4 from '../typography/H4';
 import P from '../typography/P';
+import { HiPencil } from "react-icons/hi"
+import { Link } from 'react-router-dom';
 
 export default function VisualTicket(props) {
     return (
         <>
-        <div className='border border-white grid grid-cols-2 p-6 mb-4 w-full lg:w-fit h-full gap-4 lg:gap-0'>
+        <div className='border border-white grid grid-cols-1 lg:grid-cols-2 p-6 mb-4 w-fit lg:w-full h-fit gap-4 lg:gap-0'>
             <div className='flex flex-col'>
                 <P classModifiers="text-white">Ticket type:</P>
                 <H2>{props.value.type}</H2>
@@ -22,7 +24,3 @@ export default function VisualTicket(props) {
       </>
     );
   }
-
-// TO DO: replace border-color with dynamic data after creating ticket.type
-//   <div className={`${persons.ticket.type === "regular" ? "border-accent_yellow" : persons.ticket.type === "vip" ? "border-white" : null}`}>
-//   </div>    
