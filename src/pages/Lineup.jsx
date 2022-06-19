@@ -1,16 +1,16 @@
-import { AllBandsContext } from "../App";
-import LineupCard from "../components/LineupCard";
-import React, { useState, useRef } from "react";
-import H1 from "../components/typography/H1";
-import H2 from "../components/typography/H2";
-import P from "../components/typography/P";
+import { Context } from "../App"
+import LineupCard from "../components/LineupCard"
+import React, { useState, useRef } from "react"
+import H1 from "../components/typography/H1"
+import H2 from "../components/typography/H2"
+import P from "../components/typography/P"
 
 function WrapperBig({ bandObj }) {
   return (
     <div className="col-span-1 row-span-1 sm:col-span-2 sm:row-span-2  h-full w-full flex flex-col gap-3">
       <LineupCard bandObj={bandObj} />
     </div>
-  );
+  )
 }
 
 function WrapperTall({ bandObj }) {
@@ -18,7 +18,7 @@ function WrapperTall({ bandObj }) {
     <div className="row-span-1 col-span-1 sm:row-span-2 h-full w-full flex flex-col gap-3">
       <LineupCard bandObj={bandObj} />
     </div>
-  );
+  )
 }
 
 function WrapperSmall({ bandObj }) {
@@ -26,18 +26,18 @@ function WrapperSmall({ bandObj }) {
     <div className="h-full w-full flex flex-col gap-3">
       <LineupCard bandObj={bandObj} />
     </div>
-  );
+  )
 }
 
-export const BandContext = React.createContext();
+export const BandContext = React.createContext()
 
 function Lineup() {
-  const allBands = React.useContext(AllBandsContext);
-  const [stageFilter, setStageFilter] = useState("all");
-  const [genreFilter, setGenreFilter] = useState("all");
+  const { allBands } = React.useContext(Context)
+  const [stageFilter, setStageFilter] = useState("all")
+  const [genreFilter, setGenreFilter] = useState("all")
 
-  const stageFilterSelect = useRef(null);
-  const genreFilterSelect = useRef(null);
+  const stageFilterSelect = useRef(null)
+  const genreFilterSelect = useRef(null)
 
   return (
     <>
@@ -66,7 +66,7 @@ function Lineup() {
           name="stage-filter"
           ref={stageFilterSelect}
           onChange={() => {
-            setStageFilter(stageFilterSelect.current.value);
+            setStageFilter(stageFilterSelect.current.value)
           }}
         >
           <option value="all">All stages</option>
@@ -80,7 +80,7 @@ function Lineup() {
           name="genre-filter"
           ref={genreFilterSelect}
           onChange={() => {
-            setGenreFilter(genreFilterSelect.current.value);
+            setGenreFilter(genreFilterSelect.current.value)
           }}
         >
           <option value="all">All genres</option>
@@ -112,7 +112,7 @@ function Lineup() {
           ))}
       </section>
     </>
-  );
+  )
 }
 
-export default Lineup;
+export default Lineup
