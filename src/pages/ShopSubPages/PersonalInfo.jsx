@@ -6,13 +6,16 @@ import 'react-stacked-carousel/dist/index.css';
 import { ShopContext } from '../../contexts/ShopContext';
 import PersonFormContainer from '../../components/PersonFormContainer';
 import H2 from '../../components/typography/H2';
+import H4 from '../../components/typography/H4';
 
 
 function PersonalInfo() {
   const {shopData, setShopData} = useContext(ShopContext);
   const navigate = useNavigate();
-  const amountOfVIP = shopData.tickets[1].amount;
-  const amountOfRegular = shopData.tickets[0].amount;
+  const amountOfBasic = shopData.tickets[0].amount;
+  const amountOfPremium = shopData.tickets[1].amount;
+  const amountOfVIP = shopData.tickets[2].amount;
+
   let personForms = createPersonForms();
   const previousBtnRef = React.createRef();
   const nextBtnRef = React.createRef();
@@ -63,14 +66,14 @@ function PersonalInfo() {
 
   function createPersonForms(){
     let result = [];
-    if(amountOfVIP + amountOfRegular === 1){
+    if(amountOfBasic + amountOfPremium + amountOfVIP === 1){
       result.push(
         <div key={1} className='w-full lg:w-3/4'>
           <PersonFormContainer 
               id={1}
               first={true} 
               last={true} 
-              type={amountOfVIP === 1? "VIP" : "Regular"}
+              type={amountOfVIP === 1? "VIP" : "Basic"}
               title={`Ticket 1/1`} 
               next={next} 
               previous={previous}
@@ -80,15 +83,33 @@ function PersonalInfo() {
         </div>
       )
     } else {
-      for(let i = 1; i <= amountOfVIP; i++){
+      for(let i = amountOfVIP + 1; i <= amountOfVIP + amountOfBasic; i++) {
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
             <PersonFormContainer 
               id={i}
               first={i === 1} 
-              last={i === amountOfVIP + amountOfRegular} 
+              last={i === amountOfBasic + amountOfPremium + amountOfVIP} 
+              type="Basic"
+              title={`Ticket ${i}/${amountOfBasic + amountOfPremium + amountOfVIP} (Basic)`} 
+              next={next} 
+              previous={previous}
+              saveForm={saveForm}
+              default={shopData.persons.find((person) => person.id === i)}
+              submitAll={submitAll}></PersonFormContainer>
+          </div>
+        )
+      }
+      
+      for(let i = 1; i <= amountOfVIP; i++) {
+        result.push(
+          <div key={i} className='w-full lg:w-3/4'>
+            <PersonFormContainer 
+              id={i}
+              first={i === 1} 
+              last={i === amountOfBasic + amountOfPremium + amountOfVIP} 
               type="VIP"
-              title={`Ticket ${i}/${amountOfRegular + amountOfVIP} (VIP)`} 
+              title={`Ticket ${i}/${amountOfBasic + amountOfPremium + amountOfVIP} (VIP)`} 
               next={next} 
               previous={previous}
               saveForm={saveForm}
@@ -98,15 +119,17 @@ function PersonalInfo() {
         )
       }
   
-      for(let i = amountOfVIP + 1; i <= amountOfVIP + amountOfRegular; i++){
+    
+
+      for(let i = amountOfVIP + amountOfBasic + 1; i <= amountOfVIP + amountOfBasic + amountOfPremium; i++) {
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
             <PersonFormContainer 
               id={i}
               first={i === 1} 
-              last={i === amountOfVIP + amountOfRegular} 
-              type="Regular"
-              title={`Ticket ${i}/${amountOfRegular + amountOfVIP} (Regular)`} 
+              last={i === amountOfBasic + amountOfPremium + amountOfVIP} 
+              type="Premium"
+              title={`Ticket ${i}/${amountOfBasic + amountOfPremium + amountOfVIP} (Premium)`} 
               next={next} 
               previous={previous}
               saveForm={saveForm}
@@ -122,13 +145,13 @@ function PersonalInfo() {
 
   return (
     <>
-    <H2>Step 4:</H2>
-    <H2 classModifiers="mb-10">Please enter your personal information</H2>
+    <H2 classModifiers="text-5xl">Step 4:</H2>
+    <H4 classModifiers="text-white">Please enter your personal information</H4>
       <div className='h-screen flex flex-col items-center'>
 
         <div className='w-full lg:w-3/5'>
           {
-            amountOfVIP + amountOfRegular === 1
+            amountOfBasic + amountOfPremium + amountOfVIP  === 1
             ?
             <div>
                 {personForms}
