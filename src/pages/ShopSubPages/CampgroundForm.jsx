@@ -1,19 +1,19 @@
-import React from "react"
-import { useState, useContext, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { ShopContext } from "../../contexts/ShopContext"
-import CampgroundsMap from "../../components/selectionMap/CampgroundsMap"
-import CheckboxCard from "../../components/optionCards/CheckboxCard"
-import PrimaryButton from "../../components/buttons/PrimaryButton"
-import ErrorP from "../../components/typography/ErrorP"
-import P from "../../components/typography/P"
-import H4 from "../../components/typography/H4"
-import H2 from "../../components/typography/H2"
-import axios from "axios"
+import React from "react";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { ShopContext } from "../../contexts/ShopContext";
+import CampgroundsMap from "../../components/selectionMap/CampgroundsMap";
+import CheckboxCard from "../../components/optionCards/CheckboxCard";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import ErrorP from "../../components/typography/ErrorP";
+import P from "../../components/typography/P";
+import H4 from "../../components/typography/H4";
+import H2 from "../../components/typography/H2";
+import axios from "axios";
 
 function CampgroundForm() {
-  const navigate = useNavigate()
-  const { shopData, setShopData } = useContext(ShopContext)
+  const navigate = useNavigate();
+  const { shopData, setShopData } = useContext(ShopContext);
   const [Campgrounds, setCampgrounds] = useState([
     {
       area: "Helheim",
@@ -40,72 +40,73 @@ function CampgroundForm() {
       spots: "loading...",
       available: "loading..",
     },
-  ])
-  const [activeCampground, setactiveCampground] = useState(null)
-  const [formValid, setFormValid] = useState(true)
-  const [checkOnChange, setcheckOnChange] = useState(false)
+  ]);
+  const [activeCampground, setactiveCampground] = useState(null);
+  const [formValid, setFormValid] = useState(true);
+  const [checkOnChange, setcheckOnChange] = useState(false);
 
   useEffect(() => {
     axios
       .get("https://cphrt.herokuapp.com/available-spots")
-      .then((response) => setCampgrounds(response.data))
-  })
+      .then((response) => setCampgrounds(response.data));
+  });
 
   useEffect(() => {
     setShopData((oldData) => {
-      let newData = { ...oldData }
-      newData.activeStep = 2
-      return newData
-    })
-  }, [setShopData])
+      let newData = { ...oldData };
+      newData.activeStep = 2;
+      return newData;
+    });
+  }, [setShopData]);
 
   function amountOfTickets() {
-    return shopData.tickets.reduce((prev, cur) => prev + cur.amount, 0)
+    return shopData.tickets.reduce((prev, cur) => prev + cur.amount, 0);
   }
 
   function displayFreeSpaces(NewCampgroundName) {
     let newCampground = Campgrounds.find((campground) => {
-      return campground.area === NewCampgroundName
-    })
+      return campground.area === NewCampgroundName;
+    });
 
-    setactiveCampground(newCampground)
+    setactiveCampground(newCampground);
   }
 
   function handleMapClick(campgroundName, event) {
-    displayFreeSpaces(campgroundName)
+    displayFreeSpaces(campgroundName);
     if (checkOnChange) {
-      validate()
+      validate();
     }
   }
 
   function validate() {
     let isValid =
       activeCampground !== null &&
-      activeCampground.available > amountOfTickets()
+      activeCampground.available > amountOfTickets();
 
-    setFormValid(isValid)
-    return isValid
+    setFormValid(isValid);
+    return isValid;
   }
 
   function submit(event) {
-    event.preventDefault()
-    setcheckOnChange(true)
+    event.preventDefault();
+    setcheckOnChange(true);
     if (validate()) {
       setShopData((oldData) => {
-        let newData = { ...oldData }
-        newData.campground = activeCampground
-        return newData
-      })
-      navigate("../personal-info")
+        let newData = { ...oldData };
+        newData.campground = activeCampground;
+        return newData;
+      });
+      navigate("../personal-info");
+      window.scrollTo({ top: 0 });
     }
   }
 
   function setCampsGreenly(value) {
     setShopData((oldData) => {
-      let newData = { ...oldData }
-      newData.greenCamping.selected = value
-      return newData
-    })
+      let newData = { ...oldData };
+      newData.greenCamping.selected = value;
+      return newData;
+    });
   }
   return (
     <>
@@ -147,7 +148,7 @@ function CampgroundForm() {
         </div>
       </form>
     </>
-  )
+  );
 }
 
-export default CampgroundForm
+export default CampgroundForm;

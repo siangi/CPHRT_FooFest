@@ -13,14 +13,16 @@ function MyTimer({ expiryTimestamp }) {
   const navigate = useNavigate();
   const { seconds, minutes } = useTimer({
     expiryTimestamp,
-    onExpire: () => setTimeout(() => navigate("/failure"), 1500),
+    onExpire: () => {
+      setTimeout(() => navigate("/failure"), 1500);
+      window.scrollTo({ top: 0 });
+    },
   });
 
   return (
     <>
-      <span className="text-accent_yellow">
-        {minutes > 9 ? minutes : `0${minutes}`} minutes and{" "}
-        {seconds > 9 ? seconds : `0${seconds}`} seconds
+      <span className="text-accent_yellow text-[1.5rem]">
+        {minutes > 0 && `${minutes} minutes and`} {seconds} seconds
       </span>
     </>
   );

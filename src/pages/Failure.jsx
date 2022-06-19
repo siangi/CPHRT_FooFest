@@ -17,7 +17,10 @@ export default function Failure() {
       </div>
       <PrimaryButton
         caption="Get new tickets"
-        action={() => navigate("/shop/tickets")}
+        action={() => {
+          navigate("/shop/tickets");
+          window.scrollTo({ top: 0 });
+        }}
       ></PrimaryButton>
     </div>
   );

@@ -13,8 +13,10 @@ function PaymentContainer(props) {
     let confirmed = await props.confirmReservation();
     if (confirmed) {
       navigate("/confirmation");
+      window.scrollTo({ top: 0 });
     } else {
       navigate("/failure");
+      window.scrollTo({ top: 0 });
     }
   }
   return (
