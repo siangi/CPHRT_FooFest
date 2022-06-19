@@ -9,7 +9,6 @@ import CheckboxCard from "../../components/optionCards/CheckboxCard";
 import PrimaryButton from '../../components/buttons/PrimaryButton';
 import ErrorP from '../../components/typography/ErrorP';
 import P from "../../components/typography/P";
-import H4 from "../../components/typography/H4";
 import axios from 'axios';
 
 function CampgroundForm() {
@@ -110,25 +109,23 @@ function CampgroundForm() {
   return (
       <>
       <H2 classModifiers="mb-10 text-5xl">Step 3:</H2>
-        <form className='grid grid-col-1 md:grid-cols-2 gap-4 lg:gap-8'>
-        <div className='flex flex-col border border-white p-6 gap-4'>
-            <H3 classModifiers="text-white">Choose your campground</H3>
-            <P>Click a campground to check for avaliable spaces at your preferred campground. Toilets and hygiene facilites are installed at all campgrounds.</P>
+        <form className='grid grid-col-1 gap-4 lg:gap-8'>
+            <div className='flex flex-col border border-white p-6 gap-4'>
+                <H3 classModifiers="text-white">Choose your campground</H3>
+                <P classModifiers="mb-6">Click a campground to check for avaliable spaces at your preferred campground. Toilets and hygiene facilites are installed at all campgrounds.</P>   
+                <div className='grid row-start-2 w-full h-full'>
+                    <CampgroundsMap value={activeCampground?.area} clickFunc={handleMapClick}></CampgroundsMap>
+                    <div className='text-shade_darker_white break-words'>
+                        {activeCampground?
+                            <>
+                                <P classModifiers="mt-5">There are <span className='font-bold text-accent_yellow'>{activeCampground.available}</span> avaliable spaces at <span className='font-bold text-accent_yellow'>{activeCampground.area}</span>.</P> 
+                            </>: null
+                        }
+                    </div>
+                </div>
             </div>
-            <div className='w-full h-full'>
-                <CampgroundsMap value={activeCampground?.area} clickFunc={handleMapClick}></CampgroundsMap>
-                <div className='text-shade_darker_white md:w-1/3 break-words'>
-                    {activeCampground?
-                        <>
-                            <P classModifiers="font-bold mt-5">Avaliable spaces at {activeCampground.area}: <span className='font-medium text-accent_yellow'>{activeCampground.available}</span></P> 
-                        </>: null
-                    }
-            </div>  
-              
-        </div>
-        <div className='col-start-1 md:col-start-2'>
             <CheckboxCard {...shopData.greenCamping} price={shopData.greenCamping.price + " Kr."} value={shopData.greenCamping.selected} setValue={setCampsGreenly}></CheckboxCard>
-        </div>
+        
         <div className='col-start-1 md:col-start-2 md:row-start-2 w-full flex flex-row justify-end'>
             {formValid? null : <ErrorP>Please select a campground with enough free spaces</ErrorP>}
             <PrimaryButton caption="Confirm" action={submit}></PrimaryButton>
