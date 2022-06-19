@@ -60,7 +60,7 @@ export default function Header() {
               </svg> Your favorites
             </Link>
             <Link to="/shop"><PrimaryButton
-              caption="Get tickets"></PrimaryButton></Link>
+              caption="Buy tickets"></PrimaryButton></Link>
           </div>
         </nav>
       ) : (

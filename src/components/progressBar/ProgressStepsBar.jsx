@@ -6,7 +6,7 @@ import { ShopContext } from '../../contexts/ShopContext';
 function ProgressStepsBar(props) {
     const {shopData} = useContext(ShopContext);
   return (
-    <div className='w-full h-16 flex justify-between items-center mb-10'>
+    <div className='w-full h-16 flex justify-between items-center mb-10 mt-32 lg:mt-4'>
         {
             props.steps.map((step, index) => {
                 if(index < props.steps.length - 1){

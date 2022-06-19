@@ -12,8 +12,8 @@ function Confirmation() {
         <H2 classModifiers="text-accent_yellow">You're going to Ragnarok!</H2>
         <div className='bg-darkmode_black2 w-full md:w-2/3 lg:w-1/3 h-fit flex flex-col items-center text-shade_darker_white text-center'>
             <img src={process.env.PUBLIC_URL + "/icons/rockOnHand.svg"} className="w-1/2 h-auto" alt="rockhand symbol"></img>
-            <H3>Sale confirmed.</H3>
-            <P>Confirmation Emails and tickets have been sent to the E-Mails you submitted to the personal Info</P>
+            <H3>Purchase confirmed.</H3>
+            <P>A confirmation email and your ticket(s) have been sent to the e-mail(s) you submitted to the personal information section.</P>
         </div>
         <PrimaryButton caption="see the Schedule" action={() => navigate("/schedule")}></PrimaryButton>
     </div>
