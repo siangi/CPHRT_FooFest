@@ -17,7 +17,8 @@ function TentForm() {
     const suggestedTents = shopData.tents;
     const [formValid, setFormValid] = useState(true);
     const [checkOnChange, setcheckOnChange] = useState(false);
-
+    
+    console.log(suggestedTents)
     useEffect(() => {
         setShopData((oldData) => {
             let newData = {...oldData};
@@ -27,23 +28,23 @@ function TentForm() {
     }, [setShopData]);
     
 
-    function calculateTentSuggestion(amountOfPeople){
-        let leftoverPeople = amountOfPeople;
-        suggestedTents.sort((a, b) => {
-            return a.amountOfPeople > b.amountOfPeople
-        });
+    // function calculateTentSuggestion(amountOfPeople){
+    //     let leftoverPeople = amountOfPeople;
+    //     suggestedTents.sort((a, b) => {
+    //         return a.amountOfPeople > b.amountOfPeople
+    //     });
 
-        suggestedTents.forEach((tentOption, index) => {
-            if(index < suggestedTents.length - 1){
-                tentOption.amountOfTents = Math.floor(leftoverPeople / tentOption.spaceForPeople);
-                leftoverPeople = leftoverPeople % tentOption.spaceForPeople;
-            } else {
-                // if it is the smalles tent option, we have to fit everyone left.,
-                tentOption.amountOfTents = Math.ceil(leftoverPeople / tentOption.spaceForPeople);
-                leftoverPeople = 0;
-            }            
-        })
-    }
+    //     suggestedTents.forEach((tentOption, index) => {
+    //         if(index < suggestedTents.length - 1){
+    //             tentOption.amountOfTents = Math.floor(leftoverPeople / tentOption.spaceForPeople);
+    //             leftoverPeople = leftoverPeople % tentOption.spaceForPeople;
+    //         } else {
+    //             // if it is the smallest tent option, we have to fit everyone left.,
+    //             tentOption.amountOfTents = Math.ceil(leftoverPeople / tentOption.spaceForPeople);
+    //             leftoverPeople = 0;
+    //         }            
+    //     })
+    // }
 
     function getAmountOfSpace(){
         let availableSpace = 0;
@@ -90,15 +91,17 @@ function TentForm() {
           }
         }
     }
-    calculateTentSuggestion(amountOfTickets);
+    // calculateTentSuggestion(amountOfTickets);
     
     return (
         <>
         <H2 classModifiers="text-5xl">Step 2:</H2>
         <form className='h-full lg:flex-auto flex flex-col gap-3'>
             <div className='border border-white p-6'>
-                <H4 classModifiers="text-shade_darker_white font-bold">You have booked tickets for <span className='text-accent_yellow'>{amountOfTickets} {amountOfTickets > 1 ? "people" : "person"}</span>.</H4>
-                <P className='text-white font-bodyFont'>At Ragnarock it is mandatory that all festival-participants have a designated sleeping-spot in a tent. Rent a tent or bring your own. Below we have given you an automatic suggestion to match the amount of tickets chosen.</P>
+                <H4 classModifiers="text-shade_darker_white font-bold mb-4">You have booked tickets for <span className='text-accent_yellow'>{amountOfTickets} {amountOfTickets > 1 ? "people" : "person"}</span>.</H4>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12'>
+                    <P>At Ragnarock it is mandatory that all festival-participants have a designated sleeping-spot in a tent. If you choose to rent a tent, it will be fully set up when you arrive - marked and reserved in your name.</P>
+                </div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 {suggestedTents.map((tentOption, index) => { 
