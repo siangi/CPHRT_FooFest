@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import SecondaryButton from '../components/buttons/SecondaryButton';
-import H2 from '../components/typography/H2';
-import H3 from '../components/typography/H3';
 
 export default function Home() {
   return ( 
