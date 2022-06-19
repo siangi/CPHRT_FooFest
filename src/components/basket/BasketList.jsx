@@ -18,7 +18,7 @@ function BasketList(props) {
   }
 
   return (
-    <div className='border border-accent_yellow text-shade_darker_white p-4 mt-4'>
+    <div className='border border-accent_yellow text-shade_darker_white p-6 mt-4'>
       {
         shopData.tickets.filter((ticket) => ticket.amount > 0).map((ticket) =>
         {

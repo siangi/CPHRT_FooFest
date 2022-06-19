@@ -64,8 +64,8 @@ function TicketForm() {
           return (
           <TicketOption key={ticket.id} {...ticket} price={ticket.price + " kr,-"} initialAmount={ticket.amount} updateAmount={(newAmount) => updateAmount(ticket.id, newAmount)} reversed={index % 2 === 0} imageAsBackground={false}></TicketOption>)})}
     </form>
-    <div className='item-end flex justify-end mt-4'>
-        <div className='flex flex-row justify-start mr-4 md:mr-6'>
+    <div className='md:flex md:flex-row md:justify-end mt-4'>
+        <div className='mr-4 md:mr-6'>
           {formValid ? null : <ErrorP>Please select at least 1 ticket to continue.</ErrorP>}
         </div>
         <PrimaryButton caption="Continue" action={submit} type="submit"></PrimaryButton>          

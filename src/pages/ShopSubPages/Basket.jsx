@@ -5,7 +5,6 @@ import BasketList from '../../components/basket/BasketList';
 import PaymentContainer from '../../components/paymentForms/PaymentContainer';
 import VisualTicket from '../../components/basket/VisualTicket'
 import H2 from '../../components/typography/H2';
-import P from '../../components/typography/P';
 
 function Basket() { 
   const API_KEY = "62961c39c4d5c3756d35a3d6";
@@ -66,43 +65,24 @@ function Basket() {
   });
 
   return (
-    // <div className='grid grid-cols-1 md:grid-cols-2 rows-start-2 gap-4 pt-5'>
-    //   <div className='col-start-1 grid'>
-    //     <div className="grid grid-cols-1 gap-5">
-    //       <P classModifiers="text-white">*Please doublecheck your personal information before you confirm</P>
-    //       {shopData.persons.map((ticketData) => (
-    //         <VisualTicket className="" value={ticketData}></VisualTicket>
-    //         ))}
-    //       </div>
-    //   </div>
-
-    //   <div className='col-start-1 row-start-1 md:col-start-2 w-full md:w-3/4 h-fit justify-self-end'>
-    //     <H2>Your basket</H2>
-    //     <BasketList></BasketList>
-    //     <PaymentContainer confirmReservation={fulfillReservation}></PaymentContainer>
-    //   </div>
-    // </div>
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-      <div className='col-start-1 row-start-1'>
-       <P classModifiers="text-white">*Please doublecheck your personal information before you confirm</P>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-0'>
+      <div className='grid col-start-1 row-start-2 md:row-start-1'>
+       {/* <P classModifiers="text-white">*Please doublecheck your personal information before you confirm</P> */}
            {shopData.persons.map((ticketData) => (
              <VisualTicket className="" value={ticketData}></VisualTicket>
              ))}
        </div>
 
-      <div className='w-full lg:w-3/4 justify-self-end'>
-        <div className='col-start-1 md:col-start-2 row-start-2'>
-          <H2>Your basket</H2>
+       <div className='w-full lg:w-3/4 justify-self-end h-fit'>
+        <div className='grid col-start-1 md:col-start-2 lg:col-start-2 row-start-2 md:row-start-1'>
+          <H2 classModifiers="text-5xl">Your basket</H2>
           <BasketList></BasketList>
-          <PaymentContainer confirmReservation={fulfillReservation}></PaymentContainer>
           </div>
-        <div>
-      </div>
+        </div>
 
+        <div className='w-full lg:w-3/4 justify-self-end grid col-start-1 md:col-start-2 row-start-3 md:row-start-2'>
+            <PaymentContainer confirmReservation={fulfillReservation}></PaymentContainer>
        </div>
-
-
-
     </div>
   )
 }
