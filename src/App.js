@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
-import "./App.css"
-import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import Schedule from "./pages/Schedule"
-import Lineup from "./pages/Lineup"
-import Favorites from "./pages/Favorites"
-import Shop from "./pages/Shop"
-import CampgroundForm from "./pages/ShopSubPages/CampgroundForm"
-import TentForm from "./pages/ShopSubPages/TentForm"
-import TicketForm from "./pages/ShopSubPages/TicketForm"
-import PersonalInfo from "./pages/ShopSubPages/PersonalInfo"
-import Basket from "./pages/ShopSubPages/Basket"
-import Confirmation from "./pages/Confirmation"
-import Navigation from "./components/Navigaton"
-import Footer from "./components/Footer"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Schedule from "./pages/Schedule";
+import Lineup from "./pages/Lineup";
+import Favorites from "./pages/Favorites";
+import Shop from "./pages/Shop";
+import CampgroundForm from "./pages/ShopSubPages/CampgroundForm";
+import TentForm from "./pages/ShopSubPages/TentForm";
+import TicketForm from "./pages/ShopSubPages/TicketForm";
+import PersonalInfo from "./pages/ShopSubPages/PersonalInfo";
+import Basket from "./pages/ShopSubPages/Basket";
+import Confirmation from "./pages/Confirmation";
+import Failure from "./pages/Failure";
+import Navigation from "./components/Navigaton";
+import Footer from "./components/Footer";
 
-export const Context = React.createContext()
+export const Context = React.createContext();
 
 export default function App() {
-  const [allBands, setAllBands] = useState([])
+  const [allBands, setAllBands] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://cphrt1.herokuapp.com/information")
       .then(function ({ data }) {
-        setAllBands(data)
+        setAllBands(data);
       })
 
       .catch(function (err) {
-        console.log(err)
-      })
-  }, [])
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="App bg-darkmode_black flex flex-col justify-between min-h-screen">
@@ -65,10 +66,11 @@ export default function App() {
               path="/confirmation"
               element={<Confirmation></Confirmation>}
             ></Route>
+            <Route path="/failure" element={<Failure />}></Route>
           </Routes>
         </div>
         <Footer></Footer>
       </Context.Provider>
     </div>
-  )
+  );
 }

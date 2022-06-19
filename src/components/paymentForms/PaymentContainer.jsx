@@ -1,21 +1,20 @@
-import { React, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import RadioButton from "../inputs/RadioButton"
-import CreditCardForm from "./CreditCardForm"
-import MobilePayForm from "./MobilePayForm"
-import BillForm from "./BillForm"
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import RadioButton from "../inputs/RadioButton";
+import CreditCardForm from "./CreditCardForm";
+import MobilePayForm from "./MobilePayForm";
+import BillForm from "./BillForm";
 
 function PaymentContainer(props) {
-  const [activePayOption, setActivePayOption] = useState("mobile-pay")
-  const navigate = useNavigate()
+  const [activePayOption, setActivePayOption] = useState("mobile-pay");
+  const navigate = useNavigate();
 
   async function onSubmit() {
-    let confirmed = await props.confirmReservation()
-    console.log(confirmed)
+    let confirmed = await props.confirmReservation();
     if (confirmed) {
-      navigate("/confirmation")
+      navigate("/confirmation");
     } else {
-      console.log("not fulfilled in function")
+      navigate("/failure");
     }
   }
   return (
@@ -55,7 +54,7 @@ function PaymentContainer(props) {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default PaymentContainer
+export default PaymentContainer;
