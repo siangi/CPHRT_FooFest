@@ -65,7 +65,7 @@ export default function Header() {
         </nav>
       ) : (
         // BURGERMENU
-        <nav className="bg-darkmode_black">
+        <nav className="bg-darkmode_black cursor-pointer">
           <div
             className="absolute top-5 right-5 space-y-2 px-8 py-8"
             onClick={() => setIsNavOpen((prev) => !prev)}
