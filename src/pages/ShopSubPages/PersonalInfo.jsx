@@ -73,7 +73,7 @@ function PersonalInfo() {
               id={1}
               first={true} 
               last={true} 
-              type={amountOfVIP === 1? "VIP" : "Basic"}
+              type={amountOfVIP === 1? "VIP" : amountOfPremium === 1 ? "Premium" : "Basic"}
               title={`Ticket 1/1`} 
               next={next} 
               previous={previous}
@@ -100,7 +100,7 @@ function PersonalInfo() {
           </div>
         )
       }
-      
+
       for(let i = 1; i <= amountOfVIP; i++) {
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
@@ -118,8 +118,6 @@ function PersonalInfo() {
           </div>
         )
       }
-  
-    
 
       for(let i = amountOfVIP + amountOfBasic + 1; i <= amountOfVIP + amountOfBasic + amountOfPremium; i++) {
         result.push(
