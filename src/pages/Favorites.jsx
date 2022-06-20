@@ -8,8 +8,6 @@ import {
 } from "react-icons/hi";
 import { IconContext } from "react-icons";
 
-export const BandContext = React.createContext();
-
 export default function Favorites() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [colIndex, setColIndex] = useState(0);
