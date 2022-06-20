@@ -2,7 +2,7 @@
 
 This is my 2nd iteration of our 3rd semester exam project, with my improvments and bug-fixes. Personally, for my 2nd iteration, I had a focus on the UX, CX and a general visual lift.
 
-Link to live demo with my improvments: coming...
+Link to live demo with my improvments: https://ragnarockfestival.netlify.app/
 
 ---
 
