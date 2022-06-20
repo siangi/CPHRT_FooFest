@@ -24,7 +24,7 @@ export default function Header() {
     <>
       {isDesktop ? ( 
         // DESKTOP NAVIGATION
-        <nav className="flex justify-between px-8 md:px-10 lg:px-12 items-center">
+        <nav className="flex justify-between px-8 md:px-10 lg:px-12 py-8 items-center">
           <Link to="/">
             <img
               src={process.env.PUBLIC_URL + "/LogoText.svg"}
