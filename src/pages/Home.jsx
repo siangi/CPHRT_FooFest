@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <img src={process.env.PUBLIC_URL + "LogoText.svg"} alt="white Ragnarock logo with yellow rune" className='object-none object-center mb-6 mt-24 md:hidden'/>
 
-      <img src={process.env.PUBLIC_URL + "/images/landingpage_image3.png"} alt="crowd at a festival" className='object-cover object-center object-fit mt-24 lg:mt-12 hidden md:block'/>
+      <img src={process.env.PUBLIC_URL + "/images/landingpage_image3.png"} alt="crowd at a festival" className='object-cover object-center object-fit mt-24 lg:mt-0 hidden md:block'/>
       <div className='flex my-10 lg:my-12 gap-7 md:gap-8 lg:gap-10 justify-between overflow-x-hidden'>
         <img src={process.env.PUBLIC_URL + "/runes/midgard.svg"} alt="rune symbolizing midgard" className="h-6 lg:h-10"/>
         <img src={process.env.PUBLIC_URL + "/runes/vanaheim.svg"} alt="rune symbolizing vanaheim" className="h-6 lg:h-10"/>
@@ -35,7 +35,7 @@ export default function Home() {
           <img src={process.env.PUBLIC_URL + "/images/rock_music_artist3.jpg"} alt="rock music artist playing on stage" className='hidden md:block'/>
         </div>
 
-      <div className='hidden md:flex md:flex-row justify-end mt-6 gap-4'>
+      <div className='hidden md:flex md:flex-row justify-center md:justify-end mt-6 gap-4'>
         <Link to="/lineup"><SecondaryButton caption="See line up"></SecondaryButton></Link>
         <Link to="/shop"><PrimaryButton caption="Get your tickets now"></PrimaryButton></Link>
       </div>

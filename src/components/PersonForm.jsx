@@ -59,7 +59,7 @@ function PersonForm(props) {
         
         <div className='flex gap-3'>
           {/* <Dropdown label="Country Code" id="countryCode" name="countryCode" required={true} /> */}
-          <BaseInput label="Country Code" id="countryCode" name="countryCode" initialValue={props.default?.countryCode} required={true}></BaseInput>
+          <BaseInput label="Country Code" id="countryCode" name="countryCode" errormessage="please enter your country code(for example +45)" initialValue={props.default?.countryCode} required={true}></BaseInput>
           <BaseInput label="Phone" id="phone" name="phone" errormessage="please enter a valid phone number" initialValue={props.default?.phone} pattern="(\+?\d*\s*)*" required={true}></BaseInput>
         </div>
         {

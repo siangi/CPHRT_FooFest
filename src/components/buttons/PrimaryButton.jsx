@@ -7,7 +7,7 @@ function PrimaryButton(props) {
     font-bodyFont text-darkmode_black tracking-wider 
     px-6 py-3 lg:py-2 uppercase hover:bg-accent_yellow2"
       onClick={props.action}
-    >
+    > 
       {props.caption}
     </button>
   );

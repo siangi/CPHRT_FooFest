@@ -100,7 +100,6 @@ function TentForm() {
                 <H4 classModifiers="text-shade_darker_white font-bold mb-4">You have booked tickets for <span className='text-accent_yellow'>{amountOfTickets} {amountOfTickets > 1 ? "people" : "person"}</span>.</H4>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12'>
                     <P>At Ragnarock it is mandatory that all festival-participants have a designated sleeping-spot in a tent. If you choose to rent a tent, it will be fully set up when you arrive - marked and reserved in your name.</P>
-                    <P>Below we have given you an automatic suggestion to match the amount of tickets chosen.</P>
                 </div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>

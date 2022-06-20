@@ -2,14 +2,12 @@ import React from "react";
 import { AiFillGithub, AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 import P from "./typography/P";
 import { Link } from "react-router-dom";
-import H2 from "./typography/H2";
-
 
 
 function Footer() {
   return (
-    <footer className="p-4 sm:p-6 bg-darkmode_black mt-20">
-      <div className="flex items-center flex-col justify-between a lg:flex-row gap-10 lg:gap-0">
+    <footer className="p-4 sm:p-6 bg-darkmode_black mt-6 md:mt-10">
+      <div className="flex items-center flex-col justify-between a md:flex-row gap-10 lg:gap-0">
       <Link to="/">
             <img
               src={process.env.PUBLIC_URL + "/LogoText.svg"}
@@ -18,7 +16,7 @@ function Footer() {
             />
           </Link>
           <Link to="/shop">
-            <P classModifiers="font-displayFont hover:fill-accent_yellow cursor-pointer">Copenhagen, August 8th - 14th 2022</P>
+            <P classModifiers="font-displayFont hover:text-accent_yellow cursor-pointer">Copenhagen, August 8th - 14th 2022</P>
           </Link>
         <div className="flex">
           <AiFillFacebook
@@ -34,8 +32,8 @@ function Footer() {
 
 
 
-    <div className='flex flex-col justify-start mt-6'>
-      <hr className="mt-6 border-darkmode_black8 lg:my-8" />
+    <div className='flex flex-col justify-start mt-4'>
+      <hr className="mt-6 border-darkmode_black8 lg:my-8 mb-4" />
       <div className="flex mb-3 items-baseline gap-4">
         <P classModifiers="text-darkmode_black8">© 2022 George Nicolae, Simon Gisler & Tomine Ødegård.</P>
         <div className="flex mt-3">
@@ -48,7 +46,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex items-baseline gap-4">
+        <div className="flex items-baseline gap-4 mb-4">
         <P classModifiers="text-darkmode_black8">© 2.iteration fith focus on UX, CX and a visual lift by Tomine Ødegård.</P>
         <div className="flex mt-3">
           <a
