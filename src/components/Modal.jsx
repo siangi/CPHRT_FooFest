@@ -55,7 +55,7 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
               ? `Image of ${bandObj.name} ${bandObj.logoCredits}`
               : `Logo of ${bandObj.name}`
           }
-          className="object-cover justify-self-center w-[415px] h-[277px]"
+          className="object-cover hidden md:block justify-self-center w-[415px] h-[277px]"
         />
 
         <div className="flex flex-col">

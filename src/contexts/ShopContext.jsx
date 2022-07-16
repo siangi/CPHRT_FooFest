@@ -5,41 +5,55 @@ import { useState } from "react";
 export const ShopContext = createContext();
 
 export const ShopProvider = ({ children }) => {
-    const baseIconPath = process.env.PUBLIC_URL + "/icons/";
     const baseImagePath = process.env.PUBLIC_URL + "/images/";
     const [shopData, setShopData] = useState({
         tickets: [{
             id: 0,
-            title:"Regular",
+            title:"Basic",
             price:799,
-            description:"Access to the 3 stages, 5 campgrounds, 13 bars, 15 food stands and our renessaince fair all in one! Experience as much party as possible during our 7 day festival! This tickets gets you the best value for your stay at RAGNAROCK festival. Camping and hygiene facilites are included.",
-            imagePath: baseIconPath + "RegularTicketGold.svg",
+            description:"- Access to our 3 stages and 5 campgrounds.",
+            description2:"- 13 bars with a Copenhagens biggest selection of tap-beer, as well as a variaty alcohol and non-alcohol beverages.",
+            description3:"- 15 food trucks and stands with a broad selection of food and snacks.",
+            description4:"- 24/7 access to hygiene facilities, including approxamatly 20 hot showers (20 kr per shower) and over 100 free cold showers.",
+            imagePath: baseImagePath + "ticket_basic.svg",
             amount: 0,
           },{
             id: 1,
-            title:"VIP",
+            title:"Premium",
             price:1299,
-            description:"Do you want to see behind the scenes and experience RAGNAROCK to the fullest? Then this ticket is for you! You have all the access a regular ticket gives you, plus access to a backstage bar and raised plattform in front of every stage, for even better views. You also get a personal locker inside the festival area, so you don't have to worry about your valuables while in the moshpit.",
-            imagePath: baseIconPath + "VIPGold.svg",
+            description:"OUR MOST POPULAR TICKET!",
+            description2:"- Access to front rows at all stages, here you can find our Premium-bar.",
+            description3:"- 50% on all warm-water showers located at our hygiene facilites.",
+            description4:"- Free access to our refresh-tents with mirrors, electricity, hairdryers and powerbanks.",
+            imagePath: baseImagePath + "ticket_premium.svg",
+            amount: 0,
+          },{
+            id: 2,
+            title:"VIP",
+            price:1699,
+            description:"- Exclusive meet and greet oportunities!",
+            description2:"- Access to our raised VIP-plattforms to get the best view possible, here you can find our VIP-bar.",
+            description3:"- VIP area with warm-water showers, free of charge.",
+            description4:"- Free access to our refresh tents with mirrors, electricity, hairdryers and powerbanks.",    
+            imagePath: baseImagePath + "ticket_vip.svg",
             amount: 0,
           }],
         tents: [
             {
                 id: 0,
-                title:"3 Person Tent",
-                price:399,
-                description:"You can leave all your tent related worries at home, as long as you book this spacious three person tent. It will be completely set up and ready as soon as you arrive. Marked and reserved und your name.",
-                imagePath: baseImagePath + "3PersonTent.jpg",
-                spaceForPeople: 3,
+                title:"2 Person Tent",
+                price:299,
+                imagePath: baseImagePath + "2PersonTent.jpg",
+                spaceForPeople: 2,
                 amountOfTents: 0,
+                
             },
             {
                 id: 1,
-                title:"2 Person Tent",
-                price:299,
-                description:"This tent comfortably fits two people and their luggage, so you can skip the annoying set-up and get to partying immediatly. It will be completely set up and ready as soon as you arrive. Marked and reserved und your name.",
-                imagePath: baseImagePath + "2PersonTent.jpg",
-                spaceForPeople: 2,
+                title:"3 Person Tent",
+                price:399,
+                imagePath: baseImagePath + "3PersonTent.jpg",
+                spaceForPeople: 3,
                 amountOfTents: 0,
             }
         ],
@@ -48,7 +62,7 @@ export const ShopProvider = ({ children }) => {
             title: "Green Camping",
             price:249,
             selected: false,
-            description: "The climate crisis is no joke and a big festival like this puts a lot of strain on the ground it's standing on. That's why we give you the option to compensate any damages to the environment you cause while camping. The money will go to maintaing water treatment facilities in the area and restoring plant life on the festival grounds",
+            description: "The climate crisis is no joke and a big festival like this puts a lot of strain on the ground it's standing on. Be a part of a greener tomorrow by adding the green camping option, that will be used to compensate any damages to the environment and area caused during the festival.",
             labelText: "add green Camping",
             imagePath: process.env.PUBLIC_URL + "/icons/leaf.svg"
         },

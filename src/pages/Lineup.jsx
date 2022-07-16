@@ -53,7 +53,7 @@ function Lineup() {
             stages; Jotunheim, Vanaheim, and Midgard.
           </P>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col md:flex-row lg:flex-col md:justify-between md:mb-3 lg:mb-0">
           <H2 classModifiers="text-accent_red">Nirvana?</H2>
           <H2 classModifiers="text-accent_yellow">The rolling stones?</H2>
           <H2 classModifiers="text-accent_blue">Guns N' Roses?</H2>

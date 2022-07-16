@@ -40,7 +40,7 @@ export default function App() {
 
             <AllBandsContext.Provider value={allBands}>
                 <SetAllBandsContext.Provider value={setAllBands}>
-                    <div className="px-8 md:px-14 lg:px-20">
+                    <div className="px-8 md:px-10 lg:px-12">
                         <Routes>
                             <Route path="/" element={<Home></Home>}></Route>
                             <Route path="/lineup" element={<Lineup />}></Route>
