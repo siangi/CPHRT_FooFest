@@ -89,7 +89,7 @@ function PersonalInfo() {
         </div>
       );
     } else {
-      for (let i = amountOfVIP + 1; i <= amountOfVIP + amountOfBasic; i++) {
+      for (let i = 1; i <= amountOfBasic; i++) {
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
             <PersonFormContainer
@@ -109,7 +109,7 @@ function PersonalInfo() {
         );
       }
 
-      for (let i = 1; i <= amountOfVIP; i++) {
+      for (let i = amountOfBasic + 1; i <= amountOfVIP + amountOfBasic; i++) {
         result.push(
           <div key={i} className='w-full lg:w-3/4'>
             <PersonFormContainer
@@ -130,8 +130,8 @@ function PersonalInfo() {
       }
 
       for (
-        let i = amountOfVIP + amountOfBasic + 1;
-        i <= amountOfVIP + amountOfBasic + amountOfPremium;
+        let i = amountOfBasic + amountOfVIP + 1;
+        i <= amountOfPremium + amountOfBasic + amountOfVIP;
         i++
       ) {
         result.push(
