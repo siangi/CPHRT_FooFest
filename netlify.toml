@@ -2,4 +2,6 @@
 from = "/*"
 to = "/index.html"
 status = 200
-NPM_FLAGS = --force
+
+[build.environment]
+NPM_FLAGS = "--force"
