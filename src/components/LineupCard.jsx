@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 import { useState, useEffect } from "react";
 
-export default function LineupCard({ bandObj, time }) {
+export default function LineupCard({ bandObj, time, isSchedule }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -41,7 +41,7 @@ export default function LineupCard({ bandObj, time }) {
       >
         <figure className="grid h-full w-full">
           <img
-            className={`h-full w-full object-cover row-start-1 col-start-1 ${
+            className={`h-full w-full object-cover row-start-1 col-start-1 ${isSchedule && "max-h-72"}  ${
               !loaded && "hidden"
             }`}
             src={bandObj.logo}

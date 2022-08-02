@@ -89,9 +89,7 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
             .filter((band) => band.day === day && band.stage === stageFilter)
             .sort(sortingTimes)
             .map((band) => (
-              <div key={band.name} className="h-60">
-                <LineupCard time={true} bandObj={band} />
-              </div>
+                <LineupCard time={true} bandObj={band} isSchedule={true}/>
             ))}
         </div>
       </div>
