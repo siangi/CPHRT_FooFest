@@ -1,12 +1,12 @@
-import React from "react";
-import H2 from "../typography/H2";
-import P from "../typography/P";
-import { AllBandsContext } from "../../App";
-import FavoriteBandCard from "./FavoriteBandCard";
-import sortingTimes from "../../utils/sorting";
+import React from "react"
+import H2 from "../typography/H2"
+import P from "../typography/P"
+import { Context } from "../../App"
+import FavoriteBandCard from "./FavoriteBandCard"
+import sortingTimes from "../../utils/sorting"
 
 export default function FavoriteCol({ day }) {
-  const allBands = React.useContext(AllBandsContext);
+  const { allBands } = React.useContext(Context)
 
   return (
     <article
@@ -28,5 +28,5 @@ export default function FavoriteCol({ day }) {
         )}
       </div>
     </article>
-  );
+  )
 }
