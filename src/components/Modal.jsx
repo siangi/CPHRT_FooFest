@@ -1,34 +1,34 @@
-import { SetAllBandsContext } from "../App";
-import H2 from "../components/typography/H2";
-import H4 from "../components/typography/H4";
-import P from "./typography/P";
-import React, { useState, useRef, useEffect } from "react";
-import ToggleFavorite from "./buttons/ToggleFavorite";
+import { Context } from "../App"
+import H2 from "../components/typography/H2"
+import H4 from "../components/typography/H4"
+import P from "./typography/P"
+import React, { useState, useRef, useEffect } from "react"
+import ToggleFavorite from "./buttons/ToggleFavorite"
 
 function useOutsideAlerter(ref, setModalOpen) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        setModalOpen(false);
+        setModalOpen(false)
       }
     }
 
     // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref, setModalOpen]);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [ref, setModalOpen])
 }
 
 export default function Modal({ modalOpen, setModalOpen, bandObj }) {
-  const setAllBands = React.useContext(SetAllBandsContext);
+  const { setAllBands } = React.useContext(Context)
 
-  const [isReadMore, setIsReadMore] = useState(true);
-  const modal = useRef(null);
+  const [isReadMore, setIsReadMore] = useState(true)
+  const modal = useRef(null)
 
-  useOutsideAlerter(modal, setModalOpen);
+  useOutsideAlerter(modal, setModalOpen)
 
   return modalOpen ? (
     <section className="fixed w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)] inset-0 z-20">
@@ -113,5 +113,5 @@ export default function Modal({ modalOpen, setModalOpen, bandObj }) {
         </div>
       </div>
     </section>
-  ) : null;
+  ) : null
 }

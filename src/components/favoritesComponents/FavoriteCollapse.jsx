@@ -1,11 +1,11 @@
-import { BsSpotify } from "react-icons/bs";
-import P from "../typography/P";
-import ToggleFavorite from "../buttons/ToggleFavorite";
-import { SetAllBandsContext } from "../../App";
-import React from "react";
+import { BsSpotify } from "react-icons/bs"
+import P from "../typography/P"
+import ToggleFavorite from "../buttons/ToggleFavorite"
+import { Context } from "../../App"
+import React from "react"
 
 export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
-  const setAllBands = React.useContext(SetAllBandsContext);
+  const { setAllBands } = React.useContext(Context)
 
   const spotifyUrls = [
     {
@@ -87,7 +87,7 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
       name: "Refused",
       link: "https://open.spotify.com/artist/5sdxGvwxI1TkTA6Pu2jnTb?si=_hBpoul3Tl6Ul1X-qOtKvQ",
     },
-  ];
+  ]
 
   return (
     isCollapseOpen && (
@@ -139,5 +139,5 @@ export default function FavoriteCollapse({ isCollapseOpen, bandObj }) {
         />
       </div>
     )
-  );
+  )
 }

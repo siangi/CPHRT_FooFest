@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { AllBandsContext } from "../App";
-import LineupCard from "./LineupCard";
-import H2 from "./typography/H2";
-import sortingTimes from "../utils/sorting";
+import React, { useState } from "react"
+import { Context } from "../App"
+import LineupCard from "./LineupCard"
+import H2 from "./typography/H2"
+import sortingTimes from "../utils/sorting"
 
 export default function ScheduleDayCard({ day, cardIndex, index }) {
-  const allBands = React.useContext(AllBandsContext);
-  const [stageFilter, setStageFilter] = useState("Midgard");
+  const { allBands } = React.useContext(Context)
+  const [stageFilter, setStageFilter] = useState("Midgard")
 
   return (
     <article className={`${cardIndex !== index && "hidden"} lg:block`}>
@@ -96,5 +96,5 @@ export default function ScheduleDayCard({ day, cardIndex, index }) {
         </div>
       </div>
     </article>
-  );
+  )
 }
