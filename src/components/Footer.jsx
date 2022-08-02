@@ -46,17 +46,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex items-baseline gap-4 mb-4">
-        <P classModifiers="text-darkmode_black8">© 2.iteration fith focus on UX, CX and a visual lift by Tomine Ødegård.</P>
-        <div className="flex mt-3">
-          <a
-            href="https://github.com/tomineodegard/ragnarock_festival" target="_blank" rel="noreferrer"
-            className="text-darkmode_black8 hover:text-accent_yellow"
-          >
-            <AiFillGithub className="w-5 h-5 hover:fill-accent_yellow cursor-poiner" />
-          </a>
-          </div>
-        </div>
+   
       </div>
     </footer>
   );
