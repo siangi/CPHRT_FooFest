@@ -7,7 +7,6 @@ import BasketList from "../../components/basket/BasketList";
 import PaymentContainer from "../../components/paymentForms/PaymentContainer";
 import VisualTicket from "../../components/basket/VisualTicket";
 import H2 from "../../components/typography/H2";
-import P from "../../components/typography/P";
 
 function MyTimer({ expiryTimestamp }) {
   const navigate = useNavigate();
@@ -21,8 +20,8 @@ function MyTimer({ expiryTimestamp }) {
 
   return (
     <>
-      <span className='text-accent_yellow text-[1.5rem]'>
-        {minutes > 0 && `${minutes} minutes and`} {seconds} seconds
+      <span className='text-accent_yellow'>
+      0{minutes > 0 && `${minutes}:`}{seconds} 
       </span>
     </>
   );
@@ -98,15 +97,15 @@ function Basket() {
   });
 
   return (
+    <>
+    <div className="flex justify-end mb-6 items-baseline gap-4">
+      <H2><MyTimer expiryTimestamp={time} /></H2>
+    </div>
     <div className='grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-0'>
-      <div className='grid col-start-1 row-start-2 md:row-start-1'>
-        <P classModifiers='text-white'>
-          You have <MyTimer expiryTimestamp={time} /> left to confirm your
-          order.
-        </P>
+      <div className='grid col-start-1 row-start-2 md:row-start-1'> 
         {shopData.persons.map((ticketData) => (
           <VisualTicket className='' value={ticketData}></VisualTicket>
-        ))}
+          ))}
       </div>
 
       <div className='w-full lg:w-3/4 justify-self-end h-fit'>
@@ -121,6 +120,7 @@ function Basket() {
           confirmReservation={fulfillReservation}></PaymentContainer>
       </div>
     </div>
+    </>
   );
 }
 

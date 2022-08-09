@@ -24,7 +24,7 @@ export default function VisualTicket(props) {
           </P>
           <P classModifiers='text-white break-words'>{props.value.email}</P>
           <P classModifiers='text-white'>
-            {props.value.countryCode} {props.value.phone}
+            +{props.value.countryCode} {props.value.phone}
           </P>
         </div>
       </div>

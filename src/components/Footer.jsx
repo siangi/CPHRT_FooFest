@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="p-4 sm:p-6 bg-darkmode_black mt-6 md:mt-10">
+    <footer className="p-4 sm:p-6 bg-darkmode_black mt-12 md:mt-20">
       <div className="flex items-center flex-col justify-between a md:flex-row gap-10 lg:gap-0">
       <Link to="/">
             <img
@@ -35,11 +35,11 @@ function Footer() {
     <div className='flex flex-col justify-start mt-4'>
       <hr className="mt-6 border-darkmode_black8 lg:my-8 mb-4" />
       <div className="flex mb-3 items-baseline gap-4">
-        <P classModifiers="text-darkmode_black8">© 2022 George Nicolae, Simon Gisler & Tomine Ødegård.</P>
+        <P classModifiers="text-gray-700">© 2022 George Nicolae, Simon Gisler & Tomine Ødegård.</P>
         <div className="flex mt-3">
           <a
             href="https://github.com/siangi/CPHRT_FooFest" target="_blank" rel="noreferrer"
-            className="text-darkmode_black8 hover:text-accent_yellow"
+            className="text-gray-700 hover:text-accent_yellow"
           >
             <AiFillGithub className="w-5 h-5 hover:fill-accent_yellow cursor-poiner" />
           </a>
